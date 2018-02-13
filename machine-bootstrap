@@ -11,10 +11,11 @@ wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\
 
 parted -s /dev/sda \
         mklabel gpt \
-        mkpart primary 1MiB 2GiB \
-        mkpart primary 2GiB 40GiB \
+        mkpart ESP fat32 1MiB 1GiB \
+        set 1 boot on \
+        mkpart primary 1GiB 100% \
 
-mkfs.fat /dev/sda1
+mkfs.fat -F32 /dev/sda1
 
 pvcreate /dev/sda2
 vgcreate vg00 /dev/sda2
