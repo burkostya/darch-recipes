@@ -4,7 +4,8 @@ set -e
 . ../common
 
 # Setup the locales.
-echo "en_US.UTF-8 UTF-8" > /etc/locale.gen  
+echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+echo "ru_RU.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 
 # Set the root password
@@ -16,13 +17,13 @@ else
     echo -en "password\npassword" | passwd
 fi
 
-# Use zsh, not bash
-install_packages zsh zsh-completions
+# Use fish, not bash
+install_packages fish
 
 # Add our users
 groupadd guests
-useradd -m -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel -s /bin/zsh pknopf
-useradd -m -G guests,users -s /bin/zsh guest
+useradd -m -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel -s /usr/bin/fish burkostya
+useradd -m -G guests,users -s /usr/bin/fish guest
 
 # TODO: restrict access to su/sudo commands for non-wheel users
 
@@ -38,14 +39,14 @@ fi
 # Install fresh copy of dotfiles for pknopf.
 # dotbot requires Python.
 install_packages python
-runuser -l pknopf -c "git clone https://github.com/pauldotknopf/dotfiles.git ~/.dotfiles"
-runuser -l pknopf -c "cd ~/.dotfiles && ./install"
+runuser -l burkostya -c "git clone https://github.com/burkostya/dotfiles.git ~/.dotfiles"
+runuser -l burkostya -c "cd ~/.dotfiles && ./install"
 # Now that they are installed, removed dotbot to clean up the image.
-runuser -l pknopf -c "rm -r ~/.dotfiles/dotbot"
+runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
 
 # Setup sudo
 install_packages sudo
-echo "pknopf ALL=(ALL) ALL" >> /etc/sudoers
+echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 
 # Enable ssh
 install_packages openssh
@@ -57,7 +58,7 @@ install_aur_package nerd-fonts-complete
 
 # Timezone
 rm /etc/localtime
-ln -s ../usr/share/zoneinfo/US/Eastern /etc/localtime
+ln -s ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
 # Time sync
 install_packages ntp

@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+. ../common
+
+install_aur_package chromium
+install_aur_package atom
+install_aur_package gpmdp
+
+install_aur_package keybase-bin
+
+pacman -S --noconfirm go
