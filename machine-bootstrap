@@ -41,8 +41,8 @@ mount /dev/mapper/vg00-home /mnt/home
 pacstrap /mnt base base-devel fish patch git wget
 
 # The arch installation creates duplicate groups.
-arch-chroot /mnt /usr/bin/env bash -c "grpck || true"
-arch-chroot /mnt /usr/bin/env bash -c "pwck || true"
+arch-chroot /mnt /usr/bin/env bash -c "yes | grpck || true"
+arch-chroot /mnt /usr/bin/env bash -c "yes | pwck || true"
 
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
