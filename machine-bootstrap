@@ -5,7 +5,7 @@ set -e
 # that will be used solely for booting Darch images.
 # Run this script from within the Arch live cd.
 
-wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=US\&protocol\=http\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
+wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
   | sed -e "s/#Server/Server/g" \
   > /etc/pacman.d/mirrorlist
 
@@ -20,7 +20,7 @@ pvcreate /dev/sda2
 vgcreate vg00 /dev/sda2
 lvcreate -L 100MB vg00 -n darchconfig
 lvcreate -L 20GiB vg00 -n darchlib
-lvcreate -L 5GiB vg00 -n root
+lvcreate -L 10GiB vg00 -n root
 lvcreate -l 100%FREE vg00 -n home
 
 mkfs.ext4 /dev/mapper/vg00-darchconfig
@@ -38,7 +38,7 @@ mount /dev/sda1 /mnt/boot
 mkdir /mnt/home
 mount /dev/mapper/vg00-home /mnt/home
 
-pacstrap /mnt base base-devel zsh patch git wget
+pacstrap /mnt base base-devel fish patch git wget
 
 # The arch installation creates duplicate groups.
 arch-chroot /mnt /usr/bin/env bash -c "grpck || true"
@@ -46,12 +46,12 @@ arch-chroot /mnt /usr/bin/env bash -c "pwck || true"
 
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
-echo "en_US.UTF-8 UTF-8" > /mnt/etc/locale.gen  
-echo "en_US ISO-8859-1" >> /mnt/etc/locale.gen 
+echo "en_US.UTF-8 UTF-8" > /mnt/etc/locale.gen
+echo "ru_RU.UTF-8 UTF-8" > /mnt/etc/locale.gen
 arch-chroot /mnt locale-gen
 
 rm /mnt/etc/localtime
-ln -s ../usr/share/zoneinfo/US/Eastern /mnt/etc/localtime
+ln -s ../usr/share/zoneinfo/Europe/Moscow /mnt/etc/localtime
 
 echo -e "[Match]\nName=en*\n[Network]\nDHCP=ipv4" > /mnt/etc/systemd/network/wired-dhcp.network
 arch-chroot /mnt systemctl enable systemd-networkd
@@ -60,11 +60,11 @@ arch-chroot /mnt systemctl enable systemd-resolved
 echo "Enter root password..."
 arch-chroot /mnt passwd
 
-arch-chroot /mnt useradd -m -g users -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel -s /bin/zsh pknopf
-echo "pknopf ALL=(ALL) ALL" > /mnt/etc/sudoers.d/pknopf
+arch-chroot /mnt useradd -m -g users -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel -s /usr/bin/fish burkostya
+echo "burkostya ALL=(ALL) ALL" > /mnt/etc/sudoers.d/burkostya
 
 echo "Enter user password..."
-arch-chroot /mnt passwd pknopf
+arch-chroot /mnt passwd burkostya
 
 # Patch makepkg to allow running as root.
 arch-chroot /mnt /usr/bin/env bash -c "curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/66e39c98b1a87cb40abfd489dba53bb5a8625186/makepkg.patch | patch /usr/bin/makepkg"

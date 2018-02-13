@@ -16,10 +16,10 @@ Instructions [here](https://godarch.com/installation/)
 
 ```bash
 # You can checkout my image I use for development.
-export IMAGE="development"
+export IMAGE="dev"
 # Also, you can try "i3" or "plasma".
-sudo darch images pull docker.io/pauldotknopf/darch-arch-$IMAGE
-sudo darch stage docker.io/pauldotknopf/darch-arch-$IMAGE
+sudo darch images pull docker.io/burkostya/darch-arch-$IMAGE
+sudo darch stage docker.io/burkostya/darch-arch-$IMAGE
 ```
 
 ### 3. Reboot and select grub menu entry
