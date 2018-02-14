@@ -7,6 +7,7 @@ set -e
 
 wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
   | sed -e "s/#Server/Server/g" \
+  | sed "/aur\.rocks/d" \
   > /etc/pacman.d/mirrorlist
 
 parted -s /dev/sda \
