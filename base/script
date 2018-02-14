@@ -15,11 +15,11 @@ pacman -S --noconfirm archlinux-keyring
 pacman -Syu --noconfirm
 
 # Let's update the mirrors.
-# Note that we append the list, because my experience with the repo square-r00t (in godarch/arch) has been really good.
 install_packages wget sed
 wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
   | sed -e "s/#Server/Server/g" \
-  >> /etc/pacman.d/mirrorlist
+  | sed "/aur\.rocks/d" \
+  > /etc/pacman.d/mirrorlist
 
 # Run base install, with dev tools. The "bootstrap" fs doesn't contain everything, just what you need to bootstrap.
 install_packages base base-devel
