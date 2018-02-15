@@ -7,8 +7,6 @@ set -e
 pacman-key --init
 pacman-key --populate archlinux
 
-echo "nameserver 8.8.8.8" > /etc/resolv.conf
-
 # Resyn the database
 pacman -Sy --noconfirm
 # Update gpg keys before we install anything else.
