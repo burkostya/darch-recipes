@@ -102,3 +102,4 @@ arch-chroot /mnt mkinitcpio -p linux
 
 # virtualbox fix
 arch-chroot /mnt echo "\EFI\arch\grubx64.efi" > /mnt/boot/startup.nsh
+arch-chroot /mnt echo "8.8.8.8" > /mnt/etc/resolv.conf
