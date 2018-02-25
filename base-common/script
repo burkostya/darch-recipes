@@ -57,7 +57,6 @@ echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 install_packages openssh
 
 # Fonts
-install_aur_package ttf-ms-win10
 install_aur_package nerd-fonts-complete
 
 # Timezone
