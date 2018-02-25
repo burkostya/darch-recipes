@@ -43,8 +43,6 @@ else
     echo -en "password\npassword" | passwd pknopf
 fi
 
-# Install fresh copy of dotfiles for pknopf.
-# dotbot requires Python.
 install_packages python
 runuser -l burkostya -c "git clone https://github.com/burkostya/dotfiles.git ~/.dotfiles"
 runuser -l burkostya -c "cd ~/.dotfiles && ./install"
@@ -70,5 +68,6 @@ ln -s ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
 install_packages ntp
 systemctl enable ntpd
 
-# Using antigen for zsh
-install_aur_package antigen-git
+git clone https://github.com/oh-my-fish/oh-my-fish
+cd oh-my-fish
+bin/install --offline
