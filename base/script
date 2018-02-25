@@ -33,6 +33,8 @@ curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0
 # Now that we can run makepkg with root, let's our aur helper
 install_aur_helper
 
+install_packages polkit
+
 # Install Darch
 install_aur_package darch
 # We don't need grub as a bootloader, but we use
