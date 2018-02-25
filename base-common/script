@@ -21,7 +21,7 @@ if [ -n  "$ROOT_PASSWD" ]; then
     echo -en "$ROOT_PASSWD\n$ROOT_PASSWD" | passwd
 else
     echo "Using default root password..."
-    echo -en "password\npassword" | passwd
+    echo -en "123\n123" | passwd
 fi
 
 # Use fish, not bash
@@ -40,7 +40,7 @@ if [ -n  "$USER_PASSWD" ]; then
     echo -en "$USER_PASSWD\n$USER_PASSWD" | passwd burkostya
 else
     echo "Using default user password..."
-    echo -en "password\npassword" | passwd burkostya
+    echo -en "123\n123" | passwd burkostya
 fi
 
 install_packages python
