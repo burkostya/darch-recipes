@@ -53,21 +53,28 @@ runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
 install_packages sudo
 echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 
+echo "# installing openssh"
 # Enable ssh
 install_packages openssh
 
+echo "# installing fonts"
 # Fonts
 install_aur_package nerd-fonts-complete
 
+echo "# setting timezone"
 # Timezone
 rm /etc/localtime
 ln -s ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
+echo "# installing ntp"
 # Time sync
 install_packages ntp
 systemctl enable ntpd
 
+echo "# installing udiskie"
 install_packages udisks2 udiskie
 
+echo "# cloning oh-my-fish"
 runuser -l burkostya -c "cd ~; and git clone https://github.com/oh-my-fish/oh-my-fish.git"
+echo "# installing oh-my-fish"
 runuser -l burkostya -c "cd ~/oh-my-fish; and bin/install --offline"
