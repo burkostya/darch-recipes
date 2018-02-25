@@ -53,7 +53,7 @@ runuser -l burkostya -c "cd ~/.dotfiles; and ./install"
 runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
 
 echo "# installing oh-my-fish"
-runuser -l burkostya -c "cd ~/oh-my-fish; and bin/install --offline"
+runuser -l burkostya -c "cd ~/oh-my-fish; and bin/install"
 
 # Setup sudo
 install_packages sudo
