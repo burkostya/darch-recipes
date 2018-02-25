@@ -69,6 +69,5 @@ systemctl enable ntpd
 
 install_packages udisks2 udiskie
 
-runuser -l burkostya -c "git clone https://github.com/oh-my-fish/oh-my-fish"
-runuser -l burkostya -c "cd oh-my-fish"
-runuser -l burkostya -c "bin/install --offline"
+runuser -l burkostya -c "cd ~; and git clone https://github.com/oh-my-fish/oh-my-fish"
+runuser -l burkostya -c "cd ~/oh-my-fish; and bin/install --offline"
