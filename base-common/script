@@ -37,10 +37,10 @@ useradd -m -G guests,users -s /usr/bin/fish guest
 # Set the root password
 if [ -n  "$USER_PASSWD" ]; then
     echo "Using user password provided by environment variable..."
-    echo -en "$USER_PASSWD\n$USER_PASSWD" | passwd pknopf
+    echo -en "$USER_PASSWD\n$USER_PASSWD" | passwd burkostya
 else
     echo "Using default user password..."
-    echo -en "password\npassword" | passwd pknopf
+    echo -en "password\npassword" | passwd burkostya
 fi
 
 install_packages python
