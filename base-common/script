@@ -49,6 +49,11 @@ runuser -l burkostya -c "cd ~/.dotfiles; and ./install"
 # Now that they are installed, removed dotbot to clean up the image.
 runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
 
+echo "# cloning oh-my-fish"
+runuser -l burkostya -c "git clone https://github.com/oh-my-fish/oh-my-fish.git ~/oh-my-fish"
+echo "# installing oh-my-fish"
+runuser -l burkostya -c "cd ~/oh-my-fish; and bin/install --offline"
+
 # Setup sudo
 install_packages sudo
 echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
@@ -73,8 +78,3 @@ systemctl enable ntpd
 
 echo "# installing udiskie"
 install_packages udisks2 udiskie
-
-echo "# cloning oh-my-fish"
-runuser -l burkostya -c "cd ~; and git clone https://github.com/oh-my-fish/oh-my-fish.git"
-echo "# installing oh-my-fish"
-runuser -l burkostya -c "cd ~/oh-my-fish; and bin/install --offline"
