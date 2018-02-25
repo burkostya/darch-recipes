@@ -68,6 +68,6 @@ ln -s ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
 install_packages ntp
 systemctl enable ntpd
 
-git clone https://github.com/oh-my-fish/oh-my-fish
-cd oh-my-fish
-bin/install --offline
+runuser -l burkostya -c "git clone https://github.com/oh-my-fish/oh-my-fish"
+runuser -l burkostya -c "cd oh-my-fish"
+runuser -l burkostya -c "bin/install --offline"
