@@ -3,10 +3,14 @@ set -e
 
 . ../common
 
-install_aur_package chromium
-install_aur_package atom
-install_aur_package gpmdp
-
-install_aur_package keybase-bin
+trizen -S --noconfirm --noedit chromium
+trizen -S --noconfirm --noedit atom
+trizen -S --noconfirm --noedit keybase-bin
 
 pacman -S --noconfirm go
+
+pacman -S --noconfirm virtualbox-host-modules-arch
+pacman -S --noconfirm virtualbox
+
+pacman -S --noconfirm docker docker-compose docker-machine
+systemctl enable docker
