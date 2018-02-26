@@ -70,7 +70,7 @@ else
     echo -en "123\n123" | passwd burkostya
 fi
 
-install_packages python
+install_packages git python
 runuser -l burkostya -c "git clone https://github.com/burkostya/dotfiles.git ~/.dotfiles"
 runuser -l burkostya -c "cd ~/.dotfiles; and ./install"
 # Now that they are installed, removed dotbot to clean up the image.
@@ -80,7 +80,6 @@ runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
 install_packages sudo
 echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 
-install_packages git
 runuser -l burkostya -c "git clone https://aur.archlinux.org/trizen.git ~/trizen"
 runuser -l burkostya -c "cd ~/trizen && makepkg -si --noconfirm"
 runuser -l burkostya -c "rm -r ~/trizen"
