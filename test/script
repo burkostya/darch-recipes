@@ -1,4 +1,5 @@
 #!/bin/bash
 set -e
 
-. ../common
+trizen -S --noconfirm --noedit atom
+runuser -l burkostya -c "apm install (cat apm_packages)"
