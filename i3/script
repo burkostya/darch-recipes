@@ -21,6 +21,3 @@ install_aur_package polybar
 install_packages unclutter
 
 install_aur_package alacritty-scrollback-git
-
-# Use autorandr to save/load monitor setups
-install_aur_package autorandr-git
