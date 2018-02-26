@@ -27,6 +27,7 @@ install_packages base base-devel
 install_packages patch
 curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/66e39c98b1a87cb40abfd489dba53bb5a8625186/makepkg.patch | patch /usr/bin/makepkg
 
+install_packages git
 git clone https://aur.archlinux.org/trizen.git ~/trizen
 cd ~/trizen && makepkg -si --noconfirm
 rm -r ~/trizen
@@ -78,7 +79,7 @@ else
     echo -en "123\n123" | passwd burkostya
 fi
 
-install_packages git python
+install_packages python
 runuser -l burkostya -c "git clone https://github.com/burkostya/dotfiles.git ~/.dotfiles"
 runuser -l burkostya -c "cd ~/.dotfiles && ./install"
 # Now that they are installed, removed dotbot to clean up the image.
