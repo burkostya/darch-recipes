@@ -77,10 +77,12 @@ runuser -l burkostya -c "cd ~/.dotfiles && ./install"
 # Now that they are installed, removed dotbot to clean up the image.
 runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
 
-echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
+echo "burkostya ALL=(ALL) ALL" > /etc/sudoers
+echo "root ALL=(ALL) ALL" >> /etc/sudoers
 
+chown root:root /usr/bin
+chmod u+s /usr/bin/sudo
 runuser -l burkostya -c "git clone https://aur.archlinux.org/trizen.git ~/trizen"
-runuser -l burkostya -c "ls -la /usr/bin"
 runuser -l burkostya -c "cd ~/trizen && makepkg -si --noconfirm"
 runuser -l burkostya -c "rm -r ~/trizen"
 
