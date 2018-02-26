@@ -2,5 +2,4 @@
 set -e
 
 trizen -S --noconfirm --noedit atom
-echo $PWD
 runuser -l burkostya -c "apm install (cat $(pwd)/apm_packages)"
