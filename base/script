@@ -114,3 +114,8 @@ echo "root = \"/var/lib/darch/containerd\"" > /etc/containerd/config.toml
 cp wired.network /etc/systemd/network/
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
+
+echo "# cloning oh-my-fish"
+runuser -l burkostya -c "git clone https://github.com/oh-my-fish/oh-my-fish.git ~/oh-my-fish"
+echo "# installing oh-my-fish"
+runuser -l burkostya -c "cd ~/oh-my-fish && bin/install --noninteractive"

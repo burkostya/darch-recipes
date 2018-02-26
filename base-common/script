@@ -3,10 +3,5 @@ set -e
 
 . ../common
 
-echo "# cloning oh-my-fish"
-runuser -l burkostya -c "git clone https://github.com/oh-my-fish/oh-my-fish.git ~/oh-my-fish"
-echo "# installing oh-my-fish"
-runuser -l burkostya -c "cd ~/oh-my-fish && bin/install --noninteractive"
-
 # Fonts
 install_aur_package nerd-fonts-complete
