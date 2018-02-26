@@ -73,7 +73,7 @@ fi
 
 install_packages git python
 runuser -l burkostya -c "git clone https://github.com/burkostya/dotfiles.git ~/.dotfiles"
-runuser -l burkostya -c "cd ~/.dotfiles; and ./install"
+runuser -l burkostya -c "cd ~/.dotfiles && ./install"
 # Now that they are installed, removed dotbot to clean up the image.
 runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
 
