@@ -2,6 +2,5 @@
 set -e
 
 trizen -S --noconfirm --noedit atom
-pwd
-runuser -l burkostya -c "pwd"
-runuser -l burkostya -c "apm install (cat apm_packages)"
+echo $PWD
+runuser -l burkostya -c "apm install (cat $(pwd)/apm_packages)"
