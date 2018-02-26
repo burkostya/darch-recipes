@@ -35,6 +35,7 @@ systemctl enable ntpd
 # Setup the locales.
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 echo "ru_RU.UTF-8 UTF-8" >> /etc/locale.gen
+echo "en_DK.UTF-8 UTF-8" >> /etc/locale.gen
 # set system locale
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 # use ISO-8601 for time
