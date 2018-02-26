@@ -80,6 +80,7 @@ runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
 echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 
 runuser -l burkostya -c "git clone https://aur.archlinux.org/trizen.git ~/trizen"
+runuser -l burkostya -c "ls -la /usr/bin"
 runuser -l burkostya -c "cd ~/trizen && makepkg -si --noconfirm"
 runuser -l burkostya -c "rm -r ~/trizen"
 
