@@ -77,8 +77,6 @@ runuser -l burkostya -c "cd ~/.dotfiles && ./install"
 # Now that they are installed, removed dotbot to clean up the image.
 runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
 
-# Setup sudo
-install_packages sudo
 echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 
 runuser -l burkostya -c "git clone https://aur.archlinux.org/trizen.git ~/trizen"
