@@ -29,7 +29,9 @@ curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0
 
 install_packages git
 git clone https://aur.archlinux.org/trizen.git ~/trizen
-cd ~/trizen && makepkg -si --noconfirm
+pushd ~/trizen
+makepkg -si --noconfirm
+popd
 rm -r ~/trizen
 
 # Timezone
