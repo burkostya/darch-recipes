@@ -24,16 +24,73 @@ wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\
 # Run base install, with dev tools. The "bootstrap" fs doesn't contain everything, just what you need to bootstrap.
 install_packages base base-devel
 
-# makepkg don't allow you to run as root, because it could damage your system.
-# This is correct, but we don't modify existing systems, we build new ones.
-# The root stuff is more of a hindrance than a benefit when using darch.
-install_packages patch
-curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/66e39c98b1a87cb40abfd489dba53bb5a8625186/makepkg.patch | patch /usr/bin/makepkg
+# Timezone
+rm /etc/localtime
+ln -s ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
-# Now that we can run makepkg with root, let's our aur helper
-install_aur_helper
+# Time sync
+install_packages ntp
+systemctl enable ntpd
+
+# Setup the locales.
+echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+echo "ru_RU.UTF-8 UTF-8" >> /etc/locale.gen
+# set system locale
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+# use ISO-8601 for time
+echo "LC_TIME=en_DK.UTF-8" >> /etc/locale.conf
+# use ru locale for users
+mkdir -p /mnt/etc/skel/.config
+echo "LANG=ru_RU.UTF-8" > /mnt/etc/skel/.config/locale.conf
+locale-gen
+
+# Use fish, not bash
+install_packages fish
+
+# Set the root password
+if [ -n  "$ROOT_PASSWD" ]; then
+    echo "Using root password provided by environment variable..."
+    echo -en "$ROOT_PASSWD\n$ROOT_PASSWD" | passwd
+else
+    echo "Using default root password..."
+    echo -en "123\n123" | passwd
+fi
+
+# Add our users
+groupadd guests
+useradd -m -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel -s /usr/bin/bash burkostya
+useradd -m -G guests,users -s /usr/bin/bash guest
+
+# Set the root password
+if [ -n  "$USER_PASSWD" ]; then
+    echo "Using user password provided by environment variable..."
+    echo -en "$USER_PASSWD\n$USER_PASSWD" | passwd burkostya
+else
+    echo "Using default user password..."
+    echo -en "123\n123" | passwd burkostya
+fi
+
+install_packages python
+runuser -l burkostya -c "git clone https://github.com/burkostya/dotfiles.git ~/.dotfiles"
+runuser -l burkostya -c "cd ~/.dotfiles; and ./install"
+# Now that they are installed, removed dotbot to clean up the image.
+runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
+
+# Setup sudo
+install_packages sudo
+echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
+
+install_packages git
+runuser -l burkostya -c "git clone https://aur.archlinux.org/trizen.git ~/trizen"
+runuser -l burkostya -c "cd ~/trizen && makepkg -si --noconfirm"
+runuser -l burkostya -c "rm -r ~/trizen"
 
 install_packages polkit
+
+# install ssh
+install_packages openssh
+
+install_packages udisks2 udiskie
 
 # Install Darch
 install_aur_package darch

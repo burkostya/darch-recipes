@@ -3,79 +3,10 @@ set -e
 
 . ../common
 
-# Setup the locales.
-echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
-echo "ru_RU.UTF-8 UTF-8" >> /etc/locale.gen
-# set system locale
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
-# use ISO-8601 for time
-echo "LC_TIME=en_DK.UTF-8" >> /etc/locale.conf
-# use ru locale for users
-mkdir -p /mnt/etc/skel/.config
-echo "LANG=ru_RU.UTF-8" > /mnt/etc/skel/.config/locale.conf
-locale-gen
-
-# Set the root password
-if [ -n  "$ROOT_PASSWD" ]; then
-    echo "Using root password provided by environment variable..."
-    echo -en "$ROOT_PASSWD\n$ROOT_PASSWD" | passwd
-else
-    echo "Using default root password..."
-    echo -en "123\n123" | passwd
-fi
-
-# Use fish, not bash
-install_packages fish
-
-# Add our users
-groupadd guests
-useradd -m -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel -s /usr/bin/fish burkostya
-useradd -m -G guests,users -s /usr/bin/fish guest
-
-# TODO: restrict access to su/sudo commands for non-wheel users
-
-# Set the root password
-if [ -n  "$USER_PASSWD" ]; then
-    echo "Using user password provided by environment variable..."
-    echo -en "$USER_PASSWD\n$USER_PASSWD" | passwd burkostya
-else
-    echo "Using default user password..."
-    echo -en "123\n123" | passwd burkostya
-fi
-
-
-install_packages python
-runuser -l burkostya -c "git clone https://github.com/burkostya/dotfiles.git ~/.dotfiles"
-runuser -l burkostya -c "cd ~/.dotfiles; and ./install"
-# Now that they are installed, removed dotbot to clean up the image.
-runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
-
 echo "# cloning oh-my-fish"
 runuser -l burkostya -c "git clone https://github.com/oh-my-fish/oh-my-fish.git ~/oh-my-fish"
 echo "# installing oh-my-fish"
 runuser -l burkostya -c "cd ~/oh-my-fish; and bin/install"
 
-# Setup sudo
-install_packages sudo
-echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
-
-echo "# installing openssh"
-# Enable ssh
-install_packages openssh
-
-echo "# installing fonts"
 # Fonts
 install_aur_package nerd-fonts-complete
-
-echo "# setting timezone"
-# Timezone
-rm /etc/localtime
-ln -s ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
-
-echo "# installing ntp"
-# Time sync
-install_packages ntp
-systemctl enable ntpd
-
-echo "# installing udiskie"
-install_packages udisks2 udiskie
