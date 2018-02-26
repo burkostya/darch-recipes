@@ -2,6 +2,3 @@
 set -e
 
 . ../common
-
-# Fonts
-install_aur_package nerd-fonts-complete
