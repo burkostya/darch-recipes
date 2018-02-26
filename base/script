@@ -24,6 +24,13 @@ wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\
 # Run base install, with dev tools. The "bootstrap" fs doesn't contain everything, just what you need to bootstrap.
 install_packages base base-devel
 
+install_packages patch
+curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/66e39c98b1a87cb40abfd489dba53bb5a8625186/makepkg.patch | patch /usr/bin/makepkg
+
+git clone https://aur.archlinux.org/trizen.git ~/trizen
+cd ~/trizen && makepkg -si --noconfirm
+rm -r ~/trizen
+
 # Timezone
 rm /etc/localtime
 ln -s ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
@@ -80,11 +87,6 @@ runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
 echo "burkostya ALL=(ALL) ALL" > /etc/sudoers
 echo "root ALL=(ALL) ALL" >> /etc/sudoers
 
-chown root:root /usr/bin
-chmod u+s /usr/bin/sudo
-runuser -l burkostya -c "git clone https://aur.archlinux.org/trizen.git ~/trizen"
-runuser -l burkostya -c "cd ~/trizen && makepkg -si --noconfirm"
-runuser -l burkostya -c "rm -r ~/trizen"
 
 install_packages polkit
 
