@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-. ../common
-
 trizen -S --noconfirm --noedit chromium
 
 trizen -S --noconfirm --noedit atom
