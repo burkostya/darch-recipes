@@ -25,11 +25,7 @@ language-protobuf@0.7.1
 minimap@4.29.8
 minimap-highlight-selected@4.6.1
 permanent-delete@0.1.6
-racer@0.20.0
 raml@0.2.0
-rustfmt@0.1.3
 seti-ui@1.10.0
 toggle-quotes@1.1.0
-tokamak@0.4.1
-tokamak-terminal@10.0.1
 vim-mode-plus@1.28.1
