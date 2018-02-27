@@ -67,29 +67,7 @@ else
     echo -en "123\n123" | passwd
 fi
 
-# Add our users
-groupadd guests
-useradd -m -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel -s /usr/bin/fish burkostya
-useradd -m -G guests,users -s /usr/bin/fish guest
-
-# Set the root password
-if [ -n  "$USER_PASSWD" ]; then
-    echo "Using user password provided by environment variable..."
-    echo -en "$USER_PASSWD\n$USER_PASSWD" | passwd burkostya
-else
-    echo "Using default user password..."
-    echo -en "123\n123" | passwd burkostya
-fi
-
 install_packages python
-runuser -l burkostya -c "git clone https://github.com/burkostya/dotfiles.git ~/.dotfiles"
-runuser -l burkostya -c "cd ~/.dotfiles; and ./install"
-# Now that they are installed, removed dotbot to clean up the image.
-runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
-
-echo "burkostya ALL=(ALL) ALL" > /etc/sudoers
-echo "root ALL=(ALL) ALL" >> /etc/sudoers
-
 
 install_packages polkit
 
@@ -114,11 +92,3 @@ echo "root = \"/var/lib/darch/containerd\"" > /etc/containerd/config.toml
 cp wired.network /etc/systemd/network/
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
-
-echo "# cloning oh-my-fish"
-runuser -l burkostya -c "git clone https://github.com/oh-my-fish/oh-my-fish.git ~/oh-my-fish"
-echo "# installing oh-my-fish"
-runuser -l burkostya -c "cd ~/oh-my-fish; and bin/install --noninteractive"
-
-# Fonts
-install_aur_package nerd-fonts-complete
