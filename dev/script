@@ -17,4 +17,4 @@ pacman -S --noconfirm docker docker-compose docker-machine
 systemctl enable docker
 
 # Fonts
-install_aur_package nerd-fonts-complete
+trizen -S --noconfirm --noedit nerd-fonts-complete
