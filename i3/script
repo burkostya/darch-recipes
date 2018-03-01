@@ -21,3 +21,5 @@ install_aur_package polybar
 install_packages unclutter
 
 install_aur_package alacritty-scrollback-git
+
+install_packages autocutsel 
