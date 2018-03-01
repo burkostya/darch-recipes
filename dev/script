@@ -18,3 +18,5 @@ systemctl enable docker
 
 # Fonts
 trizen -S --noconfirm --noedit nerd-fonts-complete
+
+pacman -S --noconfirm vim
