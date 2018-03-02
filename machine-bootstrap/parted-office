@@ -35,7 +35,7 @@ mkfs.ext4 /dev/mapper/main-darchconfig
 mkfs.ext4 /dev/mapper/main-darchlib
 
 mkfs.ext4 /dev/mapper/persist-containers
-mkfs.ext4 /dev/mapper/persist-boxes
+mkfs.ext4 /dev/mapper/persist-vboxes
 
 mount /dev/mapper/main-root /mnt
 mkdir -p /mnt/etc/darch
