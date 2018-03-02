@@ -1,0 +1,46 @@
+#!/bin/bash
+set -e
+
+# This file is used to setup a base Arch machine
+# that will be used solely for booting Darch images.
+# Run this script from within the Arch live cd.
+
+# Disk 128GiB. Use 80GiB
+parted -s /dev/sda \
+        mklabel gpt \
+        mkpart ESP fat32 1MiB 1GiB \
+        set 1 boot on \
+        mkpart primary 1GiB 80GiB
+
+# Disk 240GiB. Use 100 GiB
+parted -s /dev/sdb \
+        mkpart primary 0% 100GiB
+
+mkfs.fat -F32 /dev/sda1
+
+pvcreate /dev/sda2 /dev/sdb1
+
+vgcreate main /dev/sda2
+lvcreate -L 10GiB main -n root
+lvcreate -L 100MB main -n darchconfig
+lvcreate -l 100%FREE main -n darchlib
+
+# Use 60GiB of 100 GiB
+vgcreate persist /dev/sdb1
+lvcreate -L 30GiB persist -n containers
+lvcreate -L 30GiB persist -n vboxes
+
+mkfs.ext4 /dev/mapper/main-root
+mkfs.ext4 /dev/mapper/main-darchconfig
+mkfs.ext4 /dev/mapper/main-darchlib
+
+mkfs.ext4 /dev/mapper/persist-containers
+mkfs.ext4 /dev/mapper/persist-boxes
+
+mount /dev/mapper/main-root /mnt
+mkdir -p /mnt/etc/darch
+mount /dev/mapper/main-darchconfig /mnt/etc/darch
+mkdir -p /mnt/var/lib/darch
+mount /dev/mapper/main-darchlib /mnt/var/lib/darch
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot

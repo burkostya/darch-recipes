@@ -10,36 +10,6 @@ wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\
   | sed "/aur\.rocks/d" \
   > /etc/pacman.d/mirrorlist
 
-parted -s /dev/sda \
-        mklabel gpt \
-        mkpart ESP fat32 1MiB 1GiB \
-        set 1 boot on \
-        mkpart primary 1GiB 100% \
-
-mkfs.fat -F32 /dev/sda1
-
-pvcreate /dev/sda2
-vgcreate vg00 /dev/sda2
-lvcreate -L 100MB vg00 -n darchconfig
-lvcreate -L 20GiB vg00 -n darchlib
-lvcreate -L 10GiB vg00 -n root
-lvcreate -l 100%FREE vg00 -n home
-
-mkfs.ext4 /dev/mapper/vg00-darchconfig
-mkfs.ext4 /dev/mapper/vg00-darchlib
-mkfs.ext4 /dev/mapper/vg00-root
-mkfs.ext4 /dev/mapper/vg00-home
-
-mount /dev/mapper/vg00-root /mnt
-mkdir -p /mnt/etc/darch
-mount /dev/mapper/vg00-darchconfig /mnt/etc/darch
-mkdir -p /mnt/var/lib/darch
-mount /dev/mapper/vg00-darchlib /mnt/var/lib/darch
-mkdir /mnt/boot
-mount /dev/sda1 /mnt/boot
-mkdir /mnt/home
-mount /dev/mapper/vg00-home /mnt/home
-
 pacstrap /mnt base base-devel fish patch git wget
 
 # The arch installation creates duplicate groups.
