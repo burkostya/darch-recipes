@@ -34,3 +34,5 @@ mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 mkdir /mnt/home
 mount /dev/mapper/vg00-home /mnt/home
+
+echo "vbox" > /mnt/etc/.machine

@@ -44,3 +44,5 @@ mkdir -p /mnt/var/lib/darch
 mount /dev/mapper/main-darchlib /mnt/var/lib/darch
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
+
+echo "office" > /mnt/etc/.machine
