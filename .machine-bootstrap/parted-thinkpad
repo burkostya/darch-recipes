@@ -1,0 +1,44 @@
+#!/bin/bash
+set -e
+
+# This file is used to setup a base Arch machine
+# that will be used solely for booting Darch images.
+# Run this script from within the Arch live cd.
+
+disk=/dev/sdc
+
+parted -s $disk \
+        mklabel gpt \
+        mkpart ESP fat32 1MiB 1GiB \
+        set 1 boot on \
+        mkpart primary 1GiB 100%
+
+mkfs.fat -F32 "${disk}1"
+
+pvcreate "${disk}2"
+vgcreate main "${disk}2"
+lvcreate -L 100MB main -n darchconfig
+lvcreate -L 40GiB main -n darchlib
+lvcreate -L 10GiB main -n root
+lvcreate -L 100GiB main -n home
+lvcreate -L 50GiB main -n var
+
+mkfs.ext4 /dev/mapper/main-darchconfig
+mkfs.ext4 /dev/mapper/main-darchlib
+mkfs.ext4 /dev/mapper/main-root
+mkfs.ext4 /dev/mapper/main-home
+mkfs.ext4 /dev/mapper/main-var
+
+mount /dev/mapper/main-root /mnt
+mkdir /mnt/boot
+mount "${disk}1" /mnt/boot
+mkdir -p /mnt/etc/darch
+mount /dev/mapper/main-darchconfig /mnt/etc/darch
+mkdir -p /mnt/var
+mount /dev/mapper/main-var /mnt/var
+mkdir -p /mnt/var/lib/darch
+mount /dev/mapper/main-darchlib /mnt/var/lib/darch
+mkdir -p /mnt/home
+mount /dev/mapper/main-home /mnt/home
+
+echo "thinkpad" > /mnt/etc/.machine
