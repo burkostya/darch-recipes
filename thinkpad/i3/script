@@ -1,0 +1,25 @@
+#!/bin/bash
+set -e
+
+. ../common
+
+# Enable audio
+install_packages pulseaudio
+install_aur_package pulseaudio-ctl
+
+# I am using Intel graphics on all my machines.
+install_packages xf86-video-intel
+
+# Use X11. Wayland is newer, but options for VNC aren't good.
+install_packages xorg-server xorg-xrandr
+
+# Install i3
+install_packages i3 compton xorg-xinit
+install_aur_package j4-dmenu-desktop
+install_aur_package polybar
+
+install_packages unclutter
+
+install_aur_package alacritty-scrollback-git
+
+install_packages autocutsel 
