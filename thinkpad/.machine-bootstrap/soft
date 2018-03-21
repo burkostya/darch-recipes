@@ -72,7 +72,3 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 # Add lvm2 to our initcpio.
 sed -i 's/HOOKS=.*/HOOKS="base udev autodetect modconf block lvm2 filesystems keyboard fsck"/' /mnt/etc/mkinitcpio.conf
 arch-chroot /mnt mkinitcpio -p linux
-
-# virtualbox fix
-arch-chroot /mnt echo "\EFI\arch\grubx64.efi" > /mnt/boot/startup.nsh
-arch-chroot /mnt echo "nameserver 8.8.8.8" > /mnt/etc/resolv.conf
