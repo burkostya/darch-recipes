@@ -5,7 +5,7 @@ set -e
 # that will be used solely for booting Darch images.
 # Run this script from within the Arch live cd.
 
-disk=/dev/sdc
+disk=/dev/nvme0n1
 
 parted -s $disk \
         mklabel gpt \
@@ -13,10 +13,10 @@ parted -s $disk \
         set 1 boot on \
         mkpart primary 1GiB 100%
 
-mkfs.fat -F32 "${disk}1"
+mkfs.fat -F32 "${disk}p1"
 
-pvcreate "${disk}2"
-vgcreate main "${disk}2"
+pvcreate "${disk}p2"
+vgcreate main "${disk}p2"
 lvcreate -L 100MB main -n darchconfig
 lvcreate -L 40GiB main -n darchlib
 lvcreate -L 10GiB main -n root
@@ -31,7 +31,7 @@ mkfs.ext4 /dev/mapper/main-var
 
 mount /dev/mapper/main-root /mnt
 mkdir /mnt/boot
-mount "${disk}1" /mnt/boot
+mount "${disk}p1" /mnt/boot
 mkdir -p /mnt/etc/darch
 mount /dev/mapper/main-darchconfig /mnt/etc/darch
 mkdir -p /mnt/var
