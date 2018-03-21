@@ -21,24 +21,18 @@ lvcreate -L 100MB main -n darchconfig
 lvcreate -L 40GiB main -n darchlib
 lvcreate -L 10GiB main -n root
 lvcreate -L 100GiB main -n home
-lvcreate -L 50GiB main -n var
 
 mkfs.ext4 /dev/mapper/main-darchconfig
 mkfs.ext4 /dev/mapper/main-darchlib
 mkfs.ext4 /dev/mapper/main-root
 mkfs.ext4 /dev/mapper/main-home
-mkfs.ext4 /dev/mapper/main-var
 
 mount /dev/mapper/main-root /mnt
 mkdir /mnt/boot
 mount "${disk}p1" /mnt/boot
 mkdir -p /mnt/etc/darch
 mount /dev/mapper/main-darchconfig /mnt/etc/darch
-mkdir -p /mnt/var
-mount /dev/mapper/main-var /mnt/var
 mkdir -p /mnt/var/lib/darch
 mount /dev/mapper/main-darchlib /mnt/var/lib/darch
 mkdir -p /mnt/home
 mount /dev/mapper/main-home /mnt/home
-
-echo "thinkpad" > /mnt/etc/.machine
