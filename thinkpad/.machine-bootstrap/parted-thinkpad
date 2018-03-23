@@ -13,6 +13,8 @@ parted -s $disk \
         set 1 boot on \
         mkpart primary 1GiB 100%
 
+sleep 5
+
 mkfs.fat -F32 "${disk}p1"
 
 pvcreate "${disk}p2"
