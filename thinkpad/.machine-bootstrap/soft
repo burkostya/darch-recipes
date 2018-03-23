@@ -69,6 +69,8 @@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootlo
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot /mnt mkdir -p /boot/EFI/boot
 arch-chroot /mnt cp /boot/EFI/arch/grubx64.efi /boot/EFI/boot/bootx64.efi
+arch-chroot /mnt mkdir -p /boot/efi/EFI/Microsoft/Boot
+arch-chroot /mnt cp /boot/EFI/arch/grubx64.efi /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi
 
 # Add lvm2 to our initcpio.
 sed -i 's/HOOKS=.*/HOOKS="base udev autodetect modconf block lvm2 filesystems keyboard fsck"/' /mnt/etc/mkinitcpio.conf
