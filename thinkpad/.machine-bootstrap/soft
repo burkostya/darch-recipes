@@ -64,6 +64,8 @@ arch-chroot /mnt pacman -S --noconfirm openssh
 
 arch-chroot /mnt pacman -S --noconfirm polkit
 
+arch-chroot /mnt pacman -S --noconfirm vim
+
 arch-chroot /mnt pacman -S --noconfirm terminus-font
 echo "FONT=ter-p32n" > /mnt/etc/vconsole.conf
 echo "FONT=ter-p32n" > /mnt/etc/vconsole.conf
