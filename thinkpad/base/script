@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-. ../common
-
 # Initialize the keys
 pacman-key --init
 pacman-key --populate archlinux
@@ -15,19 +13,19 @@ pacman -S --noconfirm archlinux-keyring
 pacman -Syu --noconfirm
 
 # Let's update the mirrors.
-install_packages wget sed
+pacman -S --noconfirm wget sed
+
 wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
   | sed -e "s/#Server/Server/g" \
   | sed "/aur\.rocks/d" \
   > /etc/pacman.d/mirrorlist
 
-# Run base install, with dev tools. The "bootstrap" fs doesn't contain everything, just what you need to bootstrap.
-install_packages base base-devel
+pacman -S --noconfirm base base-devel
 
-install_packages patch
+pacman -S --noconfirm curl patch
 curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/66e39c98b1a87cb40abfd489dba53bb5a8625186/makepkg.patch | patch /usr/bin/makepkg
 
-install_packages git
+pacman -S --noconfirm git
 git clone https://aur.archlinux.org/trizen.git ~/trizen
 pushd ~/trizen
 makepkg -si --noconfirm
@@ -39,7 +37,7 @@ rm /etc/localtime
 ln -s ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
 # Time sync
-install_packages ntp
+pacman -S --noconfirm ntp
 systemctl enable ntpd
 
 # Setup the locales.
@@ -56,7 +54,7 @@ echo "LANG=ru_RU.UTF-8" > /mnt/etc/skel/.config/locale.conf
 locale-gen
 
 # Use fish, not bash
-install_packages fish
+pacman -S --noconfirm fish
 
 # Set the root password
 if [ -n  "$ROOT_PASSWD" ]; then
@@ -67,26 +65,14 @@ else
     echo -en "123\n123" | passwd
 fi
 
-install_packages python
+pacman -S --noconfirm python
 
-install_packages polkit
+pacman -S --noconfirm polkit
 
 # install ssh
-install_packages openssh
+pacman -S --noconfirm openssh
 
-install_packages udisks2 udiskie
-
-# Install Darch
-install_aur_package darch
-# We don't need grub as a bootloader, but we use
-# their helper scripts in Darch to generate menu entries.
-install_packages grub
-# Enable containerd, which was brought in as a dependency.
-systemctl enable containerd
-# I store containerd on /var/lib/darch/containerd, because /var/lib/darch
-# is an external partition. This way, images are persisted across boots.
-mkdir -p /etc/containerd
-echo "root = \"/var/lib/darch/containerd\"" > /etc/containerd/config.toml
+pacman -S --noconfirm udisks2 udiskie
 
 # Enable systemd networking.
 cp wired.network /etc/systemd/network/

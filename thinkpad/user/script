@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-. ../common
-
 # Add our users
 groupadd guests
 useradd -m -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel -s /usr/bin/fish burkostya
