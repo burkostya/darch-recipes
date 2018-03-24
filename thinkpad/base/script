@@ -49,8 +49,8 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 # use ISO-8601 for time
 echo "LC_TIME=en_DK.UTF-8" >> /etc/locale.conf
 # use ru locale for users
-mkdir -p /mnt/etc/skel/.config
-echo "LANG=ru_RU.UTF-8" > /mnt/etc/skel/.config/locale.conf
+mkdir -p /etc/skel/.config
+echo "LANG=ru_RU.UTF-8" > /etc/skel/.config/locale.conf
 locale-gen
 
 # Use fish, not bash
