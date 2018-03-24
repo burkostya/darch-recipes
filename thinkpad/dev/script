@@ -6,6 +6,7 @@ pacman -Syu --noconfirm
 pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
 trizen -S --noconfirm --noedit chromium
 
+pacman -S --noconfirm libx264
 trizen -S --noconfirm --noedit atom
 runuser -l burkostya -c "apm install (cat $(pwd)/apm_packages)"
 
