@@ -4,4 +4,9 @@ set -e
 IMAGES=$(sudo darch recipes build-dep)
 TAG=`date +"%Y-%m-%d-%H%M%S"`
 
+BASE=$(echo $IMAGES | cut -d ' ' -f1)
+
+PREBASE=$(darch recipes parents $BASE 2>&1 | cut -d ' ' -f3)
+
+sudo darch images pull $PREBASE
 sudo darch recipes build -t "$TAG,latest" -p "docker.io/burkostya/darch-thinkpad-" $IMAGES
