@@ -64,6 +64,10 @@ arch-chroot /mnt pacman -S --noconfirm openssh
 
 arch-chroot /mnt pacman -S --noconfirm polkit
 
+arch-chroot /mnt pacman -S --noconfirm terminus-font
+echo "FONT=ter-p32n" > /mnt/etc/vconsole.conf
+echo "FONT=ter-p32n" > /mnt/etc/vconsole.conf
+
 arch-chroot /mnt pacman -S --noconfirm grub efibootmgr
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch --recheck --debug
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
@@ -73,5 +77,5 @@ arch-chroot /mnt mkdir -p /boot/efi/EFI/Microsoft/Boot
 arch-chroot /mnt cp /boot/EFI/arch/grubx64.efi /boot/efi/EFI/Microsoft/Boot/bootmgfw.efi
 
 # Add lvm2 to our initcpio.
-sed -i 's/HOOKS=.*/HOOKS="base udev autodetect modconf block lvm2 filesystems keyboard fsck"/' /mnt/etc/mkinitcpio.conf
+sed -i 's/HOOKS=.*/HOOKS="base udev autodetect modconf block lvm2 filesystems consolefont keyboard fsck"/' /mnt/etc/mkinitcpio.conf
 arch-chroot /mnt mkinitcpio -p linux
