@@ -8,7 +8,7 @@ trizen -S --noconfirm --noedit pulseaudio-ctl
 pacman -S --noconfirm xf86-video-intel
 
 # Use X11. Wayland is newer, but options for VNC aren't good.
-pacman -S --noconfirm xorg-server xorg-xrandr
+pacman -S --noconfirm xorg-server xorg-xrandr xorg-xdpyinfo
 
 # Install i3
 pacman -S --noconfirm i3 compton xorg-xinit
