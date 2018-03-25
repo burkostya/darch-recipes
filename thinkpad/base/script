@@ -69,6 +69,9 @@ pacman -S --noconfirm python
 
 pacman -S --noconfirm polkit
 
+arch-chroot /mnt pacman -S --noconfirm terminus-font
+echo "FONT=ter-p32n" > /mnt/etc/vconsole.conf
+
 # install ssh
 pacman -S --noconfirm openssh
 
