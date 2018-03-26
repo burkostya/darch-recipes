@@ -77,6 +77,8 @@ pacman -S --noconfirm openssh
 
 pacman -S --noconfirm udisks2 udiskie
 
+pacman -S --noconfirm tree
+
 # Enable systemd networking.
 cp wired.network /etc/systemd/network/
 systemctl enable systemd-networkd
