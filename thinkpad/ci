@@ -3,7 +3,5 @@ set -e
 
 . ./build
 
-while read -r IMAGE; do
-    sudo darch images push --user $DOCKER_LOGIN_USERNAME:$DOCKER_LOGIN_PASSWORD docker.io/burkostya/darch-thinkpad-$IMAGE:$TAG
-    sudo darch images push --user $DOCKER_LOGIN_USERNAME:$DOCKER_LOGIN_PASSWORD docker.io/burkostya/darch-thinkpad-$IMAGE:latest
-done <<< "$IMAGES"
+sudo darch images push --user $DOCKER_LOGIN_USERNAME:$DOCKER_LOGIN_PASSWORD docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG
+sudo darch images push --user $DOCKER_LOGIN_USERNAME:$DOCKER_LOGIN_PASSWORD docker.io/burkostya/darch-thinkpad-$RECIPE:latest

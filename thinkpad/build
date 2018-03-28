@@ -6,7 +6,15 @@ TAG=`date +"%Y-%m-%d-%H%M%S"`
 
 BASE=$(echo $IMAGES | cut -d ' ' -f1)
 
-PREBASE=$(darch recipes parents $BASE 2>&1 | cut -d ' ' -f3)
+RECIPE=${RECIPE:-$BASE}
 
-sudo darch images pull $PREBASE
-sudo darch recipes build -t "$TAG,latest" -p "docker.io/burkostya/darch-thinkpad-" $IMAGES
+PARENT=$(darch recipes parents $RECIPE 2>&1 | head -n1 | cut -d ' ' -f3)
+
+INTERNAL_IMAGES=${IMAGES//$'\n'/|}
+
+if [[ $PARENT =~ ^($INTERNAL_IMAGES)$ ]]; then
+  PARENT="docker.io/burkostya/darch-thinkpad-$PARENT"
+fi
+
+sudo darch images pull $PARENT
+sudo darch recipes build -t "$TAG,latest" -p "docker.io/burkostya/darch-thinkpad-" $RECIPE
