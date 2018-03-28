@@ -9,6 +9,5 @@ before_install:
 - darch version
 - sudo ctr version
 - sudo runc --version
-- sudo darch images pull docker.io/godarch/arch:latest
 script:
-- "./ci"
+- cd ./thinkpad && ./ci
