@@ -17,4 +17,5 @@ if [[ $PARENT =~ ^($INTERNAL_IMAGES)$ ]]; then
 fi
 
 sudo darch images pull $PARENT
-sudo darch recipes build -t "$TAG,latest" -p "docker.io/burkostya/darch-thinkpad-" $RECIPE
+sudo darch recipes build -t latest -p "docker.io/burkostya/darch-thinkpad-" $RECIPE
+sudo darch images tag docker.io/burkostya/darch-thinkpad-$RECIPE:latest docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG
