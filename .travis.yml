@@ -13,10 +13,10 @@ before_install:
 jobs:
   include:
     - stage: base
-      script: RECIPE=base cd ./thinkpad && ./ci
+      script: cd ./thinkpad && RECIPE=base ./ci
     - stage: user
-      script: RECIPE=user cd ./thinkpad && ./ci
+      script: cd ./thinkpad && RECIPE=user ./ci
     - stage: dev
-      script: RECIPE=dev cd ./thinkpad && ./ci
+      script: cd ./thinkpad && RECIPE=dev ./ci
     - stage: i3
-      script: RECIPE=i3 cd ./thinkpad && ./ci
+      script: cd ./thinkpad && RECIPE=i3 ./ci
