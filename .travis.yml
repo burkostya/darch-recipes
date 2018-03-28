@@ -10,4 +10,4 @@ before_install:
 - sudo ctr version
 - sudo runc --version
 script:
-- "./thinkpad/ci"
+- cd ./thinkpad && ./ci
