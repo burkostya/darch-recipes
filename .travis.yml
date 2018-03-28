@@ -9,5 +9,14 @@ before_install:
 - darch version
 - sudo ctr version
 - sudo runc --version
-script:
-- cd ./thinkpad && ./ci
+
+jobs:
+  include:
+    - stage: base
+      script: RECIPE=base cd ./thinkpad && ./ci
+    - stage: user
+      script: RECIPE=user cd ./thinkpad && ./ci
+    - stage: dev
+      script: RECIPE=dev cd ./thinkpad && ./ci
+    - stage: i3
+      script: RECIPE=i3 cd ./thinkpad && ./ci
