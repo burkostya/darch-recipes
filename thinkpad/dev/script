@@ -13,6 +13,7 @@ runuser -l burkostya -c "apm install (cat $(pwd)/apm_packages)"
 trizen -S --noconfirm --noedit keybase-bin
 
 pacman -S --noconfirm go
+trizen -S --noconfirm --noedit gimme
 
 pacman -S --noconfirm virtualbox-host-modules-arch
 pacman -S --noconfirm virtualbox
