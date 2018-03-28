@@ -75,8 +75,6 @@ echo "FONT=ter-p32n" > /etc/vconsole.conf
 # install ssh
 pacman -S --noconfirm openssh
 
-pacman -S --noconfirm udisks2 udiskie
-
 pacman -S --noconfirm tree
 
 # Enable systemd networking.

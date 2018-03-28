@@ -20,3 +20,5 @@ pacman -S --noconfirm unclutter
 pacman -S --noconfirm rxvt-unicode
 
 pacman -S --noconfirm autocutsel
+
+pacman -S --noconfirm udisks2 udiskie
