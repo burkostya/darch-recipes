@@ -17,7 +17,7 @@ trizen -S --noconfirm --noedit polybar
 
 pacman -S --noconfirm unclutter
 
-pacman -S --noconfirm rxvt-unicode
+trizen -S --noconfirm --noedit alacritty-scrollback-git
 
 pacman -S --noconfirm autocutsel
 
