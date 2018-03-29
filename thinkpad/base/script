@@ -81,3 +81,5 @@ pacman -S --noconfirm tree
 cp wired.network /etc/systemd/network/
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
+
+pacman -S --noconfirm networkmanager
