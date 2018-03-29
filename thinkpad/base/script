@@ -83,3 +83,4 @@ systemctl enable systemd-networkd
 systemctl enable systemd-resolved
 
 pacman -S --noconfirm networkmanager
+systemctl enable NetworkManager
