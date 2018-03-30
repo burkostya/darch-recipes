@@ -13,7 +13,7 @@ before_install:
 jobs:
   include:
     - stage: base
-      script: cd ./thinkpad && RECIPE=base ./ci
+      script: cd ./thinkpad && RECIPE=base travis_retry ./ci
     - stage: user
       script: cd ./thinkpad && RECIPE=user ./ci
     - stage: dev
