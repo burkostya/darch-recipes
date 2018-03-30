@@ -22,6 +22,6 @@ pacman -S --noconfirm docker docker-compose docker-machine
 systemctl enable docker
 
 # Fonts
-trizen -S --noconfirm --noedit nerd-fonts-complete
+# trizen -S --noconfirm --noedit nerd-fonts-complete
 
 pacman -S --noconfirm vim
