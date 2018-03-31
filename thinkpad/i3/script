@@ -2,12 +2,11 @@
 set -e
 
 # Enable audio
-pacman -S --noconfirm pulseaudio pavucontrol
-trizen -S --noconfirm --noedit pulseaudio-ctl
+# pacman -S --noconfirm pulseaudio pavucontrol
+# trizen -S --noconfirm --noedit pulseaudio-ctl
 
 pacman -S --noconfirm xf86-video-intel
 
-# Use X11. Wayland is newer, but options for VNC aren't good.
 pacman -S --noconfirm xorg-server xorg-xrandr xorg-xdpyinfo
 
 # Install i3
@@ -15,10 +14,10 @@ pacman -S --noconfirm i3 compton xorg-xinit
 trizen -S --noconfirm --noedit j4-dmenu-desktop
 trizen -S --noconfirm --noedit polybar
 
-pacman -S --noconfirm unclutter
+# pacman -S --noconfirm unclutter
 
 trizen -S --noconfirm --noedit alacritty-scrollback-git
 
 pacman -S --noconfirm autocutsel
 
-pacman -S --noconfirm udisks2 udiskie
+# pacman -S --noconfirm udisks2 udiskie
