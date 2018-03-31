@@ -15,8 +15,8 @@ jobs:
     - stage: base
       script: cd ./thinkpad && RECIPE=base travis_retry ./ci
     - stage: user
-      script: cd ./thinkpad && RECIPE=user ./ci
+      script: cd ./thinkpad && RECIPE=user travis_retry ./ci
     - stage: dev
-      script: cd ./thinkpad && RECIPE=dev ./ci
+      script: cd ./thinkpad && RECIPE=dev travis_retry ./ci
     - stage: i3
-      script: cd ./thinkpad && RECIPE=i3 ./ci
+      script: cd ./thinkpad && RECIPE=i3 travis_retry ./ci
