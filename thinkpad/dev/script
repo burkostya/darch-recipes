@@ -3,6 +3,8 @@ set -e
 
 pacman -Syu --noconfirm
 
+pacman -S --noconfirm ttf-dejavu
+
 # pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
 # trizen -S --noconfirm --noedit chromium
 
