@@ -8,6 +8,9 @@ pacman -S --noconfirm ttf-dejavu
 # pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
 trizen -S --noconfirm --noedit chromium
 
+pacman -S --noconfirm docker docker-compose docker-machine
+# systemctl enable docker
+
 # pacman -S --noconfirm libx264
 # trizen -S --noconfirm --noedit atom
 # runuser -l burkostya -c "apm install (cat $(pwd)/apm_packages)"
@@ -19,9 +22,6 @@ trizen -S --noconfirm --noedit chromium
 
 # pacman -S --noconfirm virtualbox-host-modules-arch
 # pacman -S --noconfirm virtualbox
-
-# pacman -S --noconfirm docker docker-compose docker-machine
-# systemctl enable docker
 
 # Fonts
 # trizen -S --noconfirm --noedit nerd-fonts-complete
