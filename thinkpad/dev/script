@@ -10,6 +10,7 @@ trizen -S --noconfirm --noedit chromium
 
 pacman -S --noconfirm docker docker-compose docker-machine
 # systemctl enable docker
+usermod -aG docker burkostya
 
 # pacman -S --noconfirm libx264
 # trizen -S --noconfirm --noedit atom
