@@ -23,11 +23,15 @@ lvcreate -L 100MB main -n darchconfig
 lvcreate -L 40GiB main -n darchlib
 lvcreate -L 10GiB main -n root
 lvcreate -L 100GiB main -n home
+lvcreate -L 1MiB main -n nm
+lvcreate -L 10MiB main -n ssh
 
 mkfs.ext4 /dev/mapper/main-darchconfig
 mkfs.ext4 /dev/mapper/main-darchlib
 mkfs.ext4 /dev/mapper/main-root
 mkfs.ext4 /dev/mapper/main-home
+mkfs.ext4 /dev/mapper/main-nm
+mkfs.ext4 /dev/mapper/main-ssh
 
 mount /dev/mapper/main-root /mnt
 mkdir /mnt/boot
