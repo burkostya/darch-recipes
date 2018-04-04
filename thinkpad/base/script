@@ -84,8 +84,3 @@ systemctl enable systemd-resolved
 
 pacman -S --noconfirm networkmanager
 systemctl enable NetworkManager
-
-if [ -n "$SSID" ]; then
-  echo "setup wifi connection"
-  cat wifi.conf | sed -e "s/SSID/$SSID/g" | sed -e "s/PASS/$SSID_PASS/g" > /etc/NetworkManager/system-connections/$SSID
-fi
