@@ -18,6 +18,8 @@ runuser -l burkostya -c "apm install (cat $(pwd)/apm_packages)"
 
 # trizen -S --noconfirm --noedit keybase-bin
 
+pacman -S --noconfirm jq
+
 # pacman -S --noconfirm go
 # trizen -S --noconfirm --noedit gimme
 
