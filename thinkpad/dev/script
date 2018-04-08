@@ -15,7 +15,6 @@ usermod -aG docker burkostya
 pacman -S --noconfirm libx264
 trizen -S --noconfirm --noedit atom
 runuser -l burkostya -c "apm install (cat $(pwd)/apm_packages)"
-runuser -l burkostya -c "cp $(pwd)/atom-keymap.cson ~/.atom.cson"
 
 # trizen -S --noconfirm --noedit keybase-bin
 
