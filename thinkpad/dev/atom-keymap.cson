@@ -1,0 +1,9 @@
+'.workspace, .workspace .editor':
+  'ctrl-shift-m': 'markdown-preview:toggle'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'q': 'vim-mode-plus:move-to-next-subword'
+  'Q': 'vim-mode-plus:move-to-previous-subword'
+
+'atom-text-editor.vim-mode-plus.insert-mode':
+  'j j': 'vim-mode-plus:reset-normal-mode'
