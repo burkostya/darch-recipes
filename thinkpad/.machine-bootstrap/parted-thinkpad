@@ -33,6 +33,7 @@ mkfs.ext4 /dev/mapper/main-root
 mkfs.ext4 /dev/mapper/main-home
 mkfs.ext4 /dev/mapper/main-nm
 mkfs.ext4 /dev/mapper/main-ssh
+mkfs.ext4 /dev/mapper/main-chromium
 
 mount /dev/mapper/main-root /mnt
 mkdir /mnt/boot
