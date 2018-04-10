@@ -25,7 +25,7 @@ lvcreate -L 10GiB main -n root
 lvcreate -L 100GiB main -n home
 lvcreate -L 4MiB main -n nm
 lvcreate -L 8MiB main -n ssh
-lvcreate -L 100MiB main -n chromium
+lvcreate -L 600MiB main -n chromium
 
 mkfs.ext4 /dev/mapper/main-darchconfig
 mkfs.ext4 /dev/mapper/main-darchlib
