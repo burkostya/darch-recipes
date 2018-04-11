@@ -15,7 +15,7 @@ pacman -S --noconfirm i3 compton xorg-xinit
 trizen -S --noconfirm --noedit j4-dmenu-desktop
 trizen -S --noconfirm --noedit polybar
 
-# pacman -S --noconfirm unclutter
+pacman -S --noconfirm unclutter
 
 trizen -S --noconfirm --noedit libxcursor alacritty-scrollback-git
 
