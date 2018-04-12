@@ -32,3 +32,6 @@ usermod -aG vboxusers burkostya
 # trizen -S --noconfirm --noedit nerd-fonts-complete
 
 pacman -S --noconfirm vim
+
+pacman -S --noconfirm dbeaver
+pacman -S --noconfirm dbeaver-plugin-office dbeaver-plugin-svg-format
