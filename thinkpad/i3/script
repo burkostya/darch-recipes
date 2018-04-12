@@ -21,4 +21,6 @@ trizen -S --noconfirm --noedit libxcursor alacritty-scrollback-git
 
 pacman -S --noconfirm autocutsel
 
+pacman -S --noconfirm telegram-desktop
+
 # pacman -S --noconfirm udisks2 udiskie
