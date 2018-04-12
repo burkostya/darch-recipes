@@ -3,7 +3,7 @@ set -e
 
 # Enable audio
 pacman -S --noconfirm pulseaudio
-# pacman -S --noconfirm pavucontrol
+pacman -S --noconfirm pavucontrol
 # trizen -S --noconfirm --noedit pulseaudio-ctl
 
 pacman -S --noconfirm xf86-video-intel
