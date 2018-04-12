@@ -23,4 +23,6 @@ pacman -S --noconfirm autocutsel
 
 pacman -S --noconfirm telegram-desktop
 
+pacman -S --noconfirm xorg-xinput
+
 # pacman -S --noconfirm udisks2 udiskie
