@@ -88,3 +88,4 @@ echo "*=mounts" > /mnt/etc/darch/hooks/fstab.config
 echo "/dev/main/nm	/etc/NetworkManager/system-connections	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" > /mnt/etc/darch/hooks/mounts
 echo "/dev/main/ssh	/home/burkostya/.ssh	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
 echo "/dev/main/chromium	/home/burkostya/.chromium	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
+echo "/dev/main/localshare	/home/burkostya/.local/share	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts

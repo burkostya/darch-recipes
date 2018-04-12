@@ -26,6 +26,7 @@ lvcreate -L 100GiB main -n home
 lvcreate -L 4MiB main -n nm
 lvcreate -L 8MiB main -n ssh
 lvcreate -L 600MiB main -n chromium
+lvcreate -L 1GiB main -n localshare
 
 mkfs.ext4 /dev/mapper/main-darchconfig
 mkfs.ext4 /dev/mapper/main-darchlib
@@ -34,6 +35,7 @@ mkfs.ext4 /dev/mapper/main-home
 mkfs.ext4 /dev/mapper/main-nm
 mkfs.ext4 /dev/mapper/main-ssh
 mkfs.ext4 /dev/mapper/main-chromium
+mkfs.ext4 /dev/mapper/main-localshare
 
 mount /dev/mapper/main-root /mnt
 mkdir /mnt/boot
