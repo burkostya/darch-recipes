@@ -3,7 +3,7 @@ set -e
 
 # Add our users
 groupadd guests
-useradd -m -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel -s /usr/bin/fish burkostya
+useradd -m -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel,video -s /usr/bin/fish burkostya
 useradd -m -G guests,users -s /usr/bin/fish guest
 
 # Set the root password
