@@ -30,3 +30,6 @@ pacman -S --noconfirm xorg-xinput
 cp 30-touchpad.conf /etc/X11/xorg.conf.d/
 
 pacman -S --noconfirm redshift
+
+pacman -S --noconfirm xorg-xwininfo xorg-xprop
+cp i3-window-criteria /usr/local/bin/
