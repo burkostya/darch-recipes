@@ -17,21 +17,3 @@ trizen -S --noconfirm --noedit atom
 runuser -l burkostya -c "apm install (cat $(pwd)/apm_packages)"
 
 # trizen -S --noconfirm --noedit keybase-bin
-
-pacman -S --noconfirm jq
-
-pacman -S --noconfirm go
-
-pacman -S --noconfirm linux-headers
-pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
-trizen -S --noconfirm --noedit virtualbox-ext-oracle
-systemctl enable systemd-modules-load
-usermod -aG vboxusers burkostya
-
-# Fonts
-# trizen -S --noconfirm --noedit nerd-fonts-complete
-
-pacman -S --noconfirm vim
-
-pacman -S --noconfirm dbeaver
-pacman -S --noconfirm dbeaver-plugin-office dbeaver-plugin-svg-format
