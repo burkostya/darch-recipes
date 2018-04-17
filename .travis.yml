@@ -20,3 +20,5 @@ jobs:
       script: cd ./thinkpad && RECIPE=dev travis_retry ./ci
     - stage: i3
       script: cd ./thinkpad && RECIPE=i3 travis_retry ./ci
+    - stage: terminal
+      script: cd ./thinkpad && RECIPE=terminal travis_retry ./ci
