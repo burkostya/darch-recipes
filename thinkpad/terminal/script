@@ -2,22 +2,3 @@
 set -e
 
 trizen -S --noconfirm --noedit libxcursor alacritty-scrollback-git
-
-pacman -S --noconfirm autocutsel
-
-pacman -S --noconfirm telegram-desktop
-
-pacman -S --noconfirm xorg-xinput
-
-# pacman -S --noconfirm udisks2 udiskie
-
-cp 30-touchpad.conf /etc/X11/xorg.conf.d/
-
-pacman -S --noconfirm redshift
-
-pacman -S --noconfirm xorg-xwininfo xorg-xprop
-cp i3-window-criteria /usr/local/bin/
-
-pacman -S --noconfirm xorg-xbacklight
-
-pacman -S --noconfirm xorg-xbindkeys
