@@ -34,4 +34,4 @@ cp i3-window-criteria /usr/local/bin/
 
 pacman -S --noconfirm xorg-xbacklight
 
-pacman -S --noconfirm xorg-xbindkeys
+pacman -S --noconfirm xbindkeys
