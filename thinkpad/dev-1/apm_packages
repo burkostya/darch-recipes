@@ -1,4 +1,3 @@
-atom-ide-ui
 atom-jinja2
 atom-soda-dark-ui
 base16-eighties-dark
@@ -28,3 +27,4 @@ permanent-delete
 seti-ui
 toggle-quotes
 vim-mode-plus
+atom-ide-ui
