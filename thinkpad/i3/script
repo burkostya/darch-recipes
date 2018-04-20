@@ -27,6 +27,9 @@ pacman -S --noconfirm xorg-xinput
 
 cp 30-touchpad.conf /etc/X11/xorg.conf.d/
 
+cp 30-trackpoint.conf /etc/X11/xorg.conf.d/
+cp 30-trackpoint.hwdb /etc/udev/hwdb.d/
+
 pacman -S --noconfirm redshift
 
 pacman -S --noconfirm xorg-xwininfo xorg-xprop
