@@ -4,37 +4,17 @@ set -e
 # Enable audio
 pacman -S --noconfirm pulseaudio
 pacman -S --noconfirm pavucontrol
-# trizen -S --noconfirm --noedit pulseaudio-ctl
-
-pacman -S --noconfirm xf86-video-intel
-
-pacman -S --noconfirm xorg-server xorg-xrandr xorg-xdpyinfo
 
 # Install i3
 pacman -S --noconfirm i3 compton xorg-xinit
 trizen -S --noconfirm --noedit j4-dmenu-desktop
 trizen -S --noconfirm --noedit polybar
-
 trizen -S --noconfirm --noedit unclutter-xfixes-git
-
 pacman -S --noconfirm autocutsel
-
-pacman -S --noconfirm telegram-desktop
-
-pacman -S --noconfirm xorg-xinput
-
-# pacman -S --noconfirm udisks2 udiskie
-
-cp 30-touchpad.conf /etc/X11/xorg.conf.d/
-
-cp 30-trackpoint.conf /etc/X11/xorg.conf.d/
-cp 30-trackpoint.hwdb /etc/udev/hwdb.d/
 
 pacman -S --noconfirm redshift
 
 pacman -S --noconfirm xorg-xwininfo xorg-xprop
 cp i3-window-criteria /usr/local/bin/
 
-pacman -S --noconfirm xorg-xbacklight
-
-pacman -S --noconfirm xbindkeys
+pacman -S --noconfirm telegram-desktop

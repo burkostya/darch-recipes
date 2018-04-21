@@ -20,6 +20,10 @@ jobs:
       script: cd ./thinkpad && RECIPE=dev-1 travis_retry ./ci
     - stage: dev-2
       script: cd ./thinkpad && RECIPE=dev-2 travis_retry ./ci
+    - stage: x
+      script: cd ./thinkpad && RECIPE=x travis_retry ./ci
+    - stage: audio
+      script: cd ./thinkpad && RECIPE=audio travis_retry ./ci
     - stage: i3
       script: cd ./thinkpad && RECIPE=i3 travis_retry ./ci
     - stage: terminal
