@@ -1,0 +1,30 @@
+#!/bin/sh
+
+STATUS=$(nmcli -terse -field wifi radio)
+
+case $1 in
+  on )
+    if [ $STATUS = "disabled" ]; then
+      nmcli radio wifi on
+    fi
+    ;;
+  off )
+    if [ $STATUS = "enabled" ]; then
+      nmcli radio wifi off
+    fi
+    ;;
+  toggle )
+    if [ $STATUS = "enabled" ]; then
+      nmcli radio wifi off
+    else
+      nmcli radio wifi on
+    fi
+    ;;
+  * )
+    echo "Usage: $(basename $0) {on|off|toggle}"
+    if [ $STATUS = "enabled" ]; then
+      echo "Now wifi is on"
+    else
+      echo "Now wifi is off"
+    fi
+esac
