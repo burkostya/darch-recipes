@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+pacman -S --noconfirm telegram-desktop
+trizen -S --noconfirm --noedit skypeforlinux-preview-bin

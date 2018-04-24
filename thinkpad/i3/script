@@ -16,5 +16,3 @@ pacman -S --noconfirm redshift
 
 pacman -S --noconfirm xorg-xwininfo xorg-xprop
 cp i3-window-criteria /usr/local/bin/
-
-pacman -S --noconfirm telegram-desktop
