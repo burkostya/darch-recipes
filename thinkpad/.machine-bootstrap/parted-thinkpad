@@ -41,7 +41,7 @@ mkfs.ext4 /dev/mapper/main-chromium
 mkfs.ext4 /dev/mapper/main-localshare
 mkfs.ext4 /dev/mapper/main-go
 mkfs.ext4 /dev/mapper/main-dbeaver
-mkfs.ext4 /dev/mapper/main-dbeaver-drivers
+mkfs.ext4 /dev/mapper/main-dbeaver--drivers
 
 mount /dev/mapper/main-root /mnt
 mkdir /mnt/boot
