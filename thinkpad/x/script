@@ -14,3 +14,5 @@ cp 30-trackpoint.conf /etc/X11/xorg.conf.d/
 cp 30-trackpoint.hwdb /etc/udev/hwdb.d/
 
 cp wifi /usr/local/bin/
+
+pacman -S --noconfirm imagemagick
