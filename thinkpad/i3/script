@@ -16,3 +16,5 @@ pacman -S --noconfirm redshift
 
 pacman -S --noconfirm xorg-xwininfo xorg-xprop
 cp i3-window-criteria /usr/local/bin/
+
+trizen -S --noconfirm --noedit peek
