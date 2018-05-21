@@ -18,3 +18,5 @@ pacman -S --noconfirm vim
 
 pacman -S --noconfirm dbeaver
 pacman -S --noconfirm dbeaver-plugin-office dbeaver-plugin-svg-format
+
+# trizen -S --noconfirm --noedit sos xsos
