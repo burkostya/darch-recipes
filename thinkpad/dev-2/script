@@ -4,6 +4,9 @@ set -e
 pacman -S --noconfirm jq
 
 pacman -S --noconfirm go
+# vgo bug https://github.com/golang/go/issues/24773
+mkdir /usr/lib/go/api
+touch /usr/lib/go/api/go1.10.txt
 
 pacman -S --noconfirm linux-headers
 pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
