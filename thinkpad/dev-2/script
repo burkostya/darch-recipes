@@ -27,3 +27,5 @@ pacman -S --noconfirm dbeaver-plugin-office dbeaver-plugin-svg-format
 pacman -S --noconfirm terraform
 
 pacman -S --noconfirm ansible
+
+pacman -S --noconfirm rsync
