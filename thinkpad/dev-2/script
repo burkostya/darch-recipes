@@ -23,3 +23,5 @@ pacman -S --noconfirm dbeaver
 pacman -S --noconfirm dbeaver-plugin-office dbeaver-plugin-svg-format
 
 # trizen -S --noconfirm --noedit sos xsos
+
+pacman -S --noconfirm terraform
