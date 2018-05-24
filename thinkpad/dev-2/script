@@ -29,3 +29,6 @@ pacman -S --noconfirm terraform
 pacman -S --noconfirm ansible
 
 pacman -S --noconfirm rsync
+
+trizen -S --noconfirm --noedit python-pip
+pip3 install netaddr
