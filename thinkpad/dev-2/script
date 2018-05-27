@@ -32,3 +32,5 @@ pacman -S --noconfirm rsync
 
 trizen -S --noconfirm --noedit python-pip
 pip3 install netaddr
+
+pacman -S --noconfirm tinc
