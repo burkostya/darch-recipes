@@ -92,3 +92,4 @@ echo "/dev/main/localshare	/home/burkostya/.local/share	ext4	defaults,relatime,n
 echo "/dev/main/go	/home/burkostya/go	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
 echo "/dev/main/dbeaver	/home/burkostya/.dbeaver4	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
 echo "/dev/main/dbeaver-drivers	/home/burkostya/.dbeaver-drivers	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
+echo "/dev/main/dockerlib	/var/lib/docker/	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
