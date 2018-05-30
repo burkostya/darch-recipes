@@ -5,3 +5,5 @@ pacman -S --noconfirm chromium
 pacman -S --noconfirm firefox
 
 echo "export BROWSER=chromium" > /etc/profile.d/browser.sh
+xdg-mime default chromium.desktop x-scheme-handler/https
+xdg-mime default chromium.desktop x-scheme-handler/http
