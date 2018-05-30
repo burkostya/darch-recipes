@@ -3,3 +3,5 @@ set -e
 
 pacman -S --noconfirm chromium
 pacman -S --noconfirm firefox
+
+echo "export BROWSER=chromium" > /etc/profile.d/browser.sh
