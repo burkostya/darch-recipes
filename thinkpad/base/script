@@ -23,7 +23,7 @@ wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\
 pacman -S --noconfirm base base-devel
 
 pacman -S --noconfirm curl patch
-curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/66e39c98b1a87cb40abfd489dba53bb5a8625186/makepkg.patch | patch /usr/bin/makepkg
+curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/5c26a163f7815682793001312b0bd693bebb3d45/makepkg.patch | patch /usr/bin/makepkg
 
 pacman -S --noconfirm git
 git clone https://aur.archlinux.org/trizen.git ~/trizen
