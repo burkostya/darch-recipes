@@ -19,6 +19,7 @@ jumpy
 language-ansible
 language-docker
 language-fish-shell
+language-graphql
 language-hcl
 language-protobuf
 minimap
