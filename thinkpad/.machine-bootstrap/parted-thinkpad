@@ -26,7 +26,7 @@ lvcreate -L 100GiB main -n home
 lvcreate -L 4MiB main -n nm
 lvcreate -L 8MiB main -n ssh
 lvcreate -L 600MiB main -n chromium
-lvcreate -L 1GiB main -n localshare
+lvcreate -L 2GiB main -n localshare
 lvcreate -L 50GiB main -n go
 lvcreate -L 8MiB main -n dbeaver
 lvcreate -L 16MiB main -n dbeaver-drivers
