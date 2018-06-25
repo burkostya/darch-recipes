@@ -21,6 +21,7 @@ language-docker@1.1.8
 language-fish-shell@1.1.0
 language-hcl@0.4.0
 language-protobuf@0.7.1
+language-graphql@0.10.1
 minimap@4.29.8
 minimap-highlight-selected@4.6.1
 permanent-delete@0.1.6
