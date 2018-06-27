@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+pacman -Sy
 pacman -S --noconfirm chromium
 pacman -S --noconfirm firefox
 
