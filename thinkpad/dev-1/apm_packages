@@ -22,6 +22,7 @@ language-fish-shell
 language-graphql
 language-hcl
 language-protobuf
+language-graphql
 minimap
 minimap-highlight-selected
 permanent-delete
