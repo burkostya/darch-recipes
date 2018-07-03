@@ -16,6 +16,8 @@ jobs:
       script: cd ./thinkpad && RECIPE=base travis_retry ./ci
     - stage: user
       script: cd ./thinkpad && RECIPE=user travis_retry ./ci
+    - stage: sec
+      script: cd ./thinkpad && RECIPE=sec travis_retry ./ci
     - stage: dev-1
       script: cd ./thinkpad && RECIPE=dev-1 travis_retry ./ci
     - stage: dev-2

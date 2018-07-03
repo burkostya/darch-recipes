@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+pacman -Syu --noconfirm
+
+pacman -S --noconfirm gnupg pass
+
+trizen -S --noconfirm --noedit keybase-bin
