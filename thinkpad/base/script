@@ -8,7 +8,7 @@ pacman-key --populate archlinux
 # Resyn the database
 pacman -Sy --noconfirm
 # Update gpg keys before we install anything else.
-pacman -S --noconfirm archlinux-keyring
+pacman -S --noconfirm --needed archlinux-keyring
 # Now update everything.
 pacman -Syu --noconfirm
 
@@ -20,9 +20,9 @@ wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\
   | sed "/aur\.rocks/d" \
   > /etc/pacman.d/mirrorlist
 
-pacman -S --noconfirm base base-devel
+pacman -S --noconfirm --needed base base-devel
 
-pacman -S --noconfirm curl patch
+pacman -S --noconfirm --needed curl patch
 curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/5c26a163f7815682793001312b0bd693bebb3d45/makepkg.patch | patch /usr/bin/makepkg
 
 pacman -S --noconfirm git

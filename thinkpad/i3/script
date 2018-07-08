@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-# Enable audio
-pacman -S --noconfirm pulseaudio
-pacman -S --noconfirm pavucontrol
-
 # Install i3
 pacman -S --noconfirm i3 compton xorg-xinit
 trizen -S --noconfirm --noedit j4-dmenu-desktop

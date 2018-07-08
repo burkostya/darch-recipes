@@ -3,6 +3,6 @@ set -e
 
 pacman -Syu --noconfirm
 
-pacman -S --noconfirm gnupg pass
+pacman -S --noconfirm --needed gnupg pass
 
 trizen -S --noconfirm --noedit keybase-bin
