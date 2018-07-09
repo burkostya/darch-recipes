@@ -10,6 +10,19 @@ before_install:
 - sudo ctr version
 - sudo runc --version
 
+stages:
+  - base
+  - user
+  - sec
+  - dev-1
+  - dev-2
+  - x
+  - audio
+  - i3
+  - browser
+  - terminal
+  - social
+
 jobs:
   include:
     - stage: base
