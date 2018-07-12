@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+echo "[multilib]" >> /etc/pacman.conf
+echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
+
+pacman -Sy --noconfirm --needed lib32-libglvnd steam ttf-liberation

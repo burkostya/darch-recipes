@@ -33,6 +33,7 @@ lvcreate -L 32MiB main -n dbeaver-drivers
 lvcreate -L 50GiB main -n dockerlib
 lvcreate -L 4MiB main -n gnupg
 lvcreate -L 32MiB main -n pass
+lvcreate -L 10GiB main -n steam
 
 mkfs.ext4 /dev/mapper/main-darchconfig
 mkfs.ext4 /dev/mapper/main-darchlib
@@ -48,6 +49,7 @@ mkfs.ext4 /dev/mapper/main-dbeaver--drivers
 mkfs.ext4 /dev/mapper/main-dockerlib
 mkfs.ext4 /dev/mapper/main-gnupg
 mkfs.ext4 /dev/mapper/main-pass
+mkfs.ext4 /dev/mapper/main-steam
 
 mount /dev/mapper/main-root /mnt
 mkdir /mnt/boot

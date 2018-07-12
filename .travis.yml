@@ -22,6 +22,7 @@ stages:
   - browser
   - terminal
   - social
+  - games
 
 jobs:
   include:
@@ -47,3 +48,5 @@ jobs:
       script: cd ./thinkpad && RECIPE=terminal travis_retry ./ci
     - stage: social
       script: cd ./thinkpad && RECIPE=social travis_retry ./ci
+    - stage: games
+      script: cd ./thinkpad && RECIPE=games travis_retry ./ci
