@@ -6,3 +6,6 @@ pacman -Syu --noconfirm
 pacman -S --noconfirm --needed gnupg pass
 
 trizen -S --noconfirm --noedit keybase-bin
+
+pacman -S --noconfirm --needed pwgen
+trizen -S --noconfirm --noedit gpw
