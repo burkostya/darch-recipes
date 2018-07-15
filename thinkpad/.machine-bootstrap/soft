@@ -96,3 +96,4 @@ echo "/dev/main/dockerlib	/var/lib/docker/	ext4	defaults,relatime,noauto,x-syste
 echo "/dev/main/gnupg	/home/burkostya/.gnupg	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
 echo "/dev/main/pass	/home/burkostya/.password-store	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
 echo "/dev/main/steam	/home/burkostya/.local/share/Steam	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
+echo "/dev/main/unity3d	/home/burkostya/.config/unity3d	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
