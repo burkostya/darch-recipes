@@ -1,5 +1,6 @@
 bungcip.better-toml
 dbaeumer.vscode-eslint
+dhoeric.ansible-vault
 donjayamanne.githistory
 eamodio.gitlens
 eg2.tslint
@@ -11,6 +12,7 @@ ms-vscode.Go
 PeterJausovec.vscode-docker
 PKief.material-icon-theme
 vscodevim.vim
+vscoss.vscode-ansible
 wholroyd.HCL
 xabikos.JavaScriptSnippets
 zhuangtongfa.Material-theme
