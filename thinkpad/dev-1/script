@@ -12,8 +12,6 @@ pacman -S --noconfirm docker docker-compose docker-machine
 usermod -aG docker burkostya
 
 pacman -S --noconfirm libx264
-trizen -S --noconfirm --noedit atom
-runuser -l burkostya -c "apm install (cat $(pwd)/apm_packages)"
 
 trizen -S --noconfirm --noedit visual-studio-code-bin
 runuser -l burkostya -c "cat $(pwd)/vscode-extensions | xargs -n 1 code --install-extension"
