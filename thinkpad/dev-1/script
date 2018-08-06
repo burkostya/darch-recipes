@@ -21,3 +21,5 @@ trizen -S --noconfirm --noedit postman-bin
 pacman -S --noconfirm iotop sysdig
 
 pacman -S --noconfirm mosh
+
+trizen -S --noconfirm --noedit tldr
