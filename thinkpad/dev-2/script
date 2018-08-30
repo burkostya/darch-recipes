@@ -8,6 +8,9 @@ pacman -S --noconfirm go
 # mkdir /usr/lib/go/api
 # touch /usr/lib/go/api/go1.10.txt
 
+# install gvm
+runuser -l burkostya -c "curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/6ecd46d8b58c18f2a7bd5a1ab604cb57443cd35c/binscripts/gvm-installer | bash"
+
 pacman -S --noconfirm linux-headers
 pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
 # trizen -S --noconfirm --noedit virtualbox-ext-oracle
