@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+usermod -aG audio burkostya
+
 # Enable audio
 pacman -S --noconfirm --needed pulseaudio
 pacman -S --noconfirm --needed pavucontrol
