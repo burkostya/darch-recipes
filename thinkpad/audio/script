@@ -8,3 +8,4 @@ pacman -S --noconfirm --needed pulseaudio
 pacman -S --noconfirm --needed pavucontrol
 
 pacman -S --noconfirm --needed sonic-pi
+pacman -S --noconfirm --needed cadence
