@@ -9,6 +9,7 @@ pacman-key --populate archlinux
 pacman -Sy --noconfirm
 # Update gpg keys before we install anything else.
 pacman -S --noconfirm --needed archlinux-keyring
+pacman-key --populate archlinux
 # Now update everything.
 pacman -Syu --noconfirm
 
