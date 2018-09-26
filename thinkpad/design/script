@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+
+trizen -S --noconfirm --noedit --needed gravit-designer-bin

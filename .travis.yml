@@ -21,6 +21,7 @@ stages:
   - i3
   - browser
   - terminal
+  - design
   - social
   - games
 
@@ -46,6 +47,8 @@ jobs:
       script: cd ./thinkpad && RECIPE=browser travis_retry ./ci
     - stage: terminal
       script: cd ./thinkpad && RECIPE=terminal travis_retry ./ci
+    - stage: design
+      script: cd ./thinkpad && RECIPE=design travis_retry ./ci
     - stage: social
       script: cd ./thinkpad && RECIPE=social travis_retry ./ci
     - stage: games
