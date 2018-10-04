@@ -85,6 +85,7 @@ systemctl enable systemd-resolved
 
 pacman -S --noconfirm networkmanager
 cp nodns.conf /etc/NetworkManager/conf.d/
+touch /etc/NetworkManager/conf.d/resolv.conf
 systemctl enable NetworkManager
 
 pacman -S --noconfirm unzip
