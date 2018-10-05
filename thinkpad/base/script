@@ -79,13 +79,13 @@ pacman -S --noconfirm openssh
 pacman -S --noconfirm tree
 
 # Enable systemd networking.
-cp wired.network /etc/systemd/network/
+cp wired.network /etc/systemd/network/20-wired.network
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
 
-pacman -S --noconfirm networkmanager
-cp nodns.conf /etc/NetworkManager/conf.d/
-touch /etc/NetworkManager/conf.d/resolv.conf
-systemctl enable NetworkManager
+# Wireless support
+pacman -S --noconfirm iwd
+cp wireless.network /etc/systemd/network/25-wireless.network
+systemctl enable iwd
 
 pacman -S --noconfirm unzip
