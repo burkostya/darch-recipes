@@ -16,7 +16,3 @@ cp 30-trackpoint.hwdb /etc/udev/hwdb.d/
 cp wifi /usr/local/bin/
 
 pacman -S --noconfirm imagemagick
-
-trizen -S --noconfirm --noedit xsecurelock-git
-cp xsecurelock.service /etc/systemd/system/xsecurelock@.service
-systemctl enable xsecurelock@burkostya
