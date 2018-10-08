@@ -22,6 +22,3 @@ echo "building $RECIPE"
 sudo darch recipes build -t latest -p "docker.io/burkostya/darch-thinkpad-" $RECIPE
 echo "taging $RECIPE:$TAG"
 sudo darch images tag docker.io/burkostya/darch-thinkpad-$RECIPE:latest docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG
-echo "removing images"
-sudo darch images remove docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG
-sudo darch images remove docker.io/burkostya/darch-thinkpad-$RECIPE:latest
