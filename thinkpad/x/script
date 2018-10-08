@@ -16,3 +16,6 @@ cp 30-trackpoint.hwdb /etc/udev/hwdb.d/
 cp wifi /usr/local/bin/
 
 pacman -S --noconfirm imagemagick
+
+cp i3lock.service /etc/systemd/system/i3lock@.service
+systemctl enable i3lock@burkostya
