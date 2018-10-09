@@ -4,8 +4,8 @@ set -e
 . ./build
 
 sudo darch images push --user $DOCKER_LOGIN_USERNAME:$DOCKER_LOGIN_PASSWORD docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG
-sudo darch images push --user $DOCKER_LOGIN_USERNAME:$DOCKER_LOGIN_PASSWORD docker.io/burkostya/darch-thinkpad-$RECIPE:latest
+sudo darch images push --user $DOCKER_LOGIN_USERNAME:$DOCKER_LOGIN_PASSWORD docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG_LATEST
 
 echo "removing images"
 sudo darch images remove docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG
-sudo darch images remove docker.io/burkostya/darch-thinkpad-$RECIPE:latest
+sudo darch images remove docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG_LATEST

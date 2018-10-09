@@ -3,6 +3,12 @@ set -e
 
 IMAGES=$(sudo darch recipes build-dep)
 TAG=`date +"%Y-%m-%d-%H%M%S"`
+TAG_LATEST="latest"
+
+if [[ "$BRANCH" != "master" ]]; then
+  TAG="$BRANCH-$TAG"
+  TAG_LATEST="$BRANCH-$TAG_LATEST"
+fi
 
 BASE=$(echo $IMAGES | cut -d ' ' -f1)
 
@@ -19,6 +25,6 @@ fi
 echo "pulling $PARENT"
 sudo darch images pull $PARENT
 echo "building $RECIPE"
-sudo darch recipes build -t latest -p "docker.io/burkostya/darch-thinkpad-" $RECIPE
+sudo darch recipes build -t $TAG_LATEST -p "docker.io/burkostya/darch-thinkpad-" $RECIPE
 echo "taging $RECIPE:$TAG"
-sudo darch images tag docker.io/burkostya/darch-thinkpad-$RECIPE:latest docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG
+sudo darch images tag docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG_LATEST docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG
