@@ -1,0 +1,14 @@
+[Unit]
+Description=Lock before suspend
+Before=sleep.target
+
+[Service]
+User=%I
+Type=simple
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/%i/.Xauthority
+ExecStart=/usr/bin/i3lock -c 333333 -n
+ExecStartPost=/usr/bin/sleep 1
+
+[Install]
+WantedBy=suspend.target

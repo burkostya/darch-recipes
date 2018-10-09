@@ -1,15 +1,30 @@
 #!/bin/bash
 set -e
 
+pacman -S --noconfirm ttf-dejavu
+
+# pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
+
+pacman -S --noconfirm docker docker-compose docker-machine
+# systemctl enable docker
+usermod -aG docker burkostya
+
+pacman -S --noconfirm libx264
+
+trizen -S --noconfirm --noedit visual-studio-code-bin
+runuser -l burkostya -c "cat $(pwd)/vscode-extensions | xargs -n 1 code --install-extension"
+
+trizen -S --noconfirm --noedit postman-bin
+
+pacman -S --noconfirm iotop sysdig
+
+pacman -S --noconfirm mosh
+
+trizen -S --noconfirm --noedit tldr
+
 pacman -S --noconfirm jq
 
 pacman -S --noconfirm go
-# vgo bug https://github.com/golang/go/issues/24773
-# mkdir /usr/lib/go/api
-# touch /usr/lib/go/api/go1.10.txt
-
-# install gvm
-runuser -l burkostya -c "curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/6ecd46d8b58c18f2a7bd5a1ab604cb57443cd35c/binscripts/gvm-installer | bash"
 
 pacman -S --noconfirm linux-headers
 pacman -S --noconfirm virtualbox virtualbox-host-modules-arch

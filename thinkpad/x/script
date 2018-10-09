@@ -17,6 +17,5 @@ cp wifi /usr/local/bin/
 
 pacman -S --noconfirm imagemagick
 
-trizen -S --noconfirm --noedit xsecurelock-git
-cp xsecurelock.service /etc/systemd/system/xsecurelock@.service
-systemctl enable xsecurelock@burkostya
+cp i3lock.service /etc/systemd/system/i3lock@.service
+systemctl enable i3lock@burkostya
