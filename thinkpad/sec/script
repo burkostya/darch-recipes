@@ -3,7 +3,7 @@ set -e
 
 pacman -S --noconfirm --needed gnupg pass
 
-trizen -S --noconfirm --noedit keybase-bin
+pacman -S --noconfirm --needed keybase keybase-gui
 
 pacman -S --noconfirm --needed pwgen
 trizen -S --noconfirm --noedit gpw
