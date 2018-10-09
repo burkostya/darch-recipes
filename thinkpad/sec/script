@@ -1,9 +1,7 @@
 #!/bin/bash
 set -e
 
-pacman -S --noconfirm --needed gnupg pass
+pacman -S --noconfirm --needed pwgen gnupg pass
 
 pacman -S --noconfirm --needed keybase keybase-gui
 
-pacman -S --noconfirm --needed pwgen
-trizen -S --noconfirm --noedit gpw
