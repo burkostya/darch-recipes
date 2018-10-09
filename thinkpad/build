@@ -5,9 +5,9 @@ IMAGES=$(sudo darch recipes build-dep)
 TAG=`date +"%Y-%m-%d-%H%M%S"`
 TAG_LATEST="latest"
 
-if [[ "$BRANCH" != "master" ]]; then
-  TAG="$BRANCH$TAG"
-  TAG_LATEST="$BRANCH$TAG_LATEST"
+if [[ "$BRANCH_NAME" != "master" ]]; then
+  TAG="$BRANCH_NAME$TAG"
+  TAG_LATEST="$BRANCH_NAME$TAG_LATEST"
 fi
 
 BASE=$(echo $IMAGES | cut -d ' ' -f1)
