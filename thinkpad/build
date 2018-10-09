@@ -22,12 +22,6 @@ if [[ $PARENT =~ ^($INTERNAL_IMAGES)$ ]]; then
   PARENT="docker.io/burkostya/darch-thinkpad-$PARENT"
 fi
 
-if [[ "$BRANCH_NAME" != "master" ]]; then
-  TAG="$BRANCH_NAME$TAG"
-  TAG_LATEST="$BRANCH_NAME$TAG_LATEST"
-  PARENT="$PARENT:$TAG"
-fi
-
 echo "pulling $PARENT"
 sudo darch images pull $PARENT
 echo "building $RECIPE"
