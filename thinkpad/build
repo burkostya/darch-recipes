@@ -20,6 +20,9 @@ INTERNAL_IMAGES=${IMAGES//$'\n'/|}
 
 if [[ $PARENT =~ ^($INTERNAL_IMAGES)$ ]]; then
   PARENT="docker.io/burkostya/darch-thinkpad-$PARENT"
+  if [[ "$BRANCH_NAME" != "master" ]]; then
+    PARENT="$PARENT$TAG_LATEST"
+  fi
 fi
 
 echo "pulling $PARENT"
