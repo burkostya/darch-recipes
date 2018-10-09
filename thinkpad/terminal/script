@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-trizen -S --noconfirm --noedit --needed libxcursor alacritty-git
+trizen -S --noconfirm --noedit --needed libxcursor alacritty
