@@ -88,4 +88,6 @@ cp nodns.conf /etc/NetworkManager/conf.d/
 touch /etc/NetworkManager/conf.d/resolv.conf
 systemctl enable NetworkManager
 
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+
 pacman -S --noconfirm unzip
