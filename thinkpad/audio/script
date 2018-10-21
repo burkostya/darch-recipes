@@ -9,3 +9,5 @@ pacman -S --noconfirm --needed pavucontrol
 
 pacman -S --noconfirm --needed sonic-pi
 pacman -S --noconfirm --needed cadence
+
+trizen -Scc --noconfirm

@@ -2,15 +2,17 @@
 set -e
 
 # Install i3
-pacman -S --noconfirm i3 compton xorg-xinit
-trizen -S --noconfirm --noedit j4-dmenu-desktop
-trizen -S --noconfirm --noedit polybar
-trizen -S --noconfirm --noedit unclutter-xfixes-git
-pacman -S --noconfirm autocutsel
+pacman -S --noconfirm --needed i3 compton xorg-xinit
+trizen -S --noconfirm --noedit --needed j4-dmenu-desktop
+trizen -S --noconfirm --noedit --needed polybar
+trizen -S --noconfirm --noedit --needed unclutter-xfixes-git
+pacman -S --noconfirm --needed autocutsel
 
-pacman -S --noconfirm redshift
+pacman -S --noconfirm --needed redshift
 
-pacman -S --noconfirm xorg-xwininfo xorg-xprop
+pacman -S --noconfirm --needed xorg-xwininfo xorg-xprop
 cp i3-window-criteria /usr/local/bin/
 
-trizen -S --noconfirm --noedit peek
+trizen -S --noconfirm --noedit --needed peek
+
+trizen -Scc --noconfirm

@@ -14,7 +14,7 @@ pacman-key --populate archlinux
 pacman -Syu --noconfirm
 
 # Let's update the mirrors.
-pacman -S --noconfirm wget sed
+pacman -S --noconfirm --needed wget sed
 
 wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
   | sed -e "s/#Server/Server/g" \
@@ -26,7 +26,7 @@ pacman -S --noconfirm --needed base base-devel
 pacman -S --noconfirm --needed curl patch
 curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/5c26a163f7815682793001312b0bd693bebb3d45/makepkg.patch | patch /usr/bin/makepkg
 
-pacman -S --noconfirm git
+pacman -S --noconfirm --needed git
 git clone https://aur.archlinux.org/trizen.git ~/trizen
 pushd ~/trizen
 makepkg -si --noconfirm
@@ -38,7 +38,7 @@ rm /etc/localtime
 ln -s ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
 # Time sync
-pacman -S --noconfirm ntp
+pacman -S --noconfirm --needed ntp
 systemctl enable ntpd
 
 # Setup the locales.
@@ -55,7 +55,7 @@ echo "LANG=en_US.UTF-8" > /etc/skel/.config/locale.conf
 locale-gen
 
 # Use fish, not bash
-pacman -S --noconfirm fish
+pacman -S --noconfirm --needed fish
 
 # Set the root password
 if [ -n  "$ROOT_PASSWD" ]; then
@@ -66,28 +66,30 @@ else
     echo -en "123\n123" | passwd
 fi
 
-pacman -S --noconfirm python
+pacman -S --noconfirm --needed python
 
-pacman -S --noconfirm polkit
+pacman -S --noconfirm --needed polkit
 
-pacman -S --noconfirm terminus-font
+pacman -S --noconfirm --needed terminus-font
 echo "FONT=ter-p32n" > /etc/vconsole.conf
 
 # install ssh
-pacman -S --noconfirm openssh
+pacman -S --noconfirm --needed openssh
 
-pacman -S --noconfirm tree
+pacman -S --noconfirm --needed tree
 
 # Enable systemd networking.
 cp wired.network /etc/systemd/network/
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
 
-pacman -S --noconfirm networkmanager
+pacman -S --noconfirm --needed networkmanager
 cp nodns.conf /etc/NetworkManager/conf.d/
 touch /etc/NetworkManager/conf.d/resolv.conf
 systemctl enable NetworkManager
 
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
-pacman -S --noconfirm unzip
+pacman -S --noconfirm --needed unzip
+
+trizen -Scc --noconfirm
