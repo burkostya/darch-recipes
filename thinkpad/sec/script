@@ -5,4 +5,4 @@ pacman -S --noconfirm --needed pwgen gnupg pass
 
 pacman -S --noconfirm --needed keybase keybase-gui
 
-trizen -Scc --noconfirm
+echo -en "y\nn" | trizen -Scc

@@ -15,4 +15,4 @@ cp i3-window-criteria /usr/local/bin/
 
 trizen -S --noconfirm --noedit --needed peek
 
-trizen -Scc --noconfirm
+echo -en "y\nn" | trizen -Scc

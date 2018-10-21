@@ -4,4 +4,4 @@ set -e
 pacman -S --noconfirm --needed telegram-desktop
 trizen -S --noconfirm --noedit --needed skypeforlinux-preview-bin
 
-trizen -Scc --noconfirm
+echo -en "y\nn" | trizen -Scc

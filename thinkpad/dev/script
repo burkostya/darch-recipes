@@ -53,4 +53,4 @@ pip3 install netaddr
 
 pacman -S --noconfirm --needed tinc
 
-trizen -Scc --noconfirm
+echo -en "y\nn" | trizen -Scc

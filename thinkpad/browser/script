@@ -9,4 +9,4 @@ echo "export BROWSER=chromium" > /etc/profile.d/browser.sh
 xdg-mime default chromium.desktop x-scheme-handler/https
 xdg-mime default chromium.desktop x-scheme-handler/http
 
-trizen -Scc --noconfirm
+echo -en "y\nn" | trizen -Scc

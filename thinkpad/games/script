@@ -6,4 +6,4 @@ echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 
 pacman -Sy --noconfirm --needed lib32-libglvnd steam ttf-liberation
 
-trizen -Scc --noconfirm
+echo -en "y\nn" | trizen -Scc

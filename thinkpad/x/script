@@ -20,4 +20,4 @@ pacman -S --noconfirm --needed imagemagick
 cp i3lock.service /etc/systemd/system/i3lock@.service
 systemctl enable i3lock@burkostya
 
-trizen -Scc --noconfirm
+echo -en "y\nn" | trizen -Scc

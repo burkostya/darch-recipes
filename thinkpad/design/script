@@ -3,4 +3,4 @@ set -e
 
 trizen -S --noconfirm --noedit --needed gravit-designer-bin
 
-trizen -Scc --noconfirm
+echo -en "y\nn" | trizen -Scc

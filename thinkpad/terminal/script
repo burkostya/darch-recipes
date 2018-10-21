@@ -3,4 +3,4 @@ set -e
 
 trizen -S --noconfirm --noedit --needed libxcursor alacritty
 
-trizen -Scc --noconfirm
+echo -en "y\nn" | trizen -Scc

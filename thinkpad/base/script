@@ -92,4 +92,4 @@ echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
 pacman -S --noconfirm --needed unzip
 
-trizen -Scc --noconfirm
+echo -en "y\nn" | trizen -Scc
