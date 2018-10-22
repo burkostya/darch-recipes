@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 
-pacman -S --noconfirm xf86-video-intel
-pacman -S --noconfirm xorg-server xorg-xrandr xorg-xdpyinfo
-pacman -S --noconfirm xorg-xinput xorg-xbacklight
-pacman -S --noconfirm xbindkeys
+pacman -S --noconfirm --needed xf86-video-intel
+pacman -S --noconfirm --needed xorg-server xorg-xrandr xorg-xdpyinfo
+pacman -S --noconfirm --needed xorg-xinput xorg-xbacklight
+pacman -S --noconfirm --needed xbindkeys
 
 # pacman -S --noconfirm udisks2 udiskie
 
@@ -15,7 +15,9 @@ cp 30-trackpoint.hwdb /etc/udev/hwdb.d/
 
 cp wifi /usr/local/bin/
 
-pacman -S --noconfirm imagemagick
+pacman -S --noconfirm --needed imagemagick
 
 cp i3lock.service /etc/systemd/system/i3lock@.service
 systemctl enable i3lock@burkostya
+
+echo -en "y\nn" | trizen -Scc

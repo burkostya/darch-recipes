@@ -2,9 +2,11 @@
 set -e
 
 pacman -Sy
-pacman -S --noconfirm chromium
-pacman -S --noconfirm firefox
+pacman -S --noconfirm --needed chromium
+pacman -S --noconfirm --needed firefox
 
 echo "export BROWSER=chromium" > /etc/profile.d/browser.sh
 xdg-mime default chromium.desktop x-scheme-handler/https
 xdg-mime default chromium.desktop x-scheme-handler/http
+
+echo -en "y\nn" | trizen -Scc

@@ -2,3 +2,5 @@
 set -e
 
 trizen -S --noconfirm --noedit --needed gravit-designer-bin
+
+echo -en "y\nn" | trizen -Scc

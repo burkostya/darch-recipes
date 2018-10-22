@@ -35,20 +35,22 @@ usermod -aG vboxusers burkostya
 # Fonts
 # trizen -S --noconfirm --noedit nerd-fonts-complete
 
-pacman -S --noconfirm vim
+pacman -S --noconfirm --needed vim
 
-pacman -S --noconfirm dbeaver
-pacman -S --noconfirm dbeaver-plugin-office dbeaver-plugin-svg-format
+pacman -S --noconfirm --needed dbeaver
+pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
 
 # trizen -S --noconfirm --noedit sos xsos
 
-pacman -S --noconfirm terraform
+pacman -S --noconfirm --needed terraform
 
-pacman -S --noconfirm ansible
+pacman -S --noconfirm --needed ansible
 
-pacman -S --noconfirm rsync
+pacman -S --noconfirm --needed rsync
 
-trizen -S --noconfirm --noedit python-pip
+trizen -S --noconfirm --noedit --needed python-pip
 pip3 install netaddr
 
-pacman -S --noconfirm tinc
+pacman -S --noconfirm --needed tinc
+
+echo -en "y\nn" | trizen -Scc
