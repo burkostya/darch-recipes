@@ -20,4 +20,4 @@ blocks:
       - name: build
         commands:
           - checkout
-          - cd ./thinkpad && RECIPE=base travis_retry ./ci
+          - cd ./thinkpad && RECIPE=base ./ci
