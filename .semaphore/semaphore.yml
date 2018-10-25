@@ -1,0 +1,23 @@
+version: v1.0
+name: Archlinux
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: "base"
+    task:
+      prologue:
+        commands:
+          - sudo apt install libseccomp-dev
+          - curl -s https://raw.githubusercontent.com/godarch/darch/develop/scripts/install | sudo DARCH_WITH_RUNTIME="yes" bash /dev/stdin
+          - sudo containerd &
+          - darch version
+          - sudo ctr version
+          - sudo runc --version
+      jobs:
+      - name: build
+        commands:
+          - checkout
+          - cd ./thinkpad && RECIPE=base travis_retry ./ci
