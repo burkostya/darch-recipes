@@ -78,6 +78,8 @@ pacman -S --noconfirm --needed openssh
 
 pacman -S --noconfirm --needed tree
 
+pacman -S --noconfirm --needed cups
+
 # Enable systemd networking.
 cp wired.network /etc/systemd/network/
 systemctl enable systemd-networkd
