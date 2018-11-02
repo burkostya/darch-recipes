@@ -17,7 +17,9 @@ blocks:
           - sudo ctr version
           - sudo runc --version
       jobs:
-      - name: build
-        commands:
-          - checkout
-          - cd ./thinkpad && RECIPE=base ./ci
+        - name: build
+          commands:
+            - checkout
+            - cd ./thinkpad && RECIPE=base ./ci
+      secrets:
+        - name: docker-login
