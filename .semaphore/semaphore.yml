@@ -20,6 +20,7 @@ blocks:
         - name: build
           commands:
             - checkout
+            - echo $DOCKER_LOGIN_USERNAME
             - cd ./thinkpad && RECIPE=base ./ci
       secrets:
         - name: docker-login
