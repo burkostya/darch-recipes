@@ -36,6 +36,7 @@ lvcreate -L 32MiB main -n pass
 lvcreate -L 10GiB main -n steam
 lvcreate -L 32MiB main -n unity3d
 lvcreate -L 128MiB main -n gravit
+lvcreate -L 32MiB main -n yed
 
 mkfs.ext4 /dev/mapper/main-darchconfig
 mkfs.ext4 /dev/mapper/main-darchlib
@@ -53,7 +54,7 @@ mkfs.ext4 /dev/mapper/main-gnupg
 mkfs.ext4 /dev/mapper/main-pass
 mkfs.ext4 /dev/mapper/main-steam
 mkfs.ext4 /dev/mapper/main-unity3d
-mkfs.ext4 /dev/mapper/main-gravit
+mkfs.ext4 /dev/mapper/main-yed
 
 mount /dev/mapper/main-root /mnt
 mkdir /mnt/boot
