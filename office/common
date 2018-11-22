@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-install_packages() {
-    pacman -S --noconfirm $*
-}
-
-install_aur_package() {
-    trizen -S --noconfirm --noedit $1
-}
