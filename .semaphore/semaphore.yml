@@ -27,6 +27,7 @@ blocks:
           commands:
             - checkout
             - echo login $DOCKER_LOGIN_USERNAME
+            - echo pass $DOCKER_LOGIN_PASSWORD
             - cd ./thinkpad && RECIPE=base ./ci
       secrets:
         - name: docker-login
