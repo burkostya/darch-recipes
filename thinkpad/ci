@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+docker login -u $DOCKER_LOGIN_USERNAME -p $DOCKER_LOGIN_PASSWORD
+
 . ./build
 
 sudo darch images push --user $DOCKER_LOGIN_USERNAME:$DOCKER_LOGIN_PASSWORD docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG
