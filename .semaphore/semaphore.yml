@@ -23,7 +23,7 @@ blocks:
           - sudo runc --version
           - sudo chmod a+rwX -R /tmp
       jobs:
-        - name: build
+        - name: base
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=base ./ci
@@ -33,7 +33,7 @@ blocks:
     task:
       prologue: *prologue
       jobs:
-        - name: build
+        - name: user
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=user ./ci
@@ -43,7 +43,7 @@ blocks:
     task:
       prologue: *prologue
       jobs:
-        - name: build
+        - name: sec
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=sec ./ci
@@ -53,7 +53,7 @@ blocks:
     task:
       prologue: *prologue
       jobs:
-        - name: build
+        - name: dev
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=dev ./ci
@@ -63,7 +63,7 @@ blocks:
     task:
       prologue: *prologue
       jobs:
-        - name: build
+        - name: x
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=x ./ci
@@ -73,7 +73,7 @@ blocks:
     task:
       prologue: *prologue
       jobs:
-        - name: build
+        - name: audio
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=audio ./ci
@@ -83,7 +83,7 @@ blocks:
     task:
       prologue: *prologue
       jobs:
-        - name: build
+        - name: i3
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=i3 ./ci
@@ -93,7 +93,7 @@ blocks:
     task:
       prologue: *prologue
       jobs:
-        - name: build
+        - name: browser
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=browser ./ci
@@ -103,7 +103,7 @@ blocks:
     task:
       prologue: *prologue
       jobs:
-        - name: build
+        - name: terminal
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=terminal ./ci
@@ -113,7 +113,7 @@ blocks:
     task:
       prologue: *prologue
       jobs:
-        - name: build
+        - name: social
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=social ./ci
@@ -123,17 +123,11 @@ blocks:
     task:
       prologue: *prologue
       jobs:
-        - name: build
+        - name: design
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=design ./ci
-      secrets:
-        - name: docker-login
-  - name: games
-    task:
-      prologue: *prologue
-      jobs:
-        - name: build
+        - name: games
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=games ./ci
