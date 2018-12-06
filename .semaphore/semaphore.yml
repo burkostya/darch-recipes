@@ -6,9 +6,9 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: "base"
+  - name: base
     task:
-      prologue:
+      prologue: &prologue
         commands:
           - sudo apt-get install -y libseccomp-dev curl gnupg software-properties-common
           - wget -O- -q https://github.com/containerd/containerd/releases/download/v1.2.0/containerd-1.2.0.linux-amd64.tar.gz | sudo tar xpz -C /
@@ -27,5 +27,115 @@ blocks:
           commands:
             - checkout
             - cd ./thinkpad && RECIPE=base ./ci
+      secrets:
+        - name: docker-login
+  - name: user
+    task:
+      prologue: *prologue
+      jobs:
+        - name: build
+          commands:
+            - checkout
+            - cd ./thinkpad && RECIPE=user ./ci
+      secrets:
+        - name: docker-login
+  - name: sec
+    task:
+      prologue: *prologue
+      jobs:
+        - name: build
+          commands:
+            - checkout
+            - cd ./thinkpad && RECIPE=sec ./ci
+      secrets:
+        - name: docker-login
+  - name: dev
+    task:
+      prologue: *prologue
+      jobs:
+        - name: build
+          commands:
+            - checkout
+            - cd ./thinkpad && RECIPE=dev ./ci
+      secrets:
+        - name: docker-login
+  - name: x
+    task:
+      prologue: *prologue
+      jobs:
+        - name: build
+          commands:
+            - checkout
+            - cd ./thinkpad && RECIPE=x ./ci
+      secrets:
+        - name: docker-login
+  - name: audio
+    task:
+      prologue: *prologue
+      jobs:
+        - name: build
+          commands:
+            - checkout
+            - cd ./thinkpad && RECIPE=audio ./ci
+      secrets:
+        - name: docker-login
+  - name: i3
+    task:
+      prologue: *prologue
+      jobs:
+        - name: build
+          commands:
+            - checkout
+            - cd ./thinkpad && RECIPE=i3 ./ci
+      secrets:
+        - name: docker-login
+  - name: browser
+    task:
+      prologue: *prologue
+      jobs:
+        - name: build
+          commands:
+            - checkout
+            - cd ./thinkpad && RECIPE=browser ./ci
+      secrets:
+        - name: docker-login
+  - name: terminal
+    task:
+      prologue: *prologue
+      jobs:
+        - name: build
+          commands:
+            - checkout
+            - cd ./thinkpad && RECIPE=terminal ./ci
+      secrets:
+        - name: docker-login
+  - name: social
+    task:
+      prologue: *prologue
+      jobs:
+        - name: build
+          commands:
+            - checkout
+            - cd ./thinkpad && RECIPE=social ./ci
+      secrets:
+        - name: docker-login
+  - name: design
+    task:
+      prologue: *prologue
+      jobs:
+        - name: build
+          commands:
+            - checkout
+            - cd ./thinkpad && RECIPE=design ./ci
+      secrets:
+        - name: docker-login
+  - name: games
+    task:
+      prologue: *prologue
+      jobs:
+        - name: build
+          commands:
+            - checkout
+            - cd ./thinkpad && RECIPE=games ./ci
       secrets:
         - name: docker-login
