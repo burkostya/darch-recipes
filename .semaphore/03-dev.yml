@@ -6,7 +6,7 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: user
+  - name: dev
     task:
       prologue: &prologue
         commands:
@@ -24,24 +24,6 @@ blocks:
           - sudo chmod a+rwX -R /tmp
           - checkout
           - cd ./thinkpad
-      jobs:
-        - name: user
-          commands:
-            - RECIPE=user retry -t 3 -s 10 ./ci
-      secrets:
-        - name: docker-login
-  - name: sec
-    task:
-      prologue: *prologue
-      jobs:
-        - name: sec
-          commands:
-            - RECIPE=sec retry -t 3 -s 10 ./ci
-      secrets:
-        - name: docker-login
-  - name: dev
-    task:
-      prologue: *prologue
       jobs:
         - name: dev
           commands:

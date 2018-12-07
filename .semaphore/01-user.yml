@@ -6,7 +6,7 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: base
+  - name: user
     task:
       prologue: &prologue
         commands:
@@ -25,14 +25,14 @@ blocks:
           - checkout
           - cd ./thinkpad
       jobs:
-        - name: base
+        - name: user
           commands:
-            - RECIPE=base retry -t 3 -s 10 ./ci
+            - RECIPE=user retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
 
 promotions:
-  - name: user
-    pipeline_file: 01-user.yml
+  - name: sec
+    pipeline_file: 02-sec.yml
     auto_promote_on:
     - result: passed
