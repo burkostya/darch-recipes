@@ -22,10 +22,10 @@ blocks:
           - sudo ctr version
           - sudo runc --version
           - sudo chmod a+rwX -R /tmp
+          - checkout
       jobs:
         - name: base
           commands:
-            - checkout
             - cd ./thinkpad && RECIPE=base retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
@@ -35,7 +35,6 @@ blocks:
       jobs:
         - name: user
           commands:
-            - checkout
             - cd ./thinkpad && RECIPE=user retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
@@ -45,7 +44,6 @@ blocks:
       jobs:
         - name: sec
           commands:
-            - checkout
             - cd ./thinkpad && RECIPE=sec retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
@@ -55,7 +53,6 @@ blocks:
       jobs:
         - name: dev
           commands:
-            - checkout
             - cd ./thinkpad && RECIPE=dev retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
@@ -65,7 +62,6 @@ blocks:
       jobs:
         - name: x
           commands:
-            - checkout
             - cd ./thinkpad && RECIPE=x retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
@@ -75,7 +71,6 @@ blocks:
       jobs:
         - name: audio
           commands:
-            - checkout
             - cd ./thinkpad && RECIPE=audio retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
@@ -85,7 +80,6 @@ blocks:
       jobs:
         - name: i3
           commands:
-            - checkout
             - cd ./thinkpad && RECIPE=i3 retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
@@ -95,7 +89,6 @@ blocks:
       jobs:
         - name: browser
           commands:
-            - checkout
             - cd ./thinkpad && RECIPE=browser retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
@@ -105,7 +98,6 @@ blocks:
       jobs:
         - name: terminal
           commands:
-            - checkout
             - cd ./thinkpad && RECIPE=terminal retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
@@ -115,7 +107,6 @@ blocks:
       jobs:
         - name: social
           commands:
-            - checkout
             - cd ./thinkpad && RECIPE=social retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
@@ -125,11 +116,9 @@ blocks:
       jobs:
         - name: design
           commands:
-            - checkout
             - cd ./thinkpad && RECIPE=design retry -t 3 -s 10 ./ci
         - name: games
           commands:
-            - checkout
             - cd ./thinkpad && RECIPE=games retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
