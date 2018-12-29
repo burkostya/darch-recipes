@@ -6,7 +6,7 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: audio
+  - name: i3
     task:
       prologue: &prologue
         commands:
@@ -25,14 +25,47 @@ blocks:
           - checkout
           - cd ./thinkpad
       jobs:
-        - name: audio
+        - name: i3
           commands:
-            - RECIPE=audio retry -t 3 -s 10 ./ci
+            - RECIPE=i3 retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
-
-promotions:
-  - name: i3
-    pipeline_file: 06-i3.yml
-    auto_promote_on:
-    - result: passed
+  - name: browser
+    task:
+      prologue: *prologue
+      jobs:
+        - name: browser
+          commands:
+            - RECIPE=browser retry -t 3 -s 10 ./ci
+      secrets:
+        - name: docker-login
+  - name: terminal
+    task:
+      prologue: *prologue
+      jobs:
+        - name: terminal
+          commands:
+            - RECIPE=terminal retry -t 3 -s 10 ./ci
+      secrets:
+        - name: docker-login
+  - name: social
+    task:
+      prologue: *prologue
+      jobs:
+        - name: social
+          commands:
+            - RECIPE=social retry -t 3 -s 10 ./ci
+      secrets:
+        - name: docker-login
+  - name: design
+    task:
+      prologue: *prologue
+      jobs:
+        - name: design
+          commands:
+            - RECIPE=design retry -t 3 -s 10 ./ci
+        - name: games
+          commands:
+            - RECIPE=games retry -t 3 -s 10 ./ci
+      secrets:
+        - name: docker-login
