@@ -1,12 +1,12 @@
 version: v1.0
-name: i3
+name: browser
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 blocks:
-  - name: i3
+  - name: browser
     task:
       prologue: &prologue
         commands:
@@ -25,14 +25,38 @@ blocks:
           - checkout
           - cd ./thinkpad
       jobs:
-        - name: i3
+        - name: browser
           commands:
-            - RECIPE=i3 retry -t 3 -s 10 ./ci
+            - RECIPE=browser retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
-
-promotions:
-  - name: browser
-    pipeline_file: 07-browser.yml
-    auto_promote_on:
-    - result: passed
+  - name: terminal
+    task:
+      prologue: *prologue
+      jobs:
+        - name: terminal
+          commands:
+            - RECIPE=terminal retry -t 3 -s 10 ./ci
+      secrets:
+        - name: docker-login
+  - name: social
+    task:
+      prologue: *prologue
+      jobs:
+        - name: social
+          commands:
+            - RECIPE=social retry -t 3 -s 10 ./ci
+      secrets:
+        - name: docker-login
+  - name: design
+    task:
+      prologue: *prologue
+      jobs:
+        - name: design
+          commands:
+            - RECIPE=design retry -t 3 -s 10 ./ci
+        - name: games
+          commands:
+            - RECIPE=games retry -t 3 -s 10 ./ci
+      secrets:
+        - name: docker-login
