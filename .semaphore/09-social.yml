@@ -1,12 +1,12 @@
 version: v1.0
-name: x
+name: social
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 blocks:
-  - name: x
+  - name: social
     task:
       prologue:
         commands:
@@ -25,14 +25,14 @@ blocks:
           - checkout
           - cd ./thinkpad
       jobs:
-        - name: x
+        - name: social
           commands:
-            - RECIPE=x retry -t 3 -s 10 ./ci
+            - RECIPE=social retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
 
 promotions:
-  - name: audio
-    pipeline_file: 05-audio.yml
+  - name: final
+    pipeline_file: 10-final.yml
     auto_promote_on:
     - result: passed

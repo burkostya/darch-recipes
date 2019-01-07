@@ -8,7 +8,7 @@ agent:
 blocks:
   - name: browser
     task:
-      prologue: &prologue
+      prologue:
         commands:
           - sudo apt-get install -y libseccomp-dev curl gnupg software-properties-common
           - wget -O- -q https://github.com/containerd/containerd/releases/download/v1.2.0/containerd-1.2.0.linux-amd64.tar.gz | sudo tar xpz -C /
@@ -30,33 +30,9 @@ blocks:
             - RECIPE=browser retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
+
+promotions:
   - name: terminal
-    task:
-      prologue: *prologue
-      jobs:
-        - name: terminal
-          commands:
-            - RECIPE=terminal retry -t 3 -s 10 ./ci
-      secrets:
-        - name: docker-login
-  - name: social
-    task:
-      prologue: *prologue
-      jobs:
-        - name: social
-          commands:
-            - RECIPE=social retry -t 3 -s 10 ./ci
-      secrets:
-        - name: docker-login
-  - name: design
-    task:
-      prologue: *prologue
-      jobs:
-        - name: design
-          commands:
-            - RECIPE=design retry -t 3 -s 10 ./ci
-        - name: games
-          commands:
-            - RECIPE=games retry -t 3 -s 10 ./ci
-      secrets:
-        - name: docker-login
+    pipeline_file: 08-terminal.yml
+    auto_promote_on:
+    - result: passed
