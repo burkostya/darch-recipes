@@ -2,6 +2,6 @@
 set -e
 
 trizen -S --noconfirm --noedit --needed gravit-designer-bin
-trizen -S --noconfirm --noedit --needed yed
+trizen -S --noconfirm --noedit --needed archlinux-java-run yed
 
 echo -en "y\nn" | trizen -Scc
