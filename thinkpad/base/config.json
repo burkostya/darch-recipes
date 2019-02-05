@@ -1,3 +1,3 @@
 {
-    "inherits": "external:docker.io/burkostya/arch:latest"
+    "inherits": "external:docker.io/burkostya/arch:2019-02-01"
 }
