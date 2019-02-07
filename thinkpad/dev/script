@@ -53,4 +53,8 @@ pip3 install netaddr
 
 pacman -S --noconfirm --needed tinc
 
+trizen -S --noconfirm --noedit --needed perf-tools
+# pacman -S --noconfirm --needed clang llvm
+# trizen -S --noconfirm --noedit --needed bpftrace
+
 echo -en "y\nn" | trizen -Scc
