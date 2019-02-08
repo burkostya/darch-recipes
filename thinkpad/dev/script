@@ -55,6 +55,7 @@ pacman -S --noconfirm --needed tinc
 
 trizen -S --noconfirm --noedit --needed perf-tools
 pacman -S --noconfirm --needed clang llvm netperf iperf
+pacman -S --noconfirm --needed strace
 trizen -S --noconfirm --noedit --needed bcc bpftrace-git
 
 echo -en "y\nn" | trizen -Scc
