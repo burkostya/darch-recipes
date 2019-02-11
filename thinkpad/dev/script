@@ -60,5 +60,6 @@ trizen -S --noconfirm --noedit --needed bcc bcc-tools python-bcc python2-bcc
 trizen -S --noconfirm --noedit --needed bpftrace-git fatrace
 trizen -S --noconfirm --noedit --needed pygtk swig trace-cmd
 trizen -S --noconfirm --noedit --needed flamegraph
+trizen -S --noconfirm --noedit --needed ctop
 
 echo -en "y\nn" | trizen -Scc
