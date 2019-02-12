@@ -62,4 +62,6 @@ trizen -S --noconfirm --noedit --needed pygtk swig trace-cmd
 trizen -S --noconfirm --noedit --needed flamegraph
 trizen -S --noconfirm --noedit --needed ctop
 
+pacman -S --noconfirm --needed syncthing syncthing-gtk
+
 echo -en "y\nn" | trizen -Scc
