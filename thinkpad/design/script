@@ -3,5 +3,6 @@ set -e
 
 trizen -S --noconfirm --noedit --needed gravit-designer-bin
 trizen -S --noconfirm --noedit --needed archlinux-java-run yed
+pacman -S --noconfirm --needed dia
 
 echo -en "y\nn" | trizen -Scc
