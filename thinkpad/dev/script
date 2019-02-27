@@ -23,6 +23,8 @@ pacman -S --noconfirm mosh
 trizen -S --noconfirm --noedit tldr
 
 pacman -S --noconfirm jq
+
+trizen -S --noconfirm --noedit --needed python-xmltodict python-toml
 trizen -S --noconfirm --noedit --needed yq
 
 pacman -S --noconfirm go
