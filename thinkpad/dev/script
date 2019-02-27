@@ -43,6 +43,7 @@ pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
 # trizen -S --noconfirm --noedit sos xsos
 
 pacman -S --noconfirm --needed terraform
+trizen -S --noconfirm --noedit --needed kubectl
 
 pacman -S --noconfirm --needed ansible
 
