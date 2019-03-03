@@ -28,6 +28,7 @@ lvcreate -L 8MiB main -n ssh
 lvcreate -L 600MiB main -n chromium
 lvcreate -L 2GiB main -n localshare
 lvcreate -L 50GiB main -n go
+lvcreate -L 50GiB main -n src
 lvcreate -L 8MiB main -n dbeaver
 lvcreate -L 32MiB main -n dbeaver-drivers
 lvcreate -L 50GiB main -n dockerlib
@@ -47,6 +48,7 @@ mkfs.ext4 /dev/mapper/main-ssh
 mkfs.ext4 /dev/mapper/main-chromium
 mkfs.ext4 /dev/mapper/main-localshare
 mkfs.ext4 /dev/mapper/main-go
+mkfs.ext4 /dev/mapper/main-src
 mkfs.ext4 /dev/mapper/main-dbeaver
 mkfs.ext4 /dev/mapper/main-dbeaver--drivers
 mkfs.ext4 /dev/mapper/main-dockerlib
