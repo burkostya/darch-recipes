@@ -100,3 +100,4 @@ echo "/dev/main/steam	/home/burkostya/.local/share/Steam	ext4	defaults,relatime,
 echo "/dev/main/unity3d	/home/burkostya/.config/unity3d	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
 echo "/dev/main/gravit	/home/burkostya/.config/GravitDesigner	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
 echo "/dev/main/yed	/home/burkostya/.yEd	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
+echo "/dev/main/terraform	/home/burkostya/.terraform.d	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
