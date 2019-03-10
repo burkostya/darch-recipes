@@ -39,6 +39,7 @@ lvcreate -L 32MiB main -n unity3d
 lvcreate -L 128MiB main -n gravit
 lvcreate -L 32MiB main -n yed
 lvcreate -L 512MiB main -n terraform
+lvcreate -L 64MiB main -n k8s
 
 mkfs.ext4 /dev/mapper/main-darchconfig
 mkfs.ext4 /dev/mapper/main-darchlib
@@ -59,6 +60,7 @@ mkfs.ext4 /dev/mapper/main-steam
 mkfs.ext4 /dev/mapper/main-unity3d
 mkfs.ext4 /dev/mapper/main-yed
 mkfs.ext4 /dev/mapper/main-terraform
+mkfs.ext4 /dev/mapper/main-k8s
 
 mount /dev/mapper/main-root /mnt
 mkdir /mnt/boot
