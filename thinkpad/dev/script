@@ -46,7 +46,8 @@ pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
 # trizen -S --noconfirm --noedit sos xsos
 
 pacman -S --noconfirm --needed terraform
-trizen -S --noconfirm --noedit --needed kubectl-bin kubernetes-helm-bin minikube-bin
+trizen -S --noconfirm --noedit --needed minikube-bin kubectl-bin 
+trizen -S --noconfirm --noedit --needed kubernetes-helm-bin kustomize-bin draft-bin
 
 pacman -S --noconfirm --needed ansible
 
