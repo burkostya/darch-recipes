@@ -45,6 +45,8 @@ pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
 
 # trizen -S --noconfirm --noedit sos xsos
 
+echo -en "y\nn" | trizen -Scc
+
 pacman -S --noconfirm --needed terraform
 trizen -S --noconfirm --noedit --needed minikube-bin kubectl-bin 
 trizen -S --noconfirm --noedit --needed kubernetes-helm-bin kustomize-bin draft-bin
@@ -57,6 +59,8 @@ trizen -S --noconfirm --noedit --needed python-pip
 pip3 install netaddr
 
 pacman -S --noconfirm --needed tinc
+
+echo -en "y\nn" | trizen -Scc
 
 trizen -S --noconfirm --noedit --needed perf-tools
 pacman -S --noconfirm --needed clang llvm netperf iperf ethtool powertop
