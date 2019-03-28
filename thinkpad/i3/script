@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Resyn the database
+pacman -Sy --noconfirm
+
 # Install i3
 pacman -S --noconfirm --needed i3 compton xorg-xinit
 
