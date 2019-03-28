@@ -30,6 +30,7 @@ blocks:
             - RECIPE=user retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
+        - name: userpass
 
 promotions:
   - name: sec

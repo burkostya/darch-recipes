@@ -30,6 +30,7 @@ blocks:
             - RECIPE=base retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
+        - name: rootpass
 
 promotions:
   - name: user
