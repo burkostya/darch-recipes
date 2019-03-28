@@ -92,6 +92,8 @@ systemctl enable NetworkManager
 
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
+echo "DNSSEC=no" >> /etc/systemd/resolved.conf
+
 pacman -S --noconfirm --needed unzip
 
 echo -en "y\nn" | trizen -Scc
