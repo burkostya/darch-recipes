@@ -9,7 +9,7 @@ pacman -S --noconfirm --needed i3 compton xorg-xinit
 
 gpg --recv-keys A1774C1B37DC1DCEDB65EE469B8450B91D1362C1
 # gpg --lsign-key A1774C1B37DC1DCEDB65EE469B8450B91D1362C1
-trizen -S --noconfirm --noedit --needed j4-dmenu-desktop
+trizen -S --noconfirm --noedit --needed dmenu j4-dmenu-desktop
 trizen -S --noconfirm --noedit --needed polybar
 trizen -S --noconfirm --noedit --needed unclutter-xfixes-git
 pacman -S --noconfirm --needed autocutsel
