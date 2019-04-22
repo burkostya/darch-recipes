@@ -25,7 +25,7 @@ trizen -S --noconfirm --noedit tldr
 pacman -S --noconfirm jq
 
 trizen -S --noconfirm --noedit --needed python-xmltodict python-toml
-trizen -S --noconfirm --noedit --needed yq
+trizen -S --noconfirm --noedit --needed yq pup-bin
 
 pacman -S --noconfirm go
 
