@@ -80,6 +80,8 @@ pacman -S --noconfirm --needed tree
 
 pacman -S --noconfirm --needed cups
 
+systemctl disable man-db.timer
+
 # Enable systemd networking.
 cp wired.network /etc/systemd/network/
 systemctl enable systemd-networkd
