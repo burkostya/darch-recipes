@@ -41,6 +41,7 @@ lvcreate -L 32MiB main -n yed
 lvcreate -L 512MiB main -n terraform
 lvcreate -L 64MiB main -n k8s
 lvcreate -L 64MiB main -n helm
+lvcreate -L 8MiB main -n vpn
 
 mkfs.ext4 /dev/mapper/main-darchconfig
 mkfs.ext4 /dev/mapper/main-darchlib
@@ -63,6 +64,7 @@ mkfs.ext4 /dev/mapper/main-yed
 mkfs.ext4 /dev/mapper/main-terraform
 mkfs.ext4 /dev/mapper/main-k8s
 mkfs.ext4 /dev/mapper/main-helm
+mkfs.ext4 /dev/mapper/main-vpn
 
 mount /dev/mapper/main-root /mnt
 mkdir /mnt/boot
