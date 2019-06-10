@@ -16,7 +16,7 @@ pacman -Syu --noconfirm
 # Let's update the mirrors.
 pacman -S --noconfirm --needed wget sed
 
-wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
+wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&country\=PL\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
   | sed -e "s/#Server/Server/g" \
   | sed "/aur\.rocks/d" \
   > /etc/pacman.d/mirrorlist
