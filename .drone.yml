@@ -1,0 +1,37 @@
+kind: pipeline
+name: default
+
+steps:
+- name: base
+  image: ubuntu:18.04
+  commands:
+    - sudo apt-get install -y libseccomp-dev curl gnupg software-properties-common
+    - wget -O- -q https://github.com/containerd/containerd/releases/download/v1.2.0/containerd-1.2.0.linux-amd64.tar.gz | sudo tar xpz -C /
+    - sudo wget https://github.com/opencontainers/runc/releases/download/v1.0.0-rc5/runc.amd64 -O /bin/runc && sudo chmod +x /bin/runc
+    - curl -s https://raw.githubusercontent.com/godarch/darch/develop/scripts/install | sudo DARCH_TAG=v0.26.4 bash /dev/stdin
+    - sudo mkdir -p /etc/containerd
+    - echo 'disabled_plugins = ["cri"]' | sudo tee /etc/containerd/config.toml
+    - sudo containerd &
+    - sleep 5
+    - darch version
+    - sudo ctr version
+    - sudo runc --version
+    - sudo chmod a+rwX -R /tmp
+    - checkout
+    - cd ./thinkpad
+    - RECIPE=base ./ci
+
+- name: publish
+  image: plugins/docker
+  settings:
+    username: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    password: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+    repo: burkostya/arch
+    tags: 
+      - latest
+      - 2019-06-01
+  when:
+    branch:
+    - master
