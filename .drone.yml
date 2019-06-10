@@ -1,8 +1,8 @@
 kind: pipeline
-name: default
+name: base
 
 steps:
-- name: base
+- name: build
   image: ubuntu:18.04
   commands:
     - sudo apt-get install -y libseccomp-dev curl gnupg software-properties-common
@@ -31,7 +31,6 @@ steps:
     repo: burkostya/arch
     tags: 
       - latest
-      - 2019-06-01
   when:
     branch:
     - master
