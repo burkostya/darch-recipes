@@ -1,6 +1,18 @@
 kind: pipeline
 name: base
 
+services:
+- name: docker
+  image: docker:dind
+  privileged: true
+  volumes:
+  - name: dockersock
+    path: /var/run
+
+volumes:
+- name: dockersock
+  temp: {}
+
 steps:
 - name: build
   image: ubuntu:18.04
