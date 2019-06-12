@@ -19,7 +19,6 @@ steps:
     - ctr version
     - runc --version
     - chmod a+rwX -R /tmp
-    - checkout
     - cd ./thinkpad
     - RECIPE=base ./ci
 
