@@ -11,7 +11,7 @@ steps:
 - name: build
   image: ubuntu:18.04
   environment:
-    - DOCKER_HOST=unix:///drone/docker.sock
+    DOCKER_HOST: "unix:///drone/docker.sock"
   commands:
     - apt update -y
     - apt upgrade -y
