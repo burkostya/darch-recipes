@@ -6,12 +6,12 @@ pacman-key --init
 pacman-key --populate archlinux
 
 # Resyn the database
-pacman -Sy --noconfirm
+pacman -Syy --noconfirm
 # Update gpg keys before we install anything else.
 pacman -S --noconfirm --needed archlinux-keyring
 pacman-key --populate archlinux
 # Now update everything.
-pacman -Syu --noconfirm
+pacman -Syyu --noconfirm
 
 # Let's update the mirrors.
 pacman -S --noconfirm --needed wget sed
