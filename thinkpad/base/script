@@ -22,6 +22,8 @@ wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\
 
 echo 'Server = http://mirror.rackspace.com/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 
+pacman -Syyu --noconfirm
+
 pacman -S --noconfirm --needed systemd-resolvconf base base-devel
 
 pacman -S --noconfirm --needed curl patch
