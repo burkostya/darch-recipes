@@ -25,6 +25,6 @@ echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 # runuser -l burkostya -c "git clone https://github.com/oh-my-fish/oh-my-fish.git ~/oh-my-fish"
 # runuser -l burkostya -c "cd ~/oh-my-fish; and bin/install --noninteractive"
 
-trizen -S --noconfirm --noedit fisher
+# trizen -S --noconfirm --noedit fisher
 
-runuser -l burkostya -c "fisher add edc/bass"
+# runuser -l burkostya -c "fisher add edc/bass"
