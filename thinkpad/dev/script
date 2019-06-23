@@ -8,6 +8,7 @@ pacman -S --noconfirm ttf-dejavu otf-fira-code
 pacman -S --noconfirm docker docker-compose docker-machine
 # systemctl enable docker
 usermod -aG docker burkostya
+pacman -S --noconfirm buildah skopeo podman
 
 pacman -S --noconfirm libx264
 
