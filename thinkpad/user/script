@@ -28,3 +28,7 @@ echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 # trizen -S --noconfirm --noedit fisher
 
 # runuser -l burkostya -c "fisher add edc/bass"
+
+trizen -S --noconfirm --noedit --needed upower kbdlightx1
+
+echo -en "y\nn" | pacman -Scc
