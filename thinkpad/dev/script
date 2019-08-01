@@ -82,4 +82,6 @@ trizen -S --noconfirm --noedit --needed ctop
 
 pacman -S --noconfirm --needed syncthing syncthing-gtk
 
+trizen -S --noconfirm --noedit --needed alloy
+
 echo -en "y\nn" | trizen -Scc
