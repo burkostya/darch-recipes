@@ -31,4 +31,7 @@ echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 
 trizen -S --noconfirm --noedit --needed upower kbdlightx1
 
+# extra fonts
+pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
+
 echo -en "y\nn" | pacman -Scc

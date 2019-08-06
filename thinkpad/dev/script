@@ -3,8 +3,6 @@ set -e
 
 pacman -S --noconfirm ttf-dejavu otf-fira-code
 
-# pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
-
 pacman -S --noconfirm docker docker-compose docker-machine
 # systemctl enable docker
 usermod -aG docker burkostya
