@@ -5,5 +5,6 @@ trizen -S --noconfirm --noedit --needed gravit-designer-bin
 trizen -S --noconfirm --noedit --needed archlinux-java-run yed
 pacman -S --noconfirm --needed dia
 pacman -S --noconfirm --needed graphviz
+trizen -S --noconfirm --noedit --needed drawio-desktop
 
 echo -en "y\nn" | trizen -Scc
