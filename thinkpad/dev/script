@@ -80,6 +80,6 @@ trizen -S --noconfirm --noedit --needed ctop
 
 pacman -S --noconfirm --needed syncthing syncthing-gtk
 
-trizen -S --noconfirm --noedit --needed alloy
+trizen -S --noconfirm --noedit --needed alloy tla-toolbox
 
 echo -en "y\nn" | trizen -Scc
