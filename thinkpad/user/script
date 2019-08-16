@@ -33,5 +33,6 @@ trizen -S --noconfirm --noedit --needed upower kbdlightx1
 
 # extra fonts
 pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
+pacman -S --noconfirm ttf-roboto
 
 echo -en "y\nn" | pacman -Scc
