@@ -29,7 +29,7 @@ echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 
 # runuser -l burkostya -c "fisher add rafaelrinaldi/pure"
 
-trizen -S --noconfirm --noedit --needed upower kbdlightx1
+trizen -S --noconfirm --noedit --needed upower
 
 # extra fonts
 pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
