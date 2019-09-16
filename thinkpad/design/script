@@ -3,7 +3,7 @@ set -e
 
 pacman -S --noconfirm --needed scrot
 
-trizen -S --noconfirm --noedit --needed gravit-designer-bin
+trizen -S --noconfirm --noedit --needed --skipinteg gravit-designer-bin
 trizen -S --noconfirm --noedit --needed archlinux-java-run yed
 pacman -S --noconfirm --needed dia
 pacman -S --noconfirm --needed graphviz
