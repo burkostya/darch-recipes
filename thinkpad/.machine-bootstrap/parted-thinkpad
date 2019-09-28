@@ -54,7 +54,7 @@ mkfs.ext4 /dev/mapper/main-localshare
 mkfs.ext4 /dev/mapper/main-go
 mkfs.ext4 /dev/mapper/main-src
 mkfs.ext4 /dev/mapper/main-dbeaver
-mkfs.ext4 /dev/mapper/main-dbeaver--drivers
+mkfs.ext4 /dev/mapper/main-dbeaver-drivers
 mkfs.ext4 /dev/mapper/main-dockerlib
 mkfs.ext4 /dev/mapper/main-gnupg
 mkfs.ext4 /dev/mapper/main-pass
