@@ -19,52 +19,37 @@ mkfs.fat -F32 "${disk}p1"
 
 pvcreate "${disk}p2"
 vgcreate main "${disk}p2"
-lvcreate -L 100MB main -n darchconfig
-lvcreate -L 40GiB main -n darchlib
-lvcreate -L 10GiB main -n root
-lvcreate -L 100GiB main -n home
-lvcreate -L 4MiB main -n nm
-lvcreate -L 8MiB main -n ssh
-lvcreate -L 600MiB main -n chromium
-lvcreate -L 2GiB main -n localshare
-lvcreate -L 50GiB main -n go
-lvcreate -L 50GiB main -n src
-lvcreate -L 8MiB main -n dbeaver
-lvcreate -L 32MiB main -n dbeaver-drivers
-lvcreate -L 50GiB main -n dockerlib
-lvcreate -L 4MiB main -n gnupg
-lvcreate -L 32MiB main -n pass
-lvcreate -L 10GiB main -n steam
-lvcreate -L 32MiB main -n unity3d
-lvcreate -L 128MiB main -n gravit
-lvcreate -L 32MiB main -n yed
-lvcreate -L 512MiB main -n terraform
-lvcreate -L 64MiB main -n k8s
-lvcreate -L 64MiB main -n helm
-lvcreate -L 8MiB main -n vpn
 
-mkfs.ext4 /dev/mapper/main-darchconfig
-mkfs.ext4 /dev/mapper/main-darchlib
-mkfs.ext4 /dev/mapper/main-root
-mkfs.ext4 /dev/mapper/main-home
-mkfs.ext4 /dev/mapper/main-nm
-mkfs.ext4 /dev/mapper/main-ssh
-mkfs.ext4 /dev/mapper/main-chromium
-mkfs.ext4 /dev/mapper/main-localshare
-mkfs.ext4 /dev/mapper/main-go
-mkfs.ext4 /dev/mapper/main-src
-mkfs.ext4 /dev/mapper/main-dbeaver
-mkfs.ext4 /dev/mapper/main-dbeaver-drivers
-mkfs.ext4 /dev/mapper/main-dockerlib
-mkfs.ext4 /dev/mapper/main-gnupg
-mkfs.ext4 /dev/mapper/main-pass
-mkfs.ext4 /dev/mapper/main-steam
-mkfs.ext4 /dev/mapper/main-unity3d
-mkfs.ext4 /dev/mapper/main-yed
-mkfs.ext4 /dev/mapper/main-terraform
-mkfs.ext4 /dev/mapper/main-k8s
-mkfs.ext4 /dev/mapper/main-helm
-mkfs.ext4 /dev/mapper/main-vpn
+declare -A volumes=(
+        ["darchconfig"]="100MB" 
+        ["darchlib"]="40GiB" 
+        ["root"]="10GiB" 
+        ["home"]="100GiB" 
+        ["nm"]="4MiB" 
+        ["ssh"]="8MiB" 
+        ["chromium"]="600MiB" 
+        ["localshare"]="2GiB" 
+        ["go"]="50GiB" 
+        ["src"]="50GiB" 
+        ["dbeaver"]="8MiB" 
+        ["dbeaver"]="drivers" 32MiB 
+        ["dockerlib"]="50GiB" 
+        ["gnupg"]="4MiB" 
+        ["pass"]="32MiB" 
+        ["steam"]="10GiB" 
+        ["unity3d"]="32MiB" 
+        ["gravit"]="128MiB" 
+        ["yed"]="32MiB" 
+        ["terraform"]="512MiB" 
+        ["k8s"]="64MiB" 
+        ["helm"]="64MiB" 
+        ["vpn"]="8MiB" 
+)
+
+for name in "${!volumes[@]}"; do
+        lvcreate -L ${volumes[$name]} main -n $name
+        mkfs.ext4 /dev/main/${name}
+done
 
 mount /dev/mapper/main-root /mnt
 mkdir /mnt/boot
