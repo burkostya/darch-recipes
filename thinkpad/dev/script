@@ -15,6 +15,8 @@ echo "burkostya:100000:65536" >> /etc/subuid
 echo "root:100000:65536" > /etc/subgid
 echo "burkostya:100000:65536" >> /etc/subgid
 
+echo "Timespamp: $(date)"
+
 pacman -S --noconfirm libx264
 
 trizen -S --noconfirm --noedit visual-studio-code-bin
@@ -26,6 +28,8 @@ pacman -S --noconfirm iotop sysdig
 
 pacman -S --noconfirm mosh
 
+echo "Timespamp: $(date)"
+
 trizen -S --noconfirm --noedit tldr
 
 pacman -S --noconfirm jq
@@ -34,6 +38,8 @@ trizen -S --noconfirm --noedit --needed python-xmltodict python-toml
 trizen -S --noconfirm --noedit --needed yq pup-bin
 
 pacman -S --noconfirm go
+
+echo "Timespamp: $(date)"
 
 pacman -S --noconfirm linux-headers
 pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
@@ -44,6 +50,8 @@ usermod -aG vboxusers burkostya
 # Fonts
 # trizen -S --noconfirm --noedit nerd-fonts-complete
 
+echo "Timespamp: $(date)"
+
 pacman -S --noconfirm --needed vim
 
 pacman -S --noconfirm --needed dbeaver
@@ -53,6 +61,8 @@ pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
 
 echo -en "y\nn" | trizen -Scc
 
+echo "Timespamp: $(date)"
+
 pacman -S --noconfirm --needed terraform
 trizen -S --noconfirm --noedit --needed minikube-bin kubectl-bin 
 trizen -S --noconfirm --noedit --needed kubernetes-helm-bin kustomize-bin draft-bin
@@ -61,6 +71,8 @@ pacman -S --noconfirm --needed ansible
 
 pacman -S --noconfirm --needed rsync
 
+echo "Timespamp: $(date)"
+
 trizen -S --noconfirm --noedit --needed python-pip
 pip3 install netaddr
 
@@ -68,18 +80,26 @@ pacman -S --noconfirm --needed tinc
 
 echo -en "y\nn" | trizen -Scc
 
+echo "Timespamp: $(date)"
+
 trizen -S --noconfirm --noedit --needed perf-tools
 pacman -S --noconfirm --needed clang llvm netperf iperf ethtool powertop
 pacman -S --noconfirm --needed strace
+echo "Timespamp: $(date)"
 trizen -S --noconfirm --noedit --needed bcc bcc-tools python-bcc python2-bcc
 trizen -S --noconfirm --noedit --needed bpftrace-git || true
 trizen -S --noconfirm --noedit --needed fatrace
+echo "Timespamp: $(date)"
 trizen -S --noconfirm --noedit --needed pygtk swig trace-cmd
 trizen -S --noconfirm --noedit --needed flamegraph
 trizen -S --noconfirm --noedit --needed ctop
+
+echo "Timespamp: $(date)"
 
 pacman -S --noconfirm --needed syncthing syncthing-gtk
 
 trizen -S --noconfirm --noedit --needed alloy tla-toolbox
 
 echo -en "y\nn" | trizen -Scc
+
+echo "Timespamp: $(date)"
