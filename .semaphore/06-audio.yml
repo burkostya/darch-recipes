@@ -1,12 +1,12 @@
 version: v1.0
-name: social
+name: audio
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 blocks:
-  - name: social
+  - name: audio
     task:
       prologue:
         commands:
@@ -25,14 +25,14 @@ blocks:
           - checkout
           - cd ./thinkpad
       jobs:
-        - name: social
+        - name: audio
           commands:
-            - RECIPE=social retry -t 3 -s 10 ./ci
+            - RECIPE=audio retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
 
 promotions:
-  - name: final
-    pipeline_file: 10-final.yml
+  - name: i3
+    pipeline_file: 07-i3.yml
     auto_promote_on:
     - result: passed

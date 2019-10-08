@@ -1,12 +1,12 @@
 version: v1.0
-name: audio
+name: x
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 blocks:
-  - name: audio
+  - name: x
     task:
       prologue:
         commands:
@@ -25,14 +25,14 @@ blocks:
           - checkout
           - cd ./thinkpad
       jobs:
-        - name: audio
+        - name: x
           commands:
-            - RECIPE=audio retry -t 3 -s 10 ./ci
+            - RECIPE=x retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
 
 promotions:
-  - name: i3
-    pipeline_file: 06-i3.yml
+  - name: audio
+    pipeline_file: 06-audio.yml
     auto_promote_on:
     - result: passed

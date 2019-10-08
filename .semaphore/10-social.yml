@@ -1,12 +1,12 @@
 version: v1.0
-name: terminal
+name: social
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 blocks:
-  - name: terminal
+  - name: social
     task:
       prologue:
         commands:
@@ -25,14 +25,14 @@ blocks:
           - checkout
           - cd ./thinkpad
       jobs:
-        - name: terminal
+        - name: social
           commands:
-            - RECIPE=terminal retry -t 3 -s 10 ./ci
+            - RECIPE=social retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
 
 promotions:
-  - name: social
-    pipeline_file: 09-social.yml
+  - name: final
+    pipeline_file: 11-final.yml
     auto_promote_on:
     - result: passed

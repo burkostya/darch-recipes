@@ -33,6 +33,6 @@ blocks:
 
 promotions:
   - name: terminal
-    pipeline_file: 08-terminal.yml
+    pipeline_file: 09-terminal.yml
     auto_promote_on:
     - result: passed

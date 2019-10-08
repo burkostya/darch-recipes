@@ -33,6 +33,6 @@ blocks:
 
 promotions:
   - name: browser
-    pipeline_file: 07-browser.yml
+    pipeline_file: 08-browser.yml
     auto_promote_on:
     - result: passed

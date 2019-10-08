@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+trizen -S --noconfirm --noedit --needed perf-tools
+pacman -S --noconfirm --needed clang llvm netperf iperf ethtool powertop
+pacman -S --noconfirm --needed strace
+trizen -S --noconfirm --noedit --needed bcc bcc-tools python-bcc python2-bcc
+trizen -S --noconfirm --noedit --needed bpftrace-git || true
+trizen -S --noconfirm --noedit --needed fatrace
+trizen -S --noconfirm --noedit --needed pygtk swig trace-cmd
+trizen -S --noconfirm --noedit --needed flamegraph
+trizen -S --noconfirm --noedit --needed ctop
+
+echo -en "y\nn" | trizen -Scc

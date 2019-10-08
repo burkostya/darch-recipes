@@ -1,12 +1,12 @@
 version: v1.0
-name: dev
+name: terminal
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 blocks:
-  - name: dev
+  - name: terminal
     task:
       prologue:
         commands:
@@ -25,14 +25,14 @@ blocks:
           - checkout
           - cd ./thinkpad
       jobs:
-        - name: dev
+        - name: terminal
           commands:
-            - RECIPE=dev retry -t 3 -s 10 ./ci
+            - RECIPE=terminal retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
 
 promotions:
-  - name: perf
-    pipeline_file: 04-perf.yml
+  - name: social
+    pipeline_file: 10-social.yml
     auto_promote_on:
     - result: passed

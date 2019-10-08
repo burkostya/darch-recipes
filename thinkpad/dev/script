@@ -82,20 +82,6 @@ echo -en "y\nn" | trizen -Scc
 
 echo "Timespamp: $(date)"
 
-trizen -S --noconfirm --noedit --needed perf-tools
-pacman -S --noconfirm --needed clang llvm netperf iperf ethtool powertop
-pacman -S --noconfirm --needed strace
-echo "Timespamp: $(date)"
-trizen -S --noconfirm --noedit --needed bcc bcc-tools python-bcc python2-bcc
-trizen -S --noconfirm --noedit --needed bpftrace-git || true
-trizen -S --noconfirm --noedit --needed fatrace
-echo "Timespamp: $(date)"
-trizen -S --noconfirm --noedit --needed pygtk swig trace-cmd
-trizen -S --noconfirm --noedit --needed flamegraph
-trizen -S --noconfirm --noedit --needed ctop
-
-echo "Timespamp: $(date)"
-
 pacman -S --noconfirm --needed syncthing syncthing-gtk
 
 trizen -S --noconfirm --noedit --needed alloy tla-toolbox
