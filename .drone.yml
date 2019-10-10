@@ -30,6 +30,7 @@ steps:
     - ctr version
     - runc --version
     - chmod a+rwX -R /tmp
+    - chmod a+rwX -R /var/lib/containerd
     - cd ./thinkpad
     - RECIPE=base ./ci
 
