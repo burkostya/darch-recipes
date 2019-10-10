@@ -13,6 +13,10 @@ steps:
   image: ubuntu:18.04
   environment:
     DOCKER_HOST: unix:///drone/docker.sock
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
   commands:
     - apt update -y
     - apt upgrade -y
