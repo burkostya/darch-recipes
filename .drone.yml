@@ -56,6 +56,8 @@ services:
   volumes:
     - name: dockersock
       path: /var/run
+    - name: containerd
+      path: /var/lib/containerd
 
 volumes:
   - name: dockersock
