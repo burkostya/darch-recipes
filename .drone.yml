@@ -9,6 +9,8 @@ steps:
   volumes:
     - name: dockersock
       path: /var/run
+    - name: containerd
+      path: /var/lib/containerd
   environment:
     DOCKER_LOGIN_USERNAME: 
       from_secret: DOCKER_LOGIN_USERNAME
@@ -57,4 +59,6 @@ services:
 
 volumes:
   - name: dockersock
+    temp: {}
+  - name: containerd
     temp: {}
