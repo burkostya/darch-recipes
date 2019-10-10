@@ -1,12 +1,12 @@
 version: v1.0
-name: perf
+name: browser
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 blocks:
-  - name: perf
+  - name: browser
     task:
       prologue:
         commands:
@@ -25,14 +25,14 @@ blocks:
           - checkout
           - cd ./thinkpad
       jobs:
-        - name: perf
+        - name: browser
           commands:
-            - RECIPE=perf retry -t 3 -s 10 ./ci
+            - RECIPE=browser retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
 
 promotions:
-  - name: ops
-    pipeline_file: 05-ops.yml
+  - name: terminal
+    pipeline_file: 10-terminal.yml
     auto_promote_on:
     - result: passed

@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e
+
+pacman -S --noconfirm iotop sysdig
+
+pacman -S --noconfirm mosh
+
+echo "Timespamp: $(date)"
+
+pacman -S --noconfirm --needed terraform
+trizen -S --noconfirm --noedit --needed minikube-bin kubectl-bin 
+trizen -S --noconfirm --noedit --needed kubernetes-helm-bin kustomize-bin draft-bin
+
+pacman -S --noconfirm --needed ansible
+
+pacman -S --noconfirm --needed rsync
+
+echo "Timespamp: $(date)"
+
+trizen -S --noconfirm --noedit --needed python-pip
+pip3 install netaddr
+
+pacman -S --noconfirm --needed tinc
+
+echo -en "y\nn" | trizen -Scc
+
+echo "Timespamp: $(date)"

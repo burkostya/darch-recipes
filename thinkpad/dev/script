@@ -24,10 +24,6 @@ runuser -l burkostya -c "cat $(pwd)/vscode-extensions | xargs -n 1 code --instal
 
 trizen -S --noconfirm --noedit postman-bin
 
-pacman -S --noconfirm iotop sysdig
-
-pacman -S --noconfirm mosh
-
 echo "Timespamp: $(date)"
 
 trizen -S --noconfirm --noedit tldr
@@ -58,25 +54,6 @@ pacman -S --noconfirm --needed dbeaver
 pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
 
 # trizen -S --noconfirm --noedit sos xsos
-
-echo -en "y\nn" | trizen -Scc
-
-echo "Timespamp: $(date)"
-
-pacman -S --noconfirm --needed terraform
-trizen -S --noconfirm --noedit --needed minikube-bin kubectl-bin 
-trizen -S --noconfirm --noedit --needed kubernetes-helm-bin kustomize-bin draft-bin
-
-pacman -S --noconfirm --needed ansible
-
-pacman -S --noconfirm --needed rsync
-
-echo "Timespamp: $(date)"
-
-trizen -S --noconfirm --noedit --needed python-pip
-pip3 install netaddr
-
-pacman -S --noconfirm --needed tinc
 
 echo -en "y\nn" | trizen -Scc
 
