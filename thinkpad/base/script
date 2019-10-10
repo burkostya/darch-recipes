@@ -37,7 +37,6 @@ popd
 rm -r ~/trizen
 
 # Timezone
-rm /etc/localtime
 ln -s ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
 # Time sync
