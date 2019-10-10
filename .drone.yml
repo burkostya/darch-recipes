@@ -2,17 +2,14 @@ kind: pipeline
 type: docker
 name: base
 
-services:
-- name: docker
-  image: docker:dind
-  privileged: true
-  command: [ '-H', 'unix:///drone/docker.sock' ]
 
 steps:
 - name: build
   image: ubuntu:18.04
+  volumes:
+    - name: dockersock
+      path: /var/run
   environment:
-    DOCKER_HOST: unix:///drone/docker.sock
     DOCKER_LOGIN_USERNAME: 
       from_secret: DOCKER_LOGIN_USERNAME
     DOCKER_LOGIN_PASSWORD: 
@@ -49,3 +46,15 @@ steps:
 #   when:
 #     branch:
 #     - master
+
+services:
+- name: docker
+  image: docker:dind
+  privileged: true
+  volumes:
+    - name: dockersock
+      path: /var/run
+
+volumes:
+  - name: dockersock
+    temp: {}
