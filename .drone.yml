@@ -23,6 +23,7 @@ steps:
     - mkdir -p /etc/containerd
     - echo 'disabled_plugins = ["cri"]' | tee /etc/containerd/config.toml
     - containerd &
+    - apt-get install -y docker.io
     - sleep 5
     - darch version
     - ctr version
