@@ -2,17 +2,17 @@ kind: pipeline
 type: docker
 name: base
 
-services:
-- name: docker
-  image: docker:dind
-  privileged: true
-  command: [ '-H', 'unix:///drone/docker.sock' ]
+# services:
+# - name: docker
+#   image: docker:dind
+#   privileged: true
+#   command: [ '-H', 'unix:///drone/docker.sock' ]
 
 steps:
 - name: build
   image: ubuntu:18.04
-  environment:
-    DOCKER_HOST: unix:///drone/docker.sock
+  # environment:
+  #   DOCKER_HOST: unix:///drone/docker.sock
   commands:
     - apt update -y
     - apt upgrade -y
@@ -31,16 +31,16 @@ steps:
     - cd ./thinkpad
     - RECIPE=base ./ci
 
-- name: publish
-  image: plugins/docker
-  settings:
-    username: 
-      from_secret: DOCKER_LOGIN_USERNAME
-    password: 
-      from_secret: DOCKER_LOGIN_PASSWORD
-    repo: burkostya/arch
-    tags: 
-      - latest
-  when:
-    branch:
-    - master
+# - name: publish
+#   image: plugins/docker
+#   settings:
+#     username: 
+#       from_secret: DOCKER_LOGIN_USERNAME
+#     password: 
+#       from_secret: DOCKER_LOGIN_PASSWORD
+#     repo: burkostya/arch
+#     tags: 
+#       - latest
+#   when:
+#     branch:
+#     - master
