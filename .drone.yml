@@ -2,17 +2,17 @@ kind: pipeline
 type: docker
 name: base
 
-# services:
-# - name: docker
-#   image: docker:dind
-#   privileged: true
-#   command: [ '-H', 'unix:///drone/docker.sock' ]
+services:
+- name: docker
+  image: docker:dind
+  privileged: true
+  command: [ '-H', 'unix:///drone/docker.sock' ]
 
 steps:
 - name: build
   image: ubuntu:18.04
-  # environment:
-  #   DOCKER_HOST: unix:///drone/docker.sock
+  environment:
+    DOCKER_HOST: unix:///drone/docker.sock
   commands:
     - apt update -y
     - apt upgrade -y
