@@ -25,9 +25,9 @@ blocks:
           - checkout
           - cd ./thinkpad
       jobs:
-        - name: perf
+        - name: ops
           commands:
-            - RECIPE=perf retry -t 3 -s 10 ./ci
+            - RECIPE=ops retry -t 3 -s 10 ./ci
       secrets:
         - name: docker-login
 
