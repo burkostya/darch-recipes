@@ -10,9 +10,7 @@ usermod -aG docker burkostya
 pacman -S --noconfirm buildah skopeo podman
 # enable rootless mode for containers
 echo "session    optional   pam_cgfs.so          -c freezer,memory,name=systemd,unified" >> /etc/pam.d/system-login
-echo "root:100000:65536" > /etc/subuid
 echo "burkostya:100000:65536" >> /etc/subuid
-echo "root:100000:65536" > /etc/subgid
 echo "burkostya:100000:65536" >> /etc/subgid
 
 echo "Timespamp: $(date)"
