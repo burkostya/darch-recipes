@@ -15,16 +15,12 @@ setcap cap_setuid+ep /usr/bin/newuidmap
 echo "burkostya:100000:65536" >> /etc/subgid
 setcap cap_setgid+ep /usr/bin/newgidmap
 
-echo "Timespamp: $(date)"
-
 pacman -S --noconfirm libx264
 
 trizen -S --noconfirm --noedit visual-studio-code-bin
 runuser -l burkostya -c "cat $(pwd)/vscode-extensions | xargs -n 1 code --install-extension"
 
 trizen -S --noconfirm --noedit postman-bin
-
-echo "Timespamp: $(date)"
 
 trizen -S --noconfirm --noedit tldr
 
@@ -35,8 +31,6 @@ trizen -S --noconfirm --noedit --needed yq pup-bin
 
 pacman -S --noconfirm go
 
-echo "Timespamp: $(date)"
-
 pacman -S --noconfirm linux-headers
 pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
 # trizen -S --noconfirm --noedit virtualbox-ext-oracle
@@ -45,8 +39,6 @@ usermod -aG vboxusers burkostya
 
 # Fonts
 # trizen -S --noconfirm --noedit nerd-fonts-complete
-
-echo "Timespamp: $(date)"
 
 pacman -S --noconfirm --needed vim
 
@@ -57,12 +49,8 @@ pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
 
 echo -en "y\nn" | trizen -Scc
 
-echo "Timespamp: $(date)"
-
 pacman -S --noconfirm --needed syncthing syncthing-gtk
 
 trizen -S --noconfirm --noedit --needed alloy tla-toolbox
 
 echo -en "y\nn" | trizen -Scc
-
-echo "Timespamp: $(date)"
