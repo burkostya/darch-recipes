@@ -6,6 +6,7 @@ name: base
 steps:
 - name: build
   image: ubuntu:18.04
+  privileged: true
   volumes:
     - name: dockersock
       path: /var/run
