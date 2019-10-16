@@ -24,7 +24,8 @@ echo 'Server = http://mirror.rackspace.com/archlinux/$repo/os/$arch' >> /etc/pac
 
 pacman -Syyu --noconfirm
 
-pacman -S --noconfirm --needed systemd-resolvconf base base-devel linux
+pacman -S --noconfirm --needed systemd-resolvconf base base-devel 
+pacman -S --noconfirm --needed linux linux-api-headers linux-firmware linux-headers
 
 pacman -S --noconfirm --needed curl patch
 curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/5c26a163f7815682793001312b0bd693bebb3d45/makepkg.patch | patch /usr/bin/makepkg
