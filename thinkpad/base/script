@@ -38,7 +38,7 @@ popd
 rm -r ~/trizen
 
 # Timezone
-ln -s ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
+ln -sf ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
 # Time sync
 pacman -S --noconfirm --needed ntp
