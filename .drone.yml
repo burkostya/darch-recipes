@@ -42,7 +42,7 @@ steps:
 #       from_secret: DOCKER_LOGIN_USERNAME
 #     password: 
 #       from_secret: DOCKER_LOGIN_PASSWORD
-#     repo: burkostya/arch
+#     repo: burkostya/darch-recipes
 #     tags: 
 #       - latest
 #   when:
