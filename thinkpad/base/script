@@ -36,13 +36,13 @@ pacman -S --noconfirm --needed git sudo
 git clone https://aur.archlinux.org/trizen.git /trizen
 useradd builduser -m
 passwd -d builduser
-printf 'builduser ALL=(ALL) ALL\n' | tee -a /etc/sudoers
-sudo -u builduser bash -c 'cd /trizen && makepkg -si --noconfirm'
+echo 'builduser ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/builduser
+sudo -u builduser bash -c 'cd /trizen && sudo makepkg -si --noconfirm'
 # pushd ~/trizen
 # makepkg -si --noconfirm
 # popd
 rm -r /trizen
-sed -i '$ d' /etc/sudoers
+rm /etc/sudoers.d/builduser
 userdel builduser
 
 # Timezone
