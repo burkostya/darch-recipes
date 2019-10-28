@@ -29,8 +29,13 @@ pacman -S --noconfirm --needed linux linux-api-headers linux-firmware linux-head
 pacman -S --noconfirm --needed lvm2
 
 pacman -S --noconfirm --needed curl patch
+echo "==> source of /usr/bin/makepkg"
+cat /usr/bin/makepkg
 curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/5c26a163f7815682793001312b0bd693bebb3d45/makepkg.patch | patch /usr/bin/makepkg
+echo "==> source of /usr/bin/makepkg.rej"
+cat /usr/bin/makepkg.rej
 
+echo "==> installing trizen"
 pacman -S --noconfirm --needed git
 git clone https://aur.archlinux.org/trizen.git ~/trizen
 pushd ~/trizen
