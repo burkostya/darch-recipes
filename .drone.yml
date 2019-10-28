@@ -8,7 +8,7 @@ token:
 server:
   image: docker-18-04
   size: s-1vcpu-1gb
-  region: ams3
+  region: lon1
 
 steps:
 - name: base
