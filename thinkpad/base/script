@@ -37,7 +37,7 @@ git clone https://aur.archlinux.org/trizen.git /trizen
 useradd builduser -m
 passwd -d builduser
 echo 'builduser ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/builduser
-chown -R /trizen builduser 
+chown -R builduser /trizen 
 sudo -u builduser bash -c 'cd /trizen && makepkg -si --noconfirm'
 # pushd ~/trizen
 # makepkg -si --noconfirm
