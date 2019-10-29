@@ -5,6 +5,7 @@ docker login -u $DOCKER_LOGIN_USERNAME -p $DOCKER_LOGIN_PASSWORD
 
 . ./build
 
+echo "==> pushing images"
 sudo darch images push --user $DOCKER_LOGIN_USERNAME:$DOCKER_LOGIN_PASSWORD docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG
 sudo darch images push --user $DOCKER_LOGIN_USERNAME:$DOCKER_LOGIN_PASSWORD docker.io/burkostya/darch-thinkpad-$RECIPE:latest
 

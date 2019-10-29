@@ -34,6 +34,7 @@ steps:
     - runc --version
     - cd ./thinkpad
     - RECIPE=base ./ci
+    - echo "==> build finished"
 
 # - name: publish
 #   image: plugins/docker
