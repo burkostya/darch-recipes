@@ -35,6 +35,7 @@ steps:
     - cd ./thinkpad
     - RECIPE=base ./ci
     - echo "==> build finished"
+    - echo "working jobs:$(jobs)"
 
 # - name: publish
 #   image: plugins/docker
