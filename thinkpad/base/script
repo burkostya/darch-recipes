@@ -18,6 +18,7 @@ pacman -S --noconfirm --needed wget sed
 
 wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
   | sed -e "s/#Server/Server/g" \
+  | sed "/mirror\.rol\.ru/d" \
   > /etc/pacman.d/mirrorlist
 
 echo 'Server = http://mirror.rackspace.com/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
