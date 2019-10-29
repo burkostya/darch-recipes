@@ -34,9 +34,7 @@ steps:
     - runc --version
     - cd ./thinkpad
     - RECIPE=base ./ci
-    - echo "==> build finished"
-    - echo "working jobs"
-    - jobs
+    - kill %1
 
 # - name: publish
 #   image: plugins/docker
