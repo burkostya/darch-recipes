@@ -42,6 +42,7 @@ echo 'builduser ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/builduser
 chown builduser /trizen 
 sudo -u builduser bash -c 'cd /trizen && makepkg -s --noconfirm'
 pacman -U /trizen/$(ls /trizen/ | grep tar.xz)
+echo "==> cleanup build user"
 rm -r /trizen
 rm /etc/sudoers.d/builduser
 userdel builduser
