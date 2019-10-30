@@ -33,6 +33,7 @@ steps:
   commands:
     - cd ./thinkpad
     - RECIPE=base ./ci
+
 - name: user
   environment:
     DOCKER_LOGIN_USERNAME: 
@@ -42,6 +43,130 @@ steps:
   commands:
     - cd ./thinkpad
     - RECIPE=user ./ci
+
+- name: sec
+  environment:
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+  commands:
+    - cd ./thinkpad
+    - RECIPE=sec ./ci
+
+- name: dev
+  environment:
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+  commands:
+    - cd ./thinkpad
+    - RECIPE=dev ./ci
+
+- name: perf
+  environment:
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+  commands:
+    - cd ./thinkpad
+    - RECIPE=perf ./ci
+
+- name: ops
+  environment:
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+  commands:
+    - cd ./thinkpad
+    - RECIPE=ops ./ci
+
+- name: x
+  environment:
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+  commands:
+    - cd ./thinkpad
+    - RECIPE=x ./ci
+
+- name: audio
+  environment:
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+  commands:
+    - cd ./thinkpad
+    - RECIPE=audio ./ci
+
+- name: i3
+  environment:
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+  commands:
+    - cd ./thinkpad
+    - RECIPE=i3 ./ci
+
+- name: browser
+  environment:
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+  commands:
+    - cd ./thinkpad
+    - RECIPE=browser ./ci
+
+- name: terminal
+  environment:
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+  commands:
+    - cd ./thinkpad
+    - RECIPE=terminal ./ci
+
+- name: social
+  environment:
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+  commands:
+    - cd ./thinkpad
+    - RECIPE=social ./ci
+
+- name: design
+  environment:
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+  commands:
+    - cd ./thinkpad
+    - RECIPE=design ./ci
+  # depends_on:
+  #   - social
+
+- name: games
+  environment:
+    DOCKER_LOGIN_USERNAME: 
+      from_secret: DOCKER_LOGIN_USERNAME
+    DOCKER_LOGIN_PASSWORD: 
+      from_secret: DOCKER_LOGIN_PASSWORD
+  commands:
+    - cd ./thinkpad
+    - RECIPE=games ./ci
+  # depends_on:
+  #   - social
 
 # - name: publish
 #   image: plugins/docker
