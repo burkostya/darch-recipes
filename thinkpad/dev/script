@@ -17,7 +17,7 @@ setcap cap_setgid+ep /usr/bin/newgidmap
 
 pacman -S --noconfirm libx264
 
-trizen -S --noconfirm --noedit visual-studio-code-bin
+runuser -l mgmt -c "trizen -S --noconfirm --noedit visual-studio-code-bin"
 runuser -l burkostya -c "cat $(pwd)/vscode-extensions | xargs -n 1 code --install-extension"
 
 trizen -S --noconfirm --noedit postman-bin
