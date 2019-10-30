@@ -11,7 +11,7 @@ server:
   region: nyc3
 
 steps:
-- name: prepare
+- name: setup
   commands:
     - apt update -y
     - apt upgrade -y
