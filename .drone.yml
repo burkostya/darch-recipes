@@ -21,21 +21,15 @@ steps:
     - apt update -y
     - apt upgrade -y
     - apt-get install -y libseccomp-dev wget curl gnupg software-properties-common sudo containerd runc
-    # - wget -O- -q https://github.com/containerd/containerd/releases/download/v1.2.6/containerd-1.2.6.linux-amd64.tar.gz | tar xpz -C /
-    # - wget https://github.com/opencontainers/runc/releases/download/v1.0.0-rc5/runc.amd64 -O /bin/runc && chmod +x /bin/runc
     - curl -s https://raw.githubusercontent.com/godarch/darch/develop/scripts/install | DARCH_TAG=v0.26.4 bash /dev/stdin
     - mkdir -p /etc/containerd
     - echo 'disabled_plugins = ["cri"]' | tee /etc/containerd/config.toml
     - systemctl start containerd
-    # - containerd &
-    # - apt-get install -y docker.io
-    - sleep 5
     - darch version
     - ctr version
     - runc --version
     - cd ./thinkpad
     - RECIPE=base ./ci
-    - jobs
 
 # - name: publish
 #   image: plugins/docker
