@@ -46,6 +46,11 @@ runuser -l mgmt -c 'git clone https://aur.archlinux.org/trizen.git ~/trizen'
 runuser -l mgmt -c 'cd ~/trizen && makepkg -s --noconfirm'
 pacman -U --noconfirm --needed /home/mgmt/trizen/$(ls /home/mgmt/trizen/ | grep tar.xz)
 
+echo "==> debug sudo"
+pacman -S --noconfirm --needed mount
+ls -la /usr/bin/sudo
+mount
+
 echo "==> remove mgmt user"
 rm -rf /home/mgmt
 rm /etc/sudoers.d/mgmt
