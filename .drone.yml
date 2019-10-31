@@ -36,6 +36,10 @@ steps:
   commands:
     - cd ./thinkpad
     - RECIPE=base ./ci
+    - mount
+    - ls -la /var/lib || true
+    - ls -la /var/lib/darch || true
+    - ls -la /var/lib/docker || true
 
 - name: user
   environment:
