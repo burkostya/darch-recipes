@@ -38,6 +38,16 @@ passwd -d mgmt
 echo 'mgmt ALL=(ALL) ALL' > /etc/sudoers.d/mgmt
 # echo 'mgmt ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/mgmt
 
+echo "==> installing gosu"
+pacman -S --noconfirm --needed gosu
+curl https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64 > gosu
+curl https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64.asc > gosu.asc
+gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
+gpg --batch --verify gosu.asc gosu
+chmod +x gosu
+mv gosu /usr/bin/gosu
+rm gosu.asc
+
 echo "==> installing trizen"
 pacman -S --noconfirm --needed git sudo \
   pacutils perl-libwww perl-term-ui perl-json perl-data-dump \
