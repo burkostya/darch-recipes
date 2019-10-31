@@ -15,7 +15,6 @@ steps:
   commands:
     - whoami
     - ls -la /usr/bin/sudo
-    - mount -n -o remount,suid /var/lib/lxcfs
     - apt update -y
     - apt upgrade -y
     - apt-get install -y libseccomp-dev wget curl gnupg software-properties-common sudo containerd runc
