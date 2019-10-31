@@ -21,7 +21,7 @@ echo "==> install vscode"
 pacman -S --noconfirm --needed libnotify lsof
 runuser -l burkostya -c "trizen -G visual-studio-code-bin"
 runuser -l burkostya -c "cd visual-studio-code-bin && makepkg -s --noconfirm"
-pacman -U --noconfirm --needed /home/burkostya/trizen/$(ls /home/burkostya/visual-studio-code-bin/ | grep tar.xz)
+pacman -U --noconfirm --needed /home/burkostya/$(ls /home/burkostya/visual-studio-code-bin/ | grep tar.xz)
 
 runuser -l burkostya -c "cat $(pwd)/vscode-extensions | xargs -n 1 code --install-extension"
 
