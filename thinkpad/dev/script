@@ -24,9 +24,13 @@ function install_aur () {
 
     local deps="$(trizen -Qi $package | grep "Depends On" | cut -d: -f2)"
 
+    echo "==> installing deps: $deps"
     pacman -S --noconfirm --needed $deps
+    echo "==> getting package $package"
     runuser -l burkostya -c "trizen -G $package"
+    echo "==> building package $package"
     runuser -l burkostya -c "cd $package && makepkg -s --noconfirm"
+    echo "==> upgrading package $package"
     pacman -U --noconfirm --needed /home/burkostya/$package/$(ls /home/burkostya/$package/ | grep tar.xz)
 }
 
