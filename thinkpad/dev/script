@@ -34,6 +34,7 @@ function install_aur () {
     pacman -U --noconfirm --needed /home/burkostya/$package/$(ls /home/burkostya/$package/ | grep tar.xz)
 }
 
+trizen -Sy
 trizen -Qi visual-studio-code-bin
 install_aur "visual-studio-code-bin"
 # pacman -S --noconfirm --needed libnotify lsof
