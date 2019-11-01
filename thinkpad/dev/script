@@ -15,14 +15,14 @@ setcap cap_setuid+ep /usr/bin/newuidmap
 echo "burkostya:100000:65536" >> /etc/subgid
 setcap cap_setgid+ep /usr/bin/newgidmap
 
-pacman -S --noconfirm libx264
+pacman -S --noconfirm --needed libx264
 
 function install_aur () {
     local package="$1"
 
     echo "==> installing $package"
 
-    local deps="$(trizen -Qi visual-studio-code-bin | grep "Depends On" | cut -d: -f2)"
+    local deps="$(trizen -Qi $package | grep "Depends On" | cut -d: -f2)"
 
     pacman -S --noconfirm --needed $deps
     runuser -l burkostya -c "trizen -G $package"
