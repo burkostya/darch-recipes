@@ -22,7 +22,7 @@ function install_aur () {
 
     echo "==> installing $package"
 
-    local deps="$(trizen -Qi $package | grep "Depends On" | cut -d: -f2)"
+    local deps="$(trizen -Si $package | sed -n '/Depends\ On/,/:/p' | sed '$d' | cut -d: -f2 | tr '\n' ' ' | sed -r 's| +| |g')"
 
     echo "==> installing deps: $deps"
     pacman -S --noconfirm --needed $deps
@@ -34,7 +34,6 @@ function install_aur () {
     pacman -U --noconfirm --needed /home/burkostya/$package/$(ls /home/burkostya/$package/ | grep tar.xz)
 }
 
-trizen -Qi --debug visual-studio-code-bin
 install_aur "visual-studio-code-bin"
 # pacman -S --noconfirm --needed libnotify lsof
 # runuser -l burkostya -c "trizen -G visual-studio-code-bin"
