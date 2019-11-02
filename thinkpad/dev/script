@@ -41,9 +41,10 @@ install_aur postman-bin
 
 pacman -S --noconfirm --needed tldr
 
-pacman -S --noconfirm jq
+pacman -S --noconfirm --needed jq
 
-install_aur python-xmltodict python-toml
+install_aur python-xmltodict
+install_aur python-toml
 install_aur yq pup-bin
 
 pacman -S --noconfirm go
@@ -66,6 +67,7 @@ pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
 
 pacman -S --noconfirm --needed syncthing syncthing-gtk
 
-install_aur alloy tla-toolbox
+install_aur alloy
+install_aur tla-toolbox
 
 echo -en "y\nn" | trizen -Scc
