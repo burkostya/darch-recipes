@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+. /usr/local/src/install_aur
+
 # Resyn the database
 pacman -Sy --noconfirm
 
@@ -9,9 +11,10 @@ pacman -S --noconfirm --needed i3 compton xorg-xinit
 
 gpg --recv-keys A1774C1B37DC1DCEDB65EE469B8450B91D1362C1
 # gpg --lsign-key A1774C1B37DC1DCEDB65EE469B8450B91D1362C1
-trizen -S --noconfirm --noedit --needed dmenu j4-dmenu-desktop
-trizen -S --noconfirm --noedit --needed polybar
-trizen -S --noconfirm --noedit --needed unclutter-xfixes-git
+install_aur dmenu
+install_aur menu-desktop
+install_aur polybar
+install_aur unclutter-xfixes-git
 pacman -S --noconfirm --needed autocutsel
 
 pacman -S --noconfirm --needed redshift
@@ -19,6 +22,6 @@ pacman -S --noconfirm --needed redshift
 pacman -S --noconfirm --needed xorg-xwininfo xorg-xprop
 cp i3-window-criteria /usr/local/bin/
 
-trizen -S --noconfirm --noedit --needed peek
+install_aur peek
 
 echo -en "y\nn" | trizen -Scc

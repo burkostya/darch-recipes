@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
+. /usr/local/src/install_aur
+
 pacman -S --noconfirm --needed telegram-desktop
-trizen -S --noconfirm --noedit --needed skypeforlinux-preview-bin
+install_aur skypeforlinux-preview-bin
 
 echo -en "y\nn" | trizen -Scc

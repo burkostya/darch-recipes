@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+. /usr/local/src/install_aur
+
 pacman -S --noconfirm iotop sysdig
 
 pacman -S --noconfirm mosh
@@ -8,8 +10,11 @@ pacman -S --noconfirm mosh
 echo "Timespamp: $(date)"
 
 pacman -S --noconfirm --needed terraform
-trizen -S --noconfirm --noedit --needed minikube-bin kubectl-bin 
-trizen -S --noconfirm --noedit --needed kubernetes-helm-bin kustomize-bin draft-bin
+install_aur minikube-bin
+install_aur kubectl-bin 
+install_aur kubernetes-helm-bin
+install_aur kustomize-bin
+install_aur draft-bin
 
 pacman -S --noconfirm --needed ansible
 
@@ -17,7 +22,7 @@ pacman -S --noconfirm --needed rsync
 
 echo "Timespamp: $(date)"
 
-trizen -S --noconfirm --noedit --needed python-pip
+install_aur python-pip
 pip3 install netaddr
 
 pacman -S --noconfirm --needed tinc

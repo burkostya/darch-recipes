@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+. /usr/local/src/install_aur
+
 # Add our users
 groupadd guests
 useradd -m -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel,video -s /usr/bin/fish burkostya
@@ -25,11 +27,11 @@ echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 # runuser -l burkostya -c "git clone https://github.com/oh-my-fish/oh-my-fish.git ~/oh-my-fish"
 # runuser -l burkostya -c "cd ~/oh-my-fish; and bin/install --noninteractive"
 
-# trizen -S --noconfirm --noedit --needed fisher
+# install_aur fisher
 
 # runuser -l burkostya -c "fisher add rafaelrinaldi/pure"
 
-trizen -S --noconfirm --noedit --needed upower
+install_aur upower
 
 # extra fonts
 pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji

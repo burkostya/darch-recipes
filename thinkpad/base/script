@@ -52,6 +52,7 @@ pacman -S --noconfirm --needed git sudo \
 runuser -l mgmt -c 'git clone https://aur.archlinux.org/trizen.git ~/trizen'
 runuser -l mgmt -c 'cd ~/trizen && makepkg -s --noconfirm'
 pacman -U --noconfirm --needed /home/mgmt/trizen/$(ls /home/mgmt/trizen/ | grep tar.xz)
+cp install_aur /usr/local/src/install_aur
 
 echo "==> debug sudo"
 ls -la /usr/bin/sudo
