@@ -22,10 +22,12 @@ function install_aur () {
 
     echo "==> installing $package"
 
-    local deps="$(trizen -Si $package | sed -n '/Depends\ On/,/:/p' | sed '$d' | cut -d: -f2 | tr '\n' ' ' | sed -r 's| +| |g')"
+    local deps="$(trizen -Si $package | sed -n '/Depends\ On/,/:/p' | sed '$d' | cut -d: -f2 | tr '\n' ' ' | sed -r 's| +| |g' | xargs echo)"
 
-    echo "==> installing deps: $deps"
-    pacman -S --noconfirm --needed $deps
+    if [ "$deps" == "None" ]; then
+        echo "==> installing deps: $deps"
+        pacman -S --noconfirm --needed $deps
+    fi
     echo "==> getting package $package"
     runuser -l burkostya -c "trizen -G $package"
     echo "==> building package $package"
