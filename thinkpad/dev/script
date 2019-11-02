@@ -39,7 +39,7 @@ runuser -l burkostya -c "cat $(pwd)/vscode-extensions | xargs -n 1 code --instal
 
 install_aur postman-bin
 
-install_aur tldr
+pacman -S --noconfirm --needed tldr
 
 pacman -S --noconfirm jq
 
