@@ -9,6 +9,13 @@ function install_aur () {
         echo "==> installing deps: $deps"
         pacman -S --noconfirm --needed $deps
     fi
+
+    local makeDeps="$(trizen -Si $package | sed -n '/Make\ Deps/,/:/p' | sed '$d' | cut -d: -f2 | tr '\n' ' ' | sed -r 's| +| |g' | xargs echo)"
+    if [ "$makeDeps" != "None" ]; then
+        echo "==> installing make deps: $makeDeps"
+        pacman -S --noconfirm --needed $makeDeps
+    fi
+
     echo "==> getting package $package"
     runuser -l burkostya -c "trizen -G $package"
     echo "==> building package $package"
