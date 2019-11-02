@@ -43,9 +43,8 @@ pacman -S --noconfirm --needed tldr
 
 pacman -S --noconfirm --needed jq
 
-install_aur python-xmltodict
-install_aur python-toml
-install_aur yq pup-bin
+pacman -S --noconfirm --needed python-xmltodict python-toml yq 
+install_aur pup-bin
 
 pacman -S --noconfirm go
 
