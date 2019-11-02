@@ -39,12 +39,12 @@ runuser -l burkostya -c "cat $(pwd)/vscode-extensions | xargs -n 1 code --instal
 
 install_aur postman-bin
 
-instal_aur tldr
+install_aur tldr
 
 pacman -S --noconfirm jq
 
-instal_aur python-xmltodict python-toml
-instal_aur yq pup-bin
+install_aur python-xmltodict python-toml
+install_aur yq pup-bin
 
 pacman -S --noconfirm go
 
