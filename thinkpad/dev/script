@@ -34,45 +34,38 @@ function install_aur () {
     pacman -U --noconfirm --needed /home/burkostya/$package/$(ls /home/burkostya/$package/ | grep tar.xz)
 }
 
-install_aur "visual-studio-code-bin"
-# pacman -S --noconfirm --needed libnotify lsof
-# runuser -l burkostya -c "trizen -G visual-studio-code-bin"
-# runuser -l burkostya -c "cd visual-studio-code-bin && makepkg -s --noconfirm"
-# pacman -U --noconfirm --needed /home/burkostya/visual-studio-code-bin/$(ls /home/burkostya/visual-studio-code-bin/ | grep tar.xz)
-
+install_aur visual-studio-code-bin
 runuser -l burkostya -c "cat $(pwd)/vscode-extensions | xargs -n 1 code --install-extension"
 
-trizen -S --noconfirm --noedit postman-bin
+install_aur postman-bin
 
-trizen -S --noconfirm --noedit tldr
+instal_aur tldr
 
 pacman -S --noconfirm jq
 
-trizen -S --noconfirm --noedit --needed python-xmltodict python-toml
-trizen -S --noconfirm --noedit --needed yq pup-bin
+instal_aur python-xmltodict python-toml
+instal_aur yq pup-bin
 
 pacman -S --noconfirm go
 
 pacman -S --noconfirm linux-headers
 pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
-# trizen -S --noconfirm --noedit virtualbox-ext-oracle
+# install_aur virtualbox-ext-oracle
 systemctl enable systemd-modules-load
 usermod -aG vboxusers burkostya
 
 # Fonts
-# trizen -S --noconfirm --noedit nerd-fonts-complete
+# install_aur nerd-fonts-complete
 
 pacman -S --noconfirm --needed vim
 
 pacman -S --noconfirm --needed dbeaver
 pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
 
-# trizen -S --noconfirm --noedit sos xsos
-
-echo -en "y\nn" | trizen -Scc
+# install_aur sos xsos
 
 pacman -S --noconfirm --needed syncthing syncthing-gtk
 
-trizen -S --noconfirm --noedit --needed alloy tla-toolbox
+install_aur alloy tla-toolbox
 
 echo -en "y\nn" | trizen -Scc
