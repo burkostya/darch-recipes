@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-. /usr/local/src/install_aur
-
 # Add our users
 groupadd guests
 useradd -m -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel,video -s /usr/bin/fish burkostya
@@ -31,7 +29,7 @@ echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 
 # runuser -l burkostya -c "fisher add rafaelrinaldi/pure"
 
-install_aur upower
+pacman -S --noconfirm --needed upower
 
 # extra fonts
 pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
