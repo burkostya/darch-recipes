@@ -6,10 +6,10 @@ set -e
 install_aur perf-tools
 pacman -S --noconfirm --needed clang llvm netperf iperf ethtool powertop
 pacman -S --noconfirm --needed strace
+install_aur bcc
 install_aur bcc-tools
 install_aur python-bcc
 install_aur python2-bcc
-install_aur bcc
 install_aur bpftrace-git
 install_aur fatrace
 install_aur pygtk
