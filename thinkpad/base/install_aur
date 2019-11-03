@@ -20,6 +20,8 @@ function install_aur () {
     runuser -l burkostya -c "trizen -G $package"
     echo "==> building package $package"
     runuser -l burkostya -c "cd $package && makepkg -s --noconfirm"
+    echo "==> list of builded packages"
+    ls /home/burkostya/$package/
     echo "==> upgrading package $package"
     pacman -U --noconfirm --needed /home/burkostya/$package/$(ls /home/burkostya/$package/ | grep tar.xz)
 }
