@@ -6,14 +6,16 @@ function install_aur () {
     local deps="$(trizen -Si $package | sed -n '/Depends\ On/,/:/p' | sed '$d' | cut -d: -f2 | tr '\n' ' ' | sed -r 's| +| |g' | xargs echo)"
 
     if [ "$deps" != "None" ]; then
-        echo "==> installing deps: $deps"
-        pacman -S --noconfirm --needed $deps
+        local d="$(filter_new $deps)"
+        echo "==> installing deps: $d"
+        pacman -S --noconfirm --needed "$d"
     fi
 
     local makeDeps="$(trizen -Si $package | sed -n '/Make\ Deps/,/:/p' | sed '$d' | cut -d: -f2 | tr '\n' ' ' | sed -r 's| +| |g' | xargs echo)"
     if [ "$makeDeps" != "None" ]; then
-        echo "==> installing make deps: $makeDeps"
-        pacman -S --noconfirm --needed $makeDeps
+        local md="$(filter_new $makeDeps)"
+        echo "==> installing make deps: $md"
+        pacman -S --noconfirm --needed "$md"
     fi
 
     echo "==> getting package $package"
@@ -26,4 +28,18 @@ function install_aur () {
     pushd /home/burkostya/$package
     pacman -U --noconfirm --needed $(ls | grep tar.xz)
     popd
+}
+
+function filter_new () {
+    local new
+
+    for package in "$@"; do
+        if pacman -Q "$package"; then 
+            echo "==> $package already present in system"
+        else
+            new+=("$package")
+        fi
+    done
+
+    echo "${new[@]}"
 }
