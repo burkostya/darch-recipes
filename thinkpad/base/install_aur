@@ -11,7 +11,7 @@ function install_aur () {
         if [[ -z ${d[@]} ]]; then
             echo "==> all deps already installed"
         else
-            echo "==> installing deps: '$d'"
+            echo "==> installing deps: $d"
             pacman -S --noconfirm --needed $d
         fi
     fi
