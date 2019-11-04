@@ -8,16 +8,24 @@ function install_aur () {
     if [ "$deps" != "None" ]; then
         echo "==> all deps: $deps"
         local d="$(filter_new $deps)"
-        echo "==> installing deps: $d"
-        pacman -S --noconfirm --needed $d
+        if [[ -z ${d[@]} ]]; then
+            echo "==> all deps already installed"
+        else
+            echo "==> installing deps: '$d'"
+            pacman -S --noconfirm --needed $d
+        fi
     fi
 
     local makeDeps="$(trizen -Si $package | sed -n '/Make\ Deps/,/:/p' | sed '$d' | cut -d: -f2 | tr '\n' ' ' | sed -r 's| +| |g' | xargs echo)"
     if [ "$makeDeps" != "None" ]; then
         echo "==> all make deps: $makeDeps"
         local md="$(filter_new $makeDeps)"
-        echo "==> installing make deps: $md"
-        pacman -S --noconfirm --needed $md
+        if [[ -z ${md[@]} ]]; then
+            echo "==> all make deps already installed"
+        else
+            echo "==> installing make deps: $md"
+            pacman -S --noconfirm --needed $md
+        fi
     fi
 
     echo "==> getting package $package"
