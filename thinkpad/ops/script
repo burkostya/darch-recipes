@@ -22,7 +22,7 @@ pacman -S --noconfirm --needed rsync
 
 echo "Timespamp: $(date)"
 
-install_aur python-pip
+pacman -S --noconfirm --needed python-pip
 pip3 install netaddr
 
 pacman -S --noconfirm --needed tinc
