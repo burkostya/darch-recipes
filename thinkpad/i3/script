@@ -11,8 +11,8 @@ pacman -S --noconfirm --needed i3 compton xorg-xinit
 
 gpg --recv-keys A1774C1B37DC1DCEDB65EE469B8450B91D1362C1
 # gpg --lsign-key A1774C1B37DC1DCEDB65EE469B8450B91D1362C1
-install_aur dmenu
-install_aur menu-desktop
+pacman -S --noconfirm --needed dmenu
+install_aur j4-menu-desktop
 install_aur polybar
 install_aur unclutter-xfixes-git
 pacman -S --noconfirm --needed autocutsel
@@ -22,6 +22,6 @@ pacman -S --noconfirm --needed redshift
 pacman -S --noconfirm --needed xorg-xwininfo xorg-xprop
 cp i3-window-criteria /usr/local/bin/
 
-install_aur peek
+pacman -S --noconfirm --needed peek
 
 echo -en "y\nn" | trizen -Scc
