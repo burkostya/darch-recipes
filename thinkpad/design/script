@@ -6,8 +6,8 @@ set -e
 pacman -S --noconfirm --needed scrot
 
 # --skipinteg
-install_aur gravit-designer-bin
 install_aur archlinux-java-run
+install_aur gravit-designer-bin
 install_aur yed
 pacman -S --noconfirm --needed dia
 pacman -S --noconfirm --needed graphviz
