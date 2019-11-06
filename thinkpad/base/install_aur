@@ -38,6 +38,8 @@ function install_aur () {
     pushd /home/burkostya/$package
     pacman -U --noconfirm --needed $(ls | grep tar.xz)
     popd
+    echo "==> cleanup: remove /home/burkostya/$package"
+    rm -r "/home/burkostya/$package/"
 }
 
 function filter_new () {
