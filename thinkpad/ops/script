@@ -18,6 +18,8 @@ install_aur draft-bin
 
 pacman -S --noconfirm --needed ansible
 
+install_aur jsonnet
+
 pacman -S --noconfirm --needed rsync
 
 echo "Timespamp: $(date)"
