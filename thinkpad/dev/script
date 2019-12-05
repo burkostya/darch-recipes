@@ -22,6 +22,8 @@ pacman -S --noconfirm --needed libx264
 install_aur visual-studio-code-bin
 runuser -l burkostya -c "cat $(pwd)/vscode-extensions | xargs -n 1 code --install-extension"
 
+install_aur goland
+
 install_aur postman-bin
 
 pacman -S --noconfirm --needed tldr
