@@ -15,6 +15,8 @@ setcap cap_setuid+ep /usr/bin/newuidmap
 echo "burkostya:100000:65536" >> /etc/subgid
 setcap cap_setgid+ep /usr/bin/newgidmap
 
+install_aur darch
+
 pacman -S --noconfirm iotop sysdig
 
 pacman -S --noconfirm mosh
