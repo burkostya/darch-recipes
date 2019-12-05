@@ -46,9 +46,6 @@ usermod -aG vboxusers burkostya
 
 pacman -S --noconfirm --needed vim
 
-pacman -S --noconfirm --needed dbeaver
-pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
-
 # install_aur sos xsos
 
 pacman -S --noconfirm --needed syncthing syncthing-gtk

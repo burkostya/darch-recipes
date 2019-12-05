@@ -29,6 +29,11 @@ pip3 install netaddr
 
 pacman -S --noconfirm --needed tinc
 
+install_aur robo3t-bin
+
+pacman -S --noconfirm --needed dbeaver
+pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
+
 echo -en "y\nn" | trizen -Scc
 
 echo "Timespamp: $(date)"
