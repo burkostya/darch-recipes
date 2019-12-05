@@ -5,18 +5,6 @@ set -e
 
 pacman -S --noconfirm ttf-dejavu otf-fira-code
 
-pacman -S --noconfirm docker docker-compose docker-machine
-# systemctl enable docker
-usermod -aG docker burkostya
-# alternative stack for containers
-pacman -S --noconfirm shadow buildah skopeo podman
-# enable rootless mode for containers
-echo "session    optional   pam_cgfs.so          -c freezer,memory,name=systemd,unified" >> /etc/pam.d/system-login
-echo "burkostya:100000:65536" >> /etc/subuid
-setcap cap_setuid+ep /usr/bin/newuidmap
-echo "burkostya:100000:65536" >> /etc/subgid
-setcap cap_setgid+ep /usr/bin/newgidmap
-
 pacman -S --noconfirm --needed libx264
 
 install_aur visual-studio-code-bin
