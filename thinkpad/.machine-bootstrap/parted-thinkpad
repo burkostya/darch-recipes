@@ -44,6 +44,7 @@ declare -A volumes=(
         ["k8s"]="64MiB" 
         ["helm"]="64MiB" 
         ["vpn"]="8MiB" 
+        ["goland"]="1GiB" 
 )
 
 for name in "${!volumes[@]}"; do
