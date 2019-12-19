@@ -32,7 +32,7 @@ usermod -aG vboxusers burkostya
 # Fonts
 # install_aur nerd-fonts-complete
 
-pacman -S --noconfirm --needed vim
+pacman -S --noconfirm --needed gvim
 
 # install_aur sos xsos
 
