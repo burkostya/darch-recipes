@@ -16,6 +16,8 @@ install_aur yed
 pacman -S --noconfirm --needed dia
 pacman -S --noconfirm --needed graphviz
 
+# install drawio-desktop
+pacman -S --noconfirm --needed yarn
 install_aur drawio-desktop
 
 echo -en "y\nn" | trizen -Scc
