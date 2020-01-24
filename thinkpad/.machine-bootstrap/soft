@@ -106,3 +106,4 @@ echo "/dev/main/helm	/home/burkostya/.helm	ext4	defaults,relatime,noauto,x-syste
 echo "/dev/main/vpn	/home/burkostya/.vpn	ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
 echo "/dev/main/goland	/home/burkostya/.GoLand2019.3 ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
 echo "/dev/main/slack	/home/burkostya/.config/Slack ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts
+echo "/dev/main/firefox	/home/burkostya/.mozilla  ext4	defaults,relatime,noauto,x-systemd.automount	0	2" >> /mnt/etc/darch/hooks/mounts

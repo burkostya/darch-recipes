@@ -46,6 +46,7 @@ declare -A volumes=(
         ["vpn"]="8MiB" 
         ["goland"]="1GiB" 
         ["slack"]="256MiB" 
+        ["firefox"]="1GiB" 
 )
 
 for name in "${!volumes[@]}"; do
