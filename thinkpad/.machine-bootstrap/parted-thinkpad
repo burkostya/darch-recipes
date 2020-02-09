@@ -49,6 +49,7 @@ declare -A volumes=(
         ["firefox"]="1GiB" 
         ["robot3t"]="128MiB" 
         ["mongo-compass"]="128MiB" 
+        ["vscode"]="256MiB" 
 )
 
 for name in "${!volumes[@]}"; do
