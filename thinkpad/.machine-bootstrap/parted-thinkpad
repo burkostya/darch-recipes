@@ -47,6 +47,8 @@ declare -A volumes=(
         ["goland"]="1GiB" 
         ["slack"]="256MiB" 
         ["firefox"]="1GiB" 
+        ["robot3t"]="128MiB" 
+        ["mongo-compass"]="128MiB" 
 )
 
 for name in "${!volumes[@]}"; do
