@@ -44,6 +44,7 @@ pip3 install netaddr
 pacman -S --noconfirm --needed tinc
 
 install_aur robo3t-bin
+install_aur mongodb-compass
 
 pacman -S --noconfirm --needed dbeaver
 pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
