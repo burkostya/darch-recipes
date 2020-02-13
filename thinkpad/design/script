@@ -10,7 +10,7 @@ install_aur archlinux-java-run
 
 # install gravit
 install_aur gconf
-install_aur gravit-designer-bin
+# install_aur gravit-designer-bin
 
 install_aur yed
 pacman -S --noconfirm --needed dia
