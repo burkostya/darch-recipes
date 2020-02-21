@@ -131,4 +131,6 @@ echo "DNSSEC=no" >> /etc/systemd/resolved.conf
 
 pacman -S --noconfirm --needed unzip
 
+echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+
 echo -en "y\nn" | trizen -Scc
