@@ -15,4 +15,7 @@ install_aur trace-cmd
 install_aur flamegraph
 install_aur ctop
 
+pacman -S --noconfirm --needed smartmontools
+systemctl enable smartd
+
 echo -en "y\nn" | trizen -Scc
