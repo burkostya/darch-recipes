@@ -127,16 +127,6 @@ steps:
     - cd ./thinkpad
     - RECIPE=browser ./ci
 
-- name: terminal
-  environment:
-    DOCKER_LOGIN_USERNAME: 
-      from_secret: DOCKER_LOGIN_USERNAME
-    DOCKER_LOGIN_PASSWORD: 
-      from_secret: DOCKER_LOGIN_PASSWORD
-  commands:
-    - cd ./thinkpad
-    - RECIPE=terminal ./ci
-
 - name: social
   environment:
     DOCKER_LOGIN_USERNAME: 

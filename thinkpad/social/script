@@ -3,6 +3,10 @@ set -e
 
 . /usr/local/src/install_aur
 
+# terminal stage
+pacman -S --noconfirm --needed libxcursor alacritty
+
+# social stage
 pacman -S --noconfirm --needed telegram-desktop
 install_aur skypeforlinux-stable-bin
 install_aur slack-desktop
