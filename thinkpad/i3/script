@@ -14,6 +14,9 @@ runuser -l burkostya -c "gpg --recv-keys A1774C1B37DC1DCEDB65EE469B8450B91D1362C
 pacman -S --noconfirm --needed dmenu
 install_aur j4-dmenu-desktop
 install_aur polybar
+# fonts for polybar
+pacman -S --noconfirm bdf-unifont ttf-nerd-fonts-symbols otf-font-awesome
+install_aur siji-git ttf-material-design-icons-webfont
 
 echo "==> install clipboard tools"
 install_aur unclutter-xfixes-git 
