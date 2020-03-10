@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+# user stage
+
 # Add our users
 groupadd guests
 useradd -m -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel,video -s /usr/bin/fish burkostya
@@ -34,5 +36,10 @@ pacman -S --noconfirm --needed upower
 # extra fonts
 pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
 pacman -S --noconfirm ttf-roboto
+
+# sec stage
+pacman -S --noconfirm --needed pwgen gnupg pass
+
+pacman -S --noconfirm --needed keybase keybase-gui
 
 echo -en "y\nn" | pacman -Scc

@@ -1,8 +1,0 @@
-#!/bin/bash
-set -e
-
-pacman -S --noconfirm --needed pwgen gnupg pass
-
-pacman -S --noconfirm --needed keybase keybase-gui
-
-echo -en "y\nn" | trizen -Scc
