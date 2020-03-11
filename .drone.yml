@@ -87,16 +87,6 @@ steps:
     - cd ./thinkpad
     - RECIPE=x ./ci
 
-- name: audio
-  environment:
-    DOCKER_LOGIN_USERNAME: 
-      from_secret: DOCKER_LOGIN_USERNAME
-    DOCKER_LOGIN_PASSWORD: 
-      from_secret: DOCKER_LOGIN_PASSWORD
-  commands:
-    - cd ./thinkpad
-    - RECIPE=audio ./ci
-
 - name: i3
   environment:
     DOCKER_LOGIN_USERNAME: 

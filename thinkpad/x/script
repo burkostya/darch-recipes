@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+# X stage
 pacman -S --noconfirm --needed xf86-video-intel
 pacman -S --noconfirm --needed xorg-server xorg-xrandr xorg-xdpyinfo
 pacman -S --noconfirm --needed xorg-xinput xorg-xbacklight
@@ -19,5 +20,18 @@ pacman -S --noconfirm --needed imagemagick
 
 cp i3lock.service /etc/systemd/system/i3lock@.service
 systemctl enable i3lock@burkostya
+
+usermod -aG audio burkostya
+
+## audio stage
+# Enable audio
+pacman -S --noconfirm --needed pulseaudio pulseaudio-alsa
+pacman -S --noconfirm --needed pavucontrol
+
+# Add ability to connect bluetooth headsets
+pacman -S --noconfirm --needed pulseaudio-bluetooth bluez-utils
+
+pacman -S --noconfirm --needed sonic-pi
+pacman -S --noconfirm --needed cadence
 
 echo -en "y\nn" | trizen -Scc
