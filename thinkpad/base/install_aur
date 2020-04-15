@@ -36,7 +36,7 @@ function install_aur () {
     ls /home/burkostya/$package/
     echo "==> upgrading package $package"
     pushd /home/burkostya/$package
-    pacman -U --noconfirm --needed $(ls | grep .pkg.)
+    pacman -U --noconfirm --needed --overwrite /usr/share/man/man8/\* $(ls | grep .pkg.)
     popd
     echo "==> cleanup: remove /home/burkostya/$package"
     rm -r "/home/burkostya/$package/"
