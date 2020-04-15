@@ -26,7 +26,7 @@ echo "Timespamp: $(date)"
 pacman -S --noconfirm --needed terraform
 install_aur minikube-bin
 install_aur kubectl-bin 
-install_aur kubernetes-helm-bin
+pacman -S --noconfirm --needed helm
 install_aur kustomize-bin
 install_aur draft-bin
 
