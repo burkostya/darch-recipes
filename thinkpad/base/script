@@ -54,6 +54,11 @@ runuser -l mgmt -c 'cd ~/trizen && makepkg -s --noconfirm'
 pacman -U --noconfirm --needed /home/mgmt/trizen/$(ls /home/mgmt/trizen/ | grep tar.xz)
 cp install_aur /usr/local/src/install_aur
 
+echo "==> installing yay"
+runuser -l mgmt -c 'git clone https://aur.archlinux.org/yay.git ~/yay'
+runuser -l mgmt -c 'cd ~/yay && makepkg -s --noconfirm'
+pacman -U --noconfirm --needed /home/mgmt/yay/$(ls /home/mgmt/yay/ | grep tar.xz)
+
 echo "==> debug sudo"
 ls -la /usr/bin/sudo
 mount
