@@ -3,6 +3,7 @@ set -e
 
 . /usr/local/src/install_aur
 
+# ops stage
 pacman -S --noconfirm docker docker-compose docker-machine
 # systemctl enable docker
 usermod -aG docker burkostya
@@ -48,6 +49,22 @@ install_aur mongodb-compass
 
 pacman -S --noconfirm --needed dbeaver
 pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
+
+# perf stage
+install_aur perf-tools
+pacman -S --noconfirm --needed clang llvm netperf iperf ethtool powertop
+pacman -S --noconfirm --needed strace
+install_aur bcc
+install_aur bpftrace
+install_aur fatrace
+install_aur pygtk
+pacman -S --noconfirm --needed swig
+install_aur trace-cmd
+install_aur flamegraph
+install_aur ctop
+
+pacman -S --noconfirm --needed smartmontools
+systemctl enable smartd
 
 echo -en "y\nn" | trizen -Scc
 
