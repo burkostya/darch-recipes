@@ -51,6 +51,7 @@ install_aur j4-dmenu-desktop
 install_aur polybar
 # fonts for polybar
 pacman -S --noconfirm bdf-unifont ttf-nerd-fonts-symbols otf-font-awesome
+install_aur ttf-unifont
 install_aur siji-git ttf-material-design-icons-webfont
 
 echo "==> install clipboard tools"
