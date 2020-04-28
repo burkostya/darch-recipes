@@ -51,6 +51,7 @@ install_aur j4-dmenu-desktop
 install_aur polybar
 # fonts for polybar
 pacman -S --noconfirm bdf-unifont ttf-nerd-fonts-symbols otf-font-awesome
+runuser -l burkostya -c "gpg --recv-keys 1A09227B1F435A33"
 install_aur ttf-unifont
 install_aur siji-git ttf-material-design-icons-webfont
 
