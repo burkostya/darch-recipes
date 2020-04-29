@@ -5,6 +5,7 @@ set -e
 
 # flameshot does not work without notifications 
 pacman -S --noconfirm --needed notification-daemon dunst
+runuser -l burkostya -c "mkdir -p ~/screenshots"
 pacman -S --noconfirm --needed flameshot
 
 # --skipinteg
