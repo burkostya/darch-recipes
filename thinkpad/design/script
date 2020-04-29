@@ -3,6 +3,8 @@ set -e
 
 . /usr/local/src/install_aur
 
+# flameshot does not work without notifications 
+pacman -S --noconfirm --needed notification-daemon dunst
 pacman -S --noconfirm --needed flameshot
 
 # --skipinteg
