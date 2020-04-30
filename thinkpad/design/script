@@ -3,6 +3,25 @@ set -e
 
 . /usr/local/src/install_aur
 
+# browser stage
+pacman -Sy
+pacman -S --noconfirm --needed firefox
+pacman -S --noconfirm --needed chromium
+
+echo "export BROWSER=firefox" > /etc/profile.d/browser.sh
+xdg-mime default firefox.desktop x-scheme-handler/https
+xdg-mime default firefox.desktop x-scheme-handler/http
+
+# terminal stage
+pacman -S --noconfirm --needed libxcursor alacritty
+
+# social stage
+pacman -S --noconfirm --needed telegram-desktop
+install_aur skypeforlinux-stable-bin
+install_aur slack-desktop
+
+# design stage
+
 # flameshot does not work without notifications 
 pacman -S --noconfirm --needed notification-daemon dunst
 runuser -l burkostya -c "mkdir -p ~/screenshots"

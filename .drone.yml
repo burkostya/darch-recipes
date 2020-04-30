@@ -67,16 +67,6 @@ steps:
     - cd ./thinkpad
     - RECIPE=x ./ci
 
-- name: social
-  environment:
-    DOCKER_LOGIN_USERNAME: 
-      from_secret: DOCKER_LOGIN_USERNAME
-    DOCKER_LOGIN_PASSWORD: 
-      from_secret: DOCKER_LOGIN_PASSWORD
-  commands:
-    - cd ./thinkpad
-    - RECIPE=social ./ci
-
 - name: design
   environment:
     DOCKER_LOGIN_USERNAME: 
@@ -86,18 +76,6 @@ steps:
   commands:
     - cd ./thinkpad
     - RECIPE=design ./ci
-  # depends_on:
-  #   - social
-
-- name: games
-  environment:
-    DOCKER_LOGIN_USERNAME: 
-      from_secret: DOCKER_LOGIN_USERNAME
-    DOCKER_LOGIN_PASSWORD: 
-      from_secret: DOCKER_LOGIN_PASSWORD
-  commands:
-    - cd ./thinkpad
-    - RECIPE=games ./ci
   # depends_on:
   #   - social
 
