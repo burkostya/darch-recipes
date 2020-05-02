@@ -40,6 +40,6 @@ pacman -S --noconfirm --needed graphviz
 
 # install drawio-desktop
 pacman -S --noconfirm --needed yarn
-install_aur drawio-desktop
+install_aur drawio-desktop-bin
 
 echo -en "y\nn" | trizen -Scc
