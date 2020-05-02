@@ -4,10 +4,11 @@ set -e
 . /usr/local/src/install_aur
 
 # X stage
+echo "==> X stage"
 pacman -S --noconfirm --needed xf86-video-intel
 pacman -S --noconfirm --needed xorg-server xorg-xrandr xorg-xdpyinfo
 pacman -S --noconfirm --needed xorg-xinput xorg-xbacklight
-pacman -S --noconfirm --needed xbindkeys
+install_aur xbindkeys
 
 # pacman -S --noconfirm udisks2 udiskie
 
@@ -25,7 +26,9 @@ systemctl enable i3lock@burkostya
 
 usermod -aG audio burkostya
 
-## audio stage
+# audio stage
+echo "==> audio stage"
+
 # Enable audio
 pacman -S --noconfirm --needed pulseaudio pulseaudio-alsa
 pacman -S --noconfirm --needed pavucontrol
@@ -37,6 +40,7 @@ pacman -S --noconfirm --needed sonic-pi
 pacman -S --noconfirm --needed cadence
 
 # i3 stage
+echo "==> i3 stage"
 
 # Resyn the database
 pacman -Sy --noconfirm
