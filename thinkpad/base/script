@@ -170,10 +170,6 @@ echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 
 pacman -S --noconfirm --needed upower
 
-# extra fonts
-pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
-pacman -S --noconfirm ttf-roboto
-
 # sec stage
 pacman -S --noconfirm --needed pwgen gnupg pass
 
