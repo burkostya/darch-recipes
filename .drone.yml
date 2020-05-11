@@ -67,18 +67,6 @@ steps:
     - cd ./thinkpad
     - RECIPE=x ./ci
 
-- name: design
-  environment:
-    DOCKER_LOGIN_USERNAME: 
-      from_secret: DOCKER_LOGIN_USERNAME
-    DOCKER_LOGIN_PASSWORD: 
-      from_secret: DOCKER_LOGIN_PASSWORD
-  commands:
-    - cd ./thinkpad
-    - RECIPE=design ./ci
-  # depends_on:
-  #   - social
-
 # - name: publish
 #   image: plugins/docker
 #   settings:
