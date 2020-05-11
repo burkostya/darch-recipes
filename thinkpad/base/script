@@ -175,4 +175,6 @@ pacman -S --noconfirm --needed pwgen gnupg pass
 
 pacman -S --noconfirm --needed keybase keybase-gui
 
+pacman -S --noconfirm --needed apparmor
+
 echo -en "y\nn" | pacman -Scc
