@@ -26,6 +26,8 @@ systemctl enable i3lock@burkostya
 
 usermod -aG audio burkostya
 
+install_aur xidlehook
+
 # audio stage
 echo "==> audio stage"
 
