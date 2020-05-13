@@ -42,4 +42,69 @@ pacman -S --noconfirm --needed syncthing syncthing-gtk
 install_aur alloy
 install_aur tla-tools
 
+# ops stage
+pacman -S --noconfirm docker docker-compose docker-machine
+# systemctl enable docker
+usermod -aG docker burkostya
+# alternative stack for containers
+pacman -S --noconfirm shadow buildah skopeo podman
+# enable rootless mode for containers
+echo "session    optional   pam_cgfs.so          -c freezer,memory,name=systemd,unified" >> /etc/pam.d/system-login
+echo "burkostya:100000:65536" >> /etc/subuid
+setcap cap_setuid+ep /usr/bin/newuidmap
+echo "burkostya:100000:65536" >> /etc/subgid
+setcap cap_setgid+ep /usr/bin/newgidmap
+
+install_aur darch
+
+pacman -S --noconfirm iotop sysdig
+
+pacman -S --noconfirm mosh
+
+echo "Timespamp: $(date)"
+
+pacman -S --noconfirm --needed terraform
+install_aur minikube-bin
+install_aur kubectl-bin 
+pacman -S --noconfirm --needed helm
+install_aur kustomize-bin
+install_aur draft-bin
+
+pacman -S --noconfirm --needed ansible
+
+install_aur jsonnet
+
+pacman -S --noconfirm --needed rsync
+
+echo "Timespamp: $(date)"
+
+pacman -S --noconfirm --needed python-pip
+pip3 install netaddr
+
+pacman -S --noconfirm --needed tinc
+
+install_aur robo3t-bin
+install_aur mongodb-compass
+
+pacman -S --noconfirm --needed dbeaver
+pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
+
+# perf stage
+install_aur perf-tools
+pacman -S --noconfirm --needed clang llvm netperf iperf ethtool powertop
+pacman -S --noconfirm --needed strace
+install_aur bcc
+install_aur bpftrace
+install_aur fatrace
+install_aur pygtk
+pacman -S --noconfirm --needed swig
+install_aur trace-cmd
+install_aur flamegraph
+install_aur ctop
+
+pacman -S --noconfirm --needed smartmontools
+systemctl enable smartd
+
 echo -en "y\nn" | trizen -Scc
+
+echo "Timespamp: $(date)"

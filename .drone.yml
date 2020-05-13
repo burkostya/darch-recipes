@@ -47,16 +47,6 @@ steps:
     - cd ./thinkpad
     - RECIPE=dev ./ci
 
-- name: ops
-  environment:
-    DOCKER_LOGIN_USERNAME: 
-      from_secret: DOCKER_LOGIN_USERNAME
-    DOCKER_LOGIN_PASSWORD: 
-      from_secret: DOCKER_LOGIN_PASSWORD
-  commands:
-    - cd ./thinkpad
-    - RECIPE=ops ./ci
-
 - name: x
   environment:
     DOCKER_LOGIN_USERNAME: 
