@@ -98,7 +98,7 @@ install_aur bpftrace
 install_aur fatrace
 install_aur pygtk
 pacman -S --noconfirm --needed swig
-install_aur trace-cmd
+# install_aur trace-cmd
 install_aur flamegraph
 install_aur ctop
 
