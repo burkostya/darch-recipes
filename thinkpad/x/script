@@ -59,6 +59,7 @@ install_aur polybar
 pacman -S --noconfirm ttf-nerd-fonts-symbols ttf-font-awesome
 pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
 pacman -S --noconfirm ttf-roboto
+install_aur ttf-windows
 
 runuser -l burkostya -c "gpg --recv-keys 1A09227B1F435A33"
 install_aur ttf-unifont
