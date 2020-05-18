@@ -53,6 +53,7 @@ pacman -S --noconfirm --needed i3 compton xorg-xinit
 echo "==> installing desktop bar"
 runuser -l burkostya -c "gpg --recv-keys A1774C1B37DC1DCEDB65EE469B8450B91D1362C1" && \
 pacman -S --noconfirm --needed dmenu
+runuser -l burkostya -c "gpg --recv-keys 9B8450B91D1362C1" && \
 install_aur j4-dmenu-desktop
 install_aur polybar
 # extra fonts
