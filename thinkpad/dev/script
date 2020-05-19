@@ -105,6 +105,121 @@ install_aur ctop-bin
 pacman -S --noconfirm --needed smartmontools
 systemctl enable smartd
 
+# X stage
+echo "==> X stage"
+pacman -S --noconfirm --needed xf86-video-intel
+pacman -S --noconfirm --needed xorg-server xorg-xrandr xorg-xdpyinfo
+pacman -S --noconfirm --needed xorg-xinput xorg-xbacklight
+install_aur xbindkeys
+
+# pacman -S --noconfirm udisks2 udiskie
+
+cp 30-touchpad.conf /etc/X11/xorg.conf.d/
+
+cp 30-trackpoint.conf /etc/X11/xorg.conf.d/
+cp 30-trackpoint.hwdb /etc/udev/hwdb.d/
+
+cp wifi /usr/local/bin/
+
+pacman -S --noconfirm --needed imagemagick
+
+cp i3lock.service /etc/systemd/system/i3lock@.service
+systemctl enable i3lock@burkostya
+
+usermod -aG audio burkostya
+
+install_aur xidlehook
+
+# audio stage
+echo "==> audio stage"
+
+# Enable audio
+pacman -S --noconfirm --needed pulseaudio pulseaudio-alsa
+pacman -S --noconfirm --needed pavucontrol
+
+# Add ability to connect bluetooth headsets
+pacman -S --noconfirm --needed pulseaudio-bluetooth bluez-utils
+
+pacman -S --noconfirm --needed sonic-pi
+pacman -S --noconfirm --needed cadence
+
+# i3 stage
+echo "==> i3 stage"
+
+# Resyn the database
+pacman -Sy --noconfirm
+
+echo "==> installing i3"
+pacman -S --noconfirm --needed i3 compton xorg-xinit
+
+echo "==> installing desktop bar"
+runuser -l burkostya -c "gpg --recv-keys A1774C1B37DC1DCEDB65EE469B8450B91D1362C1" && \
+pacman -S --noconfirm --needed dmenu
+runuser -l burkostya -c "gpg --recv-keys 9B8450B91D1362C1" && \
+install_aur j4-dmenu-desktop
+install_aur polybar
+# extra fonts
+pacman -S --noconfirm ttf-nerd-fonts-symbols ttf-font-awesome
+pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
+pacman -S --noconfirm ttf-roboto
+pacman -S --noconfirm ttf-bitstream-vera
+install_aur ttf-windows
+install_aur ttf-twemoji-color
+
+runuser -l burkostya -c "gpg --recv-keys 1A09227B1F435A33"
+install_aur ttf-unifont
+install_aur siji-git ttf-material-design-icons-git 
+
+echo "==> install clipboard tools"
+install_aur unclutter-xfixes-git 
+pacman -S --noconfirm --needed autocutsel
+
+pacman -S --noconfirm --needed redshift
+
+pacman -S --noconfirm --needed xorg-xwininfo xorg-xprop
+cp i3-window-criteria /usr/local/bin/
+
+pacman -S --noconfirm --needed peek
+
+# browser stage
+pacman -Sy
+pacman -S --noconfirm --needed firefox
+pacman -S --noconfirm --needed chromium
+
+echo "export BROWSER=firefox" > /etc/profile.d/browser.sh
+xdg-mime default firefox.desktop x-scheme-handler/https
+xdg-mime default firefox.desktop x-scheme-handler/http
+
+# terminal stage
+pacman -S --noconfirm --needed libxcursor alacritty
+
+# social stage
+pacman -S --noconfirm --needed telegram-desktop
+install_aur skypeforlinux-stable-bin
+install_aur slack-desktop
+
+# design stage
+
+# flameshot does not work without notifications 
+pacman -S --noconfirm --needed notification-daemon dunst
+runuser -l burkostya -c "mkdir -p ~/screenshots"
+pacman -S --noconfirm --needed flameshot
+
+# --skipinteg
+install_aur archlinux-java-run
+
+# install gravit
+install_aur gconf
+# install_aur gravit-designer-bin
+
+install_aur yed
+pacman -S --noconfirm --needed dia
+pacman -S --noconfirm --needed graphviz
+
+# install drawio-desktop
+pacman -S --noconfirm --needed yarn
+install_aur drawio-desktop-bin
+
 echo -en "y\nn" | trizen -Scc
 
 echo "Timespamp: $(date)"
