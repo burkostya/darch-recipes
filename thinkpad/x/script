@@ -60,8 +60,8 @@ install_aur polybar
 pacman -S --noconfirm ttf-nerd-fonts-symbols ttf-font-awesome
 pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
 pacman -S --noconfirm ttf-roboto
+pacman -S --noconfirm ttf-bitstream-vera
 install_aur ttf-windows
-install_aur ttf-bitstream-vera
 install_aur ttf-twemoji-color
 
 runuser -l burkostya -c "gpg --recv-keys 1A09227B1F435A33"
