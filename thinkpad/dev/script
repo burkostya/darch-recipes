@@ -181,6 +181,9 @@ cp i3-window-criteria /usr/local/bin/
 
 pacman -S --noconfirm --needed peek
 
+## notifications
+pacman -S --noconfirm --needed libnotify notification-daemon deadd-notification-center-bin
+
 # browser stage
 pacman -Sy
 pacman -S --noconfirm --needed firefox
