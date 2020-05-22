@@ -182,7 +182,8 @@ cp i3-window-criteria /usr/local/bin/
 pacman -S --noconfirm --needed peek
 
 ## notifications
-pacman -S --noconfirm --needed libnotify notification-daemon deadd-notification-center-bin
+pacman -S --noconfirm --needed libnotify notification-daemon 
+install_aur deadd-notification-center-bin
 
 # browser stage
 pacman -Sy
