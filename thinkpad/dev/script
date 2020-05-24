@@ -30,6 +30,10 @@ pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
 systemctl enable systemd-modules-load
 usermod -aG vboxusers burkostya
 
+pacman -S --noconfirm ebtables dnsmasq qemu libvirt
+
+pacman -S --noconfirm virt-install virt-manager
+
 # Fonts
 # install_aur nerd-fonts-complete
 
