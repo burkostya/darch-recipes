@@ -27,16 +27,6 @@ steps:
     - runc --version
     - mount
 
-- name: base
-  environment:
-    DOCKER_LOGIN_USERNAME: 
-      from_secret: DOCKER_LOGIN_USERNAME
-    DOCKER_LOGIN_PASSWORD: 
-      from_secret: DOCKER_LOGIN_PASSWORD
-  commands:
-    - cd ./thinkpad
-    - RECIPE=base ./ci
-
 - name: dev
   environment:
     DOCKER_LOGIN_USERNAME: 

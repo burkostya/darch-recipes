@@ -1,6 +1,182 @@
 #!/bin/bash
 set -e
 
+# Initialize the keys
+pacman-key --init
+pacman-key --populate archlinux
+
+# Resyn the database
+pacman -Syy --noconfirm
+# Update gpg keys before we install anything else.
+pacman -S --noconfirm --needed archlinux-keyring
+pacman-key --populate archlinux
+# Now update everything.
+pacman -Syyu --noconfirm
+
+# Let's update the mirrors.
+pacman -S --noconfirm --needed wget sed
+
+wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
+  | sed -e "s/#Server/Server/g" \
+  | sed "/mirror\.rol\.ru/d" \
+  > /etc/pacman.d/mirrorlist
+
+echo 'Server = http://mirror.rackspace.com/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
+
+pacman -Syyu --noconfirm
+
+pacman -S --noconfirm --needed systemd-resolvconf base base-devel 
+pacman -S --noconfirm --needed linux linux-api-headers linux-firmware linux-headers
+pacman -S --noconfirm --needed lvm2
+
+pacman -S --noconfirm --needed curl patch
+# curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/5c26a163f7815682793001312b0bd693bebb3d45/makepkg.patch | patch /usr/bin/makepkg
+
+echo "==> add mgmt user"
+useradd -m -G adm,sys,wheel -s /usr/bin/bash mgmt 
+passwd -d mgmt
+echo 'mgmt ALL=(ALL) ALL' > /etc/sudoers.d/mgmt
+# echo 'mgmt ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/mgmt
+
+echo "==> installing gosu"
+curl https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64 > /gosu
+curl https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64.asc > /gosu.asc
+chmod +x /gosu
+mv /gosu /usr/bin/gosu
+rm /gosu.asc
+
+echo "==> installing trizen"
+pacman -S --noconfirm --needed git sudo \
+  pacutils perl-libwww perl-term-ui perl-json perl-data-dump \
+  perl-lwp-protocol-https perl-term-readline-gnu
+runuser -l mgmt -c 'git clone https://aur.archlinux.org/trizen.git ~/trizen'
+runuser -l mgmt -c 'cd ~/trizen && makepkg -s --noconfirm'
+pacman -U --noconfirm --needed /home/mgmt/trizen/$(ls /home/mgmt/trizen/ | grep tar.xz)
+cp install_aur /usr/local/src/install_aur
+
+echo "==> installing yay"
+runuser -l mgmt -c 'git clone https://aur.archlinux.org/yay-bin.git ~/yay'
+runuser -l mgmt -c 'cd ~/yay && makepkg -s --noconfirm'
+pacman -U --noconfirm --needed /home/mgmt/yay/$(ls /home/mgmt/yay/ | grep tar.xz)
+
+echo "==> debug sudo"
+ls -la /usr/bin/sudo
+mount
+
+echo "==> remove mgmt user"
+rm -rf /home/mgmt
+rm /etc/sudoers.d/mgmt
+userdel mgmt
+
+echo "==> setup timezone"
+# Timezone
+ln -sf ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
+
+# Time sync
+echo "==> setup syncing time"
+pacman -S --noconfirm --needed ntp
+systemctl enable ntpd
+
+# Setup the locales.
+echo "==> setup locales"
+echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+echo "ru_RU.UTF-8 UTF-8" >> /etc/locale.gen
+echo "en_DK.UTF-8 UTF-8" >> /etc/locale.gen
+# set system locale
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+# use ISO-8601 for time
+echo "LC_TIME=en_DK.UTF-8" >> /etc/locale.conf
+# use ru locale for users
+mkdir -p /etc/skel/.config
+echo "LANG=en_US.UTF-8" > /etc/skel/.config/locale.conf
+locale-gen
+
+# Use fish, not bash
+pacman -S --noconfirm --needed fish
+
+# Set the root password
+if [ -n  "$ROOT_PASSWD" ]; then
+    echo "Using root password provided by environment variable..."
+    echo -en "$ROOT_PASSWD\n$ROOT_PASSWD" | passwd
+else
+    echo "Using default root password..."
+    echo -en "123\n123" | passwd
+fi
+
+pacman -S --noconfirm --needed python
+
+pacman -S --noconfirm --needed polkit
+
+pacman -S --noconfirm --needed terminus-font
+echo "FONT=ter-p32n" > /etc/vconsole.conf
+
+# install ssh
+pacman -S --noconfirm --needed openssh
+
+pacman -S --noconfirm --needed tree
+
+pacman -S --noconfirm --needed cups
+
+systemctl disable man-db.timer
+
+# Enable systemd networking.
+cp wired.network /etc/systemd/network/
+systemctl enable systemd-networkd
+systemctl enable systemd-resolved
+
+pacman -S --noconfirm --needed networkmanager
+pacman -S --noconfirm --needed openvpn
+cp nodns.conf /etc/NetworkManager/conf.d/
+touch /etc/NetworkManager/conf.d/resolv.conf
+systemctl enable NetworkManager
+
+echo "nameserver 1.1.1.1" > /etc/resolv.conf
+
+echo "DNSSEC=no" >> /etc/systemd/resolved.conf
+
+pacman -S --noconfirm --needed unzip
+
+echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+
+# user stage
+
+## add users
+groupadd guests
+useradd -m -G adm,ftp,games,http,log,rfkill,sys,systemd-journal,users,uucp,wheel,video -s /usr/bin/fish burkostya
+useradd -m -G guests,users -s /usr/bin/fish guest
+
+# Set the root password
+if [ -n  "$USER_PASSWD" ]; then
+    echo "Using user password provided by environment variable..."
+    echo -en "$USER_PASSWD\n$USER_PASSWD" | passwd burkostya
+else
+    echo "Using default user password..."
+    echo -en "123\n123" | passwd burkostya
+fi
+
+runuser -l burkostya -c "git clone https://github.com/burkostya/dotfiles.git ~/.dotfiles"
+runuser -l burkostya -c "cd ~/.dotfiles; and ./install"
+# Now that they are installed, removed dotbot to clean up the image.
+runuser -l burkostya -c "rm -r ~/.dotfiles/dotbot"
+
+echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
+
+# runuser -l burkostya -c "git clone https://github.com/oh-my-fish/oh-my-fish.git ~/oh-my-fish"
+# runuser -l burkostya -c "cd ~/oh-my-fish; and bin/install --noninteractive"
+
+# install_aur fisher
+
+# runuser -l burkostya -c "fisher add rafaelrinaldi/pure"
+
+pacman -S --noconfirm --needed upower
+
+# sec stage
+pacman -S --noconfirm --needed pwgen gnupg pass
+
+pacman -S --noconfirm --needed keybase keybase-gui
+
+pacman -S --noconfirm --needed apparmor
+
 . /usr/local/src/install_aur
 
 pacman -S --noconfirm ttf-dejavu otf-fira-code
@@ -226,6 +402,4 @@ pacman -S --noconfirm --needed graphviz
 pacman -S --noconfirm --needed yarn
 install_aur drawio-desktop-bin
 
-echo -en "y\nn" | trizen -Scc
-
-echo "Timespamp: $(date)"
+echo -en "y\nn" | pacman -Scc
