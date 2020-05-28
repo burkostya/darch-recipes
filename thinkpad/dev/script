@@ -209,6 +209,7 @@ usermod -aG vboxusers burkostya
 pacman -S --noconfirm ebtables dnsmasq qemu libvirt
 
 pacman -S --noconfirm virt-install virt-manager
+usermod -aG libvirt
 
 # Fonts
 # install_aur nerd-fonts-complete
