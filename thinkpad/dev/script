@@ -223,24 +223,27 @@ pacman -S --noconfirm --needed syncthing syncthing-gtk
 install_aur alloy
 install_aur tla-tools
 
-# ops stage
+# ops
+
+## containers
+
 pacman -S --noconfirm docker docker-compose docker-machine
-# systemctl enable docker
 usermod -aG docker burkostya
-# alternative stack for containers
+
 pacman -S --noconfirm shadow buildah skopeo podman
-# enable rootless mode for containers
+### enable rootless mode for containers
 echo "session    optional   pam_cgfs.so          -c freezer,memory,name=systemd,unified" >> /etc/pam.d/system-login
 echo "burkostya:100000:65536" >> /etc/subuid
 setcap cap_setuid+ep /usr/bin/newuidmap
 echo "burkostya:100000:65536" >> /etc/subgid
 setcap cap_setgid+ep /usr/bin/newgidmap
 
+## other
 install_aur darch
 
-pacman -S --noconfirm iotop sysdig
+pacman -S --noconfirm --needed iotop sysdig
 
-pacman -S --noconfirm mosh
+pacman -S --noconfirm --needed mosh
 
 echo "Timespamp: $(date)"
 
