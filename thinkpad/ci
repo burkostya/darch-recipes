@@ -5,9 +5,11 @@ docker login -u $DOCKER_LOGIN_USERNAME -p $DOCKER_LOGIN_PASSWORD
 
 . ./build
 
+echo "Timespamp: $(date)"
 echo "==> pushing images"
 sudo darch images push --user $DOCKER_LOGIN_USERNAME:$DOCKER_LOGIN_PASSWORD docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG
 sudo darch images push --user $DOCKER_LOGIN_USERNAME:$DOCKER_LOGIN_PASSWORD docker.io/burkostya/darch-thinkpad-$RECIPE:latest
+echo "Timespamp: $(date)"
 
 # echo "==> removing images"
 # sudo darch images remove docker.io/burkostya/darch-thinkpad-$RECIPE:$TAG

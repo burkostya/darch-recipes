@@ -411,4 +411,6 @@ pacman -S --noconfirm --needed graphviz
 pacman -S --noconfirm --needed yarn
 install_aur drawio-desktop-bin
 
+echo "Timespamp: $(date)"
+
 echo -en "y\nn" | pacman -Scc
