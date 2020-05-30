@@ -186,6 +186,8 @@ pacman -S --noconfirm --needed libx264
 install_aur visual-studio-code-bin
 runuser -l burkostya -c "cat $(pwd)/vscode-extensions | xargs -n 1 code --install-extension"
 
+install_aur taskfile-git
+
 install_aur goland
 
 install_aur postman-bin
@@ -206,7 +208,7 @@ pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
 systemctl enable systemd-modules-load
 usermod -aG vboxusers burkostya
 
-pacman -S --noconfirm ebtables dnsmasq qemu libvirt
+pacman -S --noconfirm ebtables dnsmasq dmidecode qemu libvirt
 
 pacman -S --noconfirm virt-install virt-manager
 usermod -aG libvirt burkostya
