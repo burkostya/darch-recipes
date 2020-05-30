@@ -7,7 +7,7 @@ token:
 
 server:
   image: docker-18-04
-  size: s-3vcpu-1gb
+  size: s-4vcpu-8gb
   region: nyc3
 
 steps:
