@@ -208,7 +208,7 @@ pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
 systemctl enable systemd-modules-load
 usermod -aG vboxusers burkostya
 
-pacman -S --noconfirm ebtables dnsmasq dmidecode qemu libvirt
+pacman -S --noconfirm ebtables dnsmasq cdrtools dmidecode qemu libvirt
 
 pacman -S --noconfirm virt-install virt-manager
 usermod -aG libvirt burkostya
