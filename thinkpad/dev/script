@@ -210,7 +210,7 @@ usermod -aG vboxusers burkostya
 
 pacman -S --noconfirm ebtables dnsmasq cdrtools dmidecode qemu libvirt
 
-pacman -S --noconfirm virt-install virt-manager
+pacman -S --noconfirm virt-install virt-manager virt-viewer
 usermod -aG libvirt burkostya
 
 # Fonts
