@@ -179,7 +179,7 @@ pacman -S --noconfirm --needed apparmor
 
 . /usr/local/src/install_aur
 
-pacman -S --noconfirm ttf-dejavu otf-fira-code
+pacman -S --noconfirm ttf-dejavu ttf-fira-code
 
 pacman -S --noconfirm --needed libx264
 
