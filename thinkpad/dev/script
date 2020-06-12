@@ -213,6 +213,9 @@ pacman -S --noconfirm ebtables dnsmasq cdrtools dmidecode qemu libvirt
 pacman -S --noconfirm virt-install virt-manager virt-viewer
 usermod -aG libvirt burkostya
 
+# run qemu under this user
+echo 'user = "burkostya"' >> /etc/libvirt/qemu.conf
+
 # Fonts
 # install_aur nerd-fonts-complete
 
