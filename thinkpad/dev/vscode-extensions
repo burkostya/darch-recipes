@@ -11,13 +11,13 @@ eamodio.gitlens
 eg2.tslint
 eg2.vscode-npm-script
 grapecity.gc-excelviewer
+hashicorp.terraform
 HookyQR.beautify
 humao.rest-client
 jamesbirtles.svelte-vscode
 joaompinto.vscode-graphviz
 kumar-harsh.graphql-for-vscode
 lunaryorn.fish-ide
-mauve.terraform
 mongodb.mongodb-vscode
 ms-vscode.Go
 ms-azuretools.vscode-docker
