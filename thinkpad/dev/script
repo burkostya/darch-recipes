@@ -278,6 +278,8 @@ install_aur mongodb-compass
 pacman -S --noconfirm --needed dbeaver
 pacman -S --noconfirm --needed dbeaver-plugin-office dbeaver-plugin-svg-format
 
+install_aur datagrip
+
 ## network
 pacman -S --noconfirm --needed ipcalc
 
