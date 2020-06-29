@@ -410,6 +410,8 @@ install_aur yed
 pacman -S --noconfirm --needed dia
 pacman -S --noconfirm --needed graphviz
 
+install_aur figma-linux
+
 # install drawio-desktop
 pacman -S --noconfirm --needed yarn
 install_aur drawio-desktop-bin
