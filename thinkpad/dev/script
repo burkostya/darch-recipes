@@ -405,6 +405,7 @@ pacman -S --noconfirm --needed flameshot
 install_aur archlinux-java-run
 
 # install gravit
+pacman -S --noconfirm --needed flatpak 
 install_aur gconf
 # install_aur gravit-designer-bin
 
