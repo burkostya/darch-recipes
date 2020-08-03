@@ -51,7 +51,7 @@ pacman -S --noconfirm --needed git sudo \
   perl-lwp-protocol-https perl-term-readline-gnu
 runuser -l mgmt -c 'git clone https://aur.archlinux.org/trizen.git ~/trizen'
 runuser -l mgmt -c 'cd ~/trizen && makepkg -s --noconfirm'
-pacman -U --noconfirm --needed /home/mgmt/trizen/$(ls /home/mgmt/trizen/ | grep tar.xz)
+pacman -U --noconfirm --needed /home/mgmt/trizen/$(ls /home/mgmt/trizen/ | grep tar.zst)
 cp install_aur /usr/local/src/install_aur
 
 echo "==> installing yay"
