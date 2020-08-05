@@ -15,7 +15,6 @@ grapecity.gc-excelviewer
 hashicorp.terraform
 HookyQR.beautify
 humao.rest-client
-jamesbirtles.svelte-vscode
 joaompinto.vscode-graphviz
 kumar-harsh.graphql-for-vscode
 lunaryorn.fish-ide
@@ -25,6 +24,7 @@ ms-azuretools.vscode-docker
 PKief.material-icon-theme
 samuelcolvin.jinjahtml
 skyapps.fish-vscode
+svelte.svelte-vscode
 taoyu.prism-language
 vscodevim.vim
 vscoss.vscode-ansible
