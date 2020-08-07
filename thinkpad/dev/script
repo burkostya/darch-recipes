@@ -419,6 +419,9 @@ install_aur figma-linux
 pacman -S --noconfirm --needed yarn
 install_aur drawio-desktop-bin
 
+# dashboard
+install_aur wtfutil-bin
+
 echo "Timespamp: $(date)"
 
 echo -en "y\nn" | pacman -Scc
