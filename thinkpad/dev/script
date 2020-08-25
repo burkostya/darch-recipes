@@ -177,6 +177,8 @@ pacman -S --noconfirm --needed keybase keybase-gui
 
 pacman -S --noconfirm --needed apparmor
 
+pacman -S --noconfirm --needed seahorse
+
 . /usr/local/src/install_aur
 
 pacman -S --noconfirm ttf-dejavu ttf-fira-code
