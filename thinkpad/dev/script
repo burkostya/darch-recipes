@@ -286,6 +286,10 @@ install_aur datagrip
 pacman -S --noconfirm --needed ipcalc
 
 # perf stage
+
+install_aur rr-bin
+cp rr-sysctl.conf /etc/sysctl.d/99-rr.conf
+
 install_aur perf-tools
 pacman -S --noconfirm --needed clang llvm netperf iperf ethtool powertop
 pacman -S --noconfirm --needed strace
