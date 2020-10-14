@@ -8,3 +8,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - run: whoami
+      - run: ls -la /usr/bin/sudo
+      - run: apt update -y
+      - run: ps aux | grep -i apt
+      - run: apt upgrade -y
+      - run: apt-get install -y libseccomp-dev wget curl gnupg software-properties-common sudo containerd runc
+      - run: curl -s https://raw.githubusercontent.com/godarch/darch/develop/scripts/install | DARCH_TAG=v0.26.4 bash /dev/stdin
+      - run: mkdir -p /etc/containerd
+      - run: echo 'disabled_plugins = ["cri"]' | tee /etc/containerd/config.toml
+      - run: systemctl start containerd
+      - run: darch version
+      - run: ctr version
+      - run: runc --version
+      - run: mount
