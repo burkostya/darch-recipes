@@ -10,15 +10,15 @@ jobs:
         uses: actions/checkout@v2
       - run: whoami
       - run: ls -la /usr/bin/sudo
-      - run: apt update -y
+      - run: sudo apt update -y
       - run: ps aux | grep -i apt
-      - run: apt upgrade -y
-      - run: apt-get install -y libseccomp-dev wget curl gnupg software-properties-common sudo containerd runc
-      - run: curl -s https://raw.githubusercontent.com/godarch/darch/develop/scripts/install | DARCH_TAG=v0.26.4 bash /dev/stdin
-      - run: mkdir -p /etc/containerd
-      - run: echo 'disabled_plugins = ["cri"]' | tee /etc/containerd/config.toml
-      - run: systemctl start containerd
+      - run: sudo apt upgrade -y
+      - run: sudo apt-get install -y libseccomp-dev wget curl gnupg software-properties-common sudo containerd runc
+      - run: curl -s https://raw.githubusercontent.com/godarch/darch/develop/scripts/install | DARCH_TAG=v0.26.4 sudo bash /dev/stdin
+      - run: sudo mkdir -p /etc/containerd
+      - run: echo 'disabled_plugins = ["cri"]' | sudo tee /etc/containerd/config.toml
+      - run: sudo systemctl start containerd
       - run: darch version
-      - run: ctr version
-      - run: runc --version
-      - run: mount
+      - run: sudo ctr version
+      - run: sudo runc --version
+      - run: sudo mount
