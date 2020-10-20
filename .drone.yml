@@ -15,7 +15,7 @@ steps:
   commands:
     - whoami
     - ls -la /usr/bin/sudo
-    - apt update -y
+    # - apt update -y
     # - apt upgrade -y
     - apt-get install -y libseccomp-dev wget curl gnupg software-properties-common sudo containerd runc
     - curl -s https://raw.githubusercontent.com/godarch/darch/develop/scripts/install | DARCH_TAG=v0.26.4 bash /dev/stdin
