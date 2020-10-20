@@ -297,7 +297,6 @@ install_aur perf-tools
 pacman -S --noconfirm --needed clang llvm netperf iperf ethtool powertop
 pacman -S --noconfirm --needed strace
 install_aur bcc-git
-install_aur bcc-tools-git
 install_aur python-bcc-git
 install_aur bpftrace-git
 install_aur fatrace
