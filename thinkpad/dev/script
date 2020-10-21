@@ -192,6 +192,19 @@ install_aur taskfile-git
 
 install_aur goland
 
+## android sdk
+pacman -S --noconfirm --needed jdk8-openjdk
+pacman -S --noconfirm --needed android-sdk android-sdk-platform-tools android-sdk-build-tools
+pacman -S --noconfirm --needed android-platform-29
+groupadd android-sdk
+gpasswd -a burkostya android-sdk
+setfacl -R -m g:android-sdk:rwx /opt/android-sdk
+setfacl -d -m g:android-sdk:rwX /opt/android-sdk
+
+## flutter
+pacman -S --noconfirm --needed flutter
+gpasswd -a burkostya flutterusers
+
 install_aur postman-bin
 install_aur insomnia
 
