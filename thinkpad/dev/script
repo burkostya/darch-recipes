@@ -369,7 +369,7 @@ echo "==> i3 stage"
 pacman -Sy --noconfirm
 
 echo "==> installing i3"
-pacman -S --noconfirm --needed i3 compton xorg-xinit
+pacman -S --noconfirm --needed i3 picom xorg-xinit
 
 echo "==> installing desktop bar"
 pacman -S --noconfirm --needed dmenu
