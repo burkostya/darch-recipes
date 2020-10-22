@@ -17,6 +17,7 @@ steps:
     - ls -la /usr/bin/sudo
     - ls -la /var/lib/dpkg/
     - lsof /var/lib/dpkg/lock-frontend || true
+    - sleep 360
     - killall -9 unattended-upgrade
     - rm -f /var/lib/dpkg/lock-frontend || true
     - apt update -y
