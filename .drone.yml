@@ -17,6 +17,7 @@ steps:
     - ls -la /usr/bin/sudo
     - ls -la /var/lib/dpkg/
     - lsof /var/lib/dpkg/lock-frontend || true
+    - sleep 60
     - apt update -y
     # - apt upgrade -y
     - apt-get install -y libseccomp-dev wget curl gnupg software-properties-common sudo containerd runc
