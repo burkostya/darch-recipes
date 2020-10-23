@@ -205,7 +205,7 @@ setfacl -R -m g:android-sdk:rwx /opt/android-sdk
 setfacl -d -m g:android-sdk:rwX /opt/android-sdk
 
 ## flutter
-pacman -S --noconfirm --needed flutter
+install_aur flutter
 gpasswd -a burkostya flutterusers
 
 install_aur postman-bin
