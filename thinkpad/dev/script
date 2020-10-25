@@ -154,6 +154,8 @@ else
     echo -en "123\n123" | passwd burkostya
 fi
 
+pacman -S --noconfirm --needed chezmoi
+
 runuser -l burkostya -c "git clone https://github.com/burkostya/dotfiles.git ~/.dotfiles"
 runuser -l burkostya -c "cd ~/.dotfiles; and ./install"
 # Now that they are installed, removed dotbot to clean up the image.
