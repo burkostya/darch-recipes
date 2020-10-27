@@ -203,8 +203,10 @@ install_aur android-sdk-build-tools
 install_aur android-platform-29
 groupadd android-sdk
 gpasswd -a burkostya android-sdk
-setfacl -R -m g:android-sdk:rwx /opt/android-sdk
-setfacl -d -m g:android-sdk:rwX /opt/android-sdk
+mkdir /opt/android-sdk/system-images
+mkdir /opt/android-sdk/licenses
+chown -R root:android-sdk /opt/android-sdk
+chown -R burkostya:android-sdk /opt/android-sdk/licenses
 
 ## flutter
 install_aur flutter
