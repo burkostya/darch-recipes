@@ -200,6 +200,7 @@ pacman -S --noconfirm --needed jdk8-openjdk
 install_aur android-sdk 
 install_aur android-sdk-platform-tools 
 install_aur android-sdk-build-tools
+install_aur android-emulator
 install_aur android-platform-29
 groupadd android-sdk
 gpasswd -a burkostya android-sdk
