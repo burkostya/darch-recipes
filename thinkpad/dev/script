@@ -213,6 +213,8 @@ chown -R burkostya:android-sdk /opt/android-sdk/licenses
 install_aur flutter
 gpasswd -a burkostya flutterusers
 
+install_aur nvm
+
 install_aur postman-bin
 install_aur insomnia
 
