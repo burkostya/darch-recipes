@@ -211,6 +211,8 @@ chown -R burkostya:android-sdk /opt/android-sdk/licenses
 
 ## flutter
 install_aur flutter
+mkdir /opt/flutter/bin/cache
+chown -R root:flutterusers /opt/flutter/bin/cache
 gpasswd -a burkostya flutterusers
 
 install_aur nvm
