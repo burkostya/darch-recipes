@@ -138,6 +138,10 @@ pacman -S --noconfirm --needed unzip
 
 echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
+## enable mDNS/DNS-SD
+pacman -S --noconfirm --needed avahi
+systemctl enable avahi-daemon
+
 # user stage
 
 ## add users
