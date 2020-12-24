@@ -257,7 +257,7 @@ pacman -S --noconfirm --needed gvim
 pacman -S --noconfirm --needed syncthing syncthing-gtk
 
 install_aur alloy
-install_aur tla-tools
+install_aur tla-tools || true
 
 # ops
 
