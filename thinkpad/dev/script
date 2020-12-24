@@ -222,7 +222,7 @@ gpasswd -a burkostya flutterusers
 install_aur nvm
 
 install_aur postman-bin
-install_aur insomnia
+install_aur insomnia || true
 
 pacman -S --noconfirm --needed tldr
 
