@@ -177,7 +177,7 @@ echo "burkostya ALL=(ALL) ALL" >> /etc/sudoers
 pacman -S --noconfirm --needed upower
 
 # sec stage
-pacman -S --noconfirm --needed pwgen gnupg pass
+pacman -S --noconfirm --needed pwgen gnupg pass passff-host
 
 pacman -S --noconfirm --needed keybase keybase-gui
 
