@@ -327,7 +327,6 @@ pacman -S --noconfirm --needed strace
 pacman -S --noconfirm --needed bcc bcc-tools python-bcc
 pacman -S --noconfirm --needed bpftrace
 install_aur fatrace
-install_aur pygtk
 pacman -S --noconfirm --needed swig
 # install_aur trace-cmd
 install_aur flamegraph
