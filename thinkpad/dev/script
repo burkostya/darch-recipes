@@ -371,6 +371,7 @@ pacman -S --noconfirm --needed pavucontrol
 pacman -S --noconfirm --needed pulseaudio-bluetooth bluez-utils
 
 pacman -S --noconfirm --needed sonic-pi
+pacman -S --noconfirm --needed jack2
 pacman -S --noconfirm --needed cadence
 
 # i3 stage
