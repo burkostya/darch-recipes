@@ -366,7 +366,6 @@ install_aur xidlehook
 echo "==> audio stage"
 
 # Enable audio
-pacman -S --noconfirm --needed jack2
 pacman -S --noconfirm --needed pulseaudio pulseaudio-alsa
 pacman -S --noconfirm --needed pavucontrol
 
