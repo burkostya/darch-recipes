@@ -91,6 +91,8 @@ mkdir -p /etc/skel/.config
 echo "LANG=en_US.UTF-8" > /etc/skel/.config/locale.conf
 locale-gen
 
+pacman -S --noconfirm --needed jack2
+
 # Use fish, not bash
 pacman -S --noconfirm --needed fish
 
@@ -188,7 +190,6 @@ pacman -S --noconfirm --needed seahorse
 . /usr/local/src/install_aur
 
 # dev stage
-pacman -S --noconfirm --needed jack2
 
 pacman -S --noconfirm ttf-dejavu ttf-fira-code
 
