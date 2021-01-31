@@ -188,6 +188,8 @@ pacman -S --noconfirm --needed seahorse
 . /usr/local/src/install_aur
 
 # dev stage
+pacman -S --noconfirm --needed jack2
+
 pacman -S --noconfirm ttf-dejavu ttf-fira-code
 
 pacman -S --noconfirm --needed libx264
