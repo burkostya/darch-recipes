@@ -430,6 +430,8 @@ xdg-mime default firefox.desktop x-scheme-handler/http
 # terminal stage
 pacman -S --noconfirm --needed libxcursor alacritty
 
+yay -S obsidian-appimage
+
 # social stage
 pacman -S --noconfirm --needed telegram-desktop
 install_aur skypeforlinux-stable-bin
