@@ -429,7 +429,7 @@ xdg-mime default firefox.desktop x-scheme-handler/http
 # terminal stage
 pacman -S --noconfirm --needed libxcursor alacritty
 
-install_aur -S obsidian-appimage
+install_aur obsidian-appimage
 
 # social stage
 pacman -S --noconfirm --needed telegram-desktop
