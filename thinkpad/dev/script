@@ -419,7 +419,6 @@ pacman -S --noconfirm --needed libnotify notification-daemon
 install_aur deadd-notification-center-bin
 
 # browser stage
-pacman -Sy
 pacman -S --noconfirm --needed firefox
 pacman -S --noconfirm --needed chromium
 
