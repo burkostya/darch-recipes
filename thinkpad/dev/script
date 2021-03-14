@@ -449,7 +449,7 @@ pacman -S --noconfirm --needed flatpak
 install_aur gconf
 # install_aur gravit-designer-bin
 
-install_aur yed
+# install_aur yed
 pacman -S --noconfirm --needed dia
 pacman -S --noconfirm --needed graphviz
 
