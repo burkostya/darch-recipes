@@ -278,7 +278,7 @@ echo "burkostya:100000:65536" >> /etc/subgid
 setcap cap_setgid+ep /usr/bin/newgidmap
 
 ## other
-install_aur darch
+# install_aur darch
 
 pacman -S --noconfirm --needed iotop sysdig
 
