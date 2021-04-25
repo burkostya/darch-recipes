@@ -15,7 +15,7 @@ pacman -Syyu --noconfirm
 
 # Let's update the mirrors.
 pacman -S --noconfirm --needed wget sed
-pacman -S --noconfirm iptables-nft
+yes | pacman -S --noconfirm iptables-nft
 
 wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
   | sed -e "s/#Server/Server/g" \
