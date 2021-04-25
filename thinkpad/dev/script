@@ -2,28 +2,29 @@
 set -e
 
 # Initialize the keys
-pacman-key --init
-pacman-key --populate archlinux
+# pacman-key --init
+# pacman-key --populate archlinux
 
 # Resyn the database
-pacman -Syy --noconfirm
+# pacman -Syy --noconfirm
 # Update gpg keys before we install anything else.
-pacman -S --noconfirm --needed archlinux-keyring
-pacman-key --populate archlinux
+# pacman -S --noconfirm --needed archlinux-keyring
+# pacman-key --populate archlinux
 # Now update everything.
-pacman -Syyu --noconfirm
+# pacman -Syyu --noconfirm
 
 # Let's update the mirrors.
+
+# wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
+#   | sed -e "s/#Server/Server/g" \
+#   | sed "/mirror\.rol\.ru/d" \
+#   > /etc/pacman.d/mirrorlist
+
 pacman -S --noconfirm --needed wget sed
 
-wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
-  | sed -e "s/#Server/Server/g" \
-  | sed "/mirror\.rol\.ru/d" \
-  > /etc/pacman.d/mirrorlist
+# echo 'Server = http://mirror.rackspace.com/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 
-echo 'Server = http://mirror.rackspace.com/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
-
-pacman -Syyu --noconfirm
+# pacman -Syyu --noconfirm
 
 pacman -S --noconfirm --needed systemd-resolvconf base base-devel 
 pacman -S --noconfirm --needed linux linux-api-headers linux-firmware linux-headers
@@ -39,8 +40,8 @@ echo 'mgmt ALL=(ALL) ALL' > /etc/sudoers.d/mgmt
 # echo 'mgmt ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/mgmt
 
 echo "==> installing gosu"
-curl https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64 > /gosu
-curl https://github.com/tianon/gosu/releases/download/1.11/gosu-amd64.asc > /gosu.asc
+curl https://github.com/tianon/gosu/releases/download/1.12/gosu-amd64 > /gosu
+curl https://github.com/tianon/gosu/releases/download/1.12/gosu-amd64.asc > /gosu.asc
 chmod +x /gosu
 mv /gosu /usr/bin/gosu
 rm /gosu.asc
@@ -379,18 +380,9 @@ pacman -S --noconfirm --needed cadence
 # i3 stage
 echo "==> i3 stage"
 
-# Resyn the database
-pacman -Sy --noconfirm
-
 echo "==> installing i3"
-pacman -S --noconfirm --needed i3 picom xorg-xinit
+pacman -S --noconfirm --needed xorg-xinit
 
-echo "==> installing desktop bar"
-pacman -S --noconfirm --needed dmenu
-runuser -l burkostya -c "gpg --keyserver pool.sks-keyservers.net --recv-keys A1774C1B37DC1DCEDB65EE469B8450B91D1362C1" && \
-runuser -l burkostya -c "gpg --keyserver pool.sks-keyservers.net --recv-keys 9B8450B91D1362C1" && \
-install_aur j4-dmenu-desktop
-install_aur polybar
 # extra fonts
 pacman -S --noconfirm ttf-nerd-fonts-symbols ttf-font-awesome
 pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
