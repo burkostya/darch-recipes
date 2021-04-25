@@ -112,7 +112,7 @@ pacman -S --noconfirm --needed polkit
 pacman -S --noconfirm --needed terminus-font
 echo "FONT=ter-p32n" > /etc/vconsole.conf
 
-pacman -S --noconfirm iptables-nft nftables 
+yes | pacman -S --noconfirm iptables-nft nftables 
 
 # install ssh
 pacman -S --noconfirm --needed openssh
