@@ -113,8 +113,6 @@ pacman -S --noconfirm --needed polkit
 pacman -S --noconfirm --needed terminus-font
 echo "FONT=ter-p32n" > /etc/vconsole.conf
 
-pacman -S --noconfirm iptables-nft
-
 # install ssh
 pacman -S --noconfirm --needed openssh
 
@@ -245,8 +243,7 @@ pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
 systemctl enable systemd-modules-load
 usermod -aG vboxusers burkostya
 
-pacman -S --noconfirm iptables-nft nftables 
-pacman -S --noconfirm ebtables dnsmasq cdrtools dmidecode qemu libvirt
+pacman -S --noconfirm dnsmasq cdrtools dmidecode qemu libvirt
 
 pacman -S --noconfirm virt-install virt-manager virt-viewer
 usermod -aG libvirt burkostya
