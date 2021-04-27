@@ -10,6 +10,10 @@ server:
   size: s-1vcpu-2gb
   region: nyc3
 
+trigger:
+  branch:
+    - master
+
 steps:
 - name: setup
   commands:
