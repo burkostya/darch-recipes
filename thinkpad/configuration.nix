@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 # let
 #   extensions = (with pkgs.vscode-extensions; [
@@ -55,7 +55,9 @@ in
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
   # };
-
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "vscode"
+  ];
   services = {
     dbus = {
       enable = true;
@@ -544,7 +546,7 @@ in
       };
       vscode = {
         enable = true;
-        package = pkgs.vscodium;
+        # package = pkgs.vscodium;
         extensions = with pkgs.vscode-extensions; [
           # "alefragnani.project-manager"
           # "alygin.vscode-tlaplus"
