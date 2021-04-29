@@ -549,7 +549,7 @@ in
         # package = pkgs.vscodium;
         extensions = with pkgs.vscode-extensions; [
           # "alefragnani.project-manager"
-          # "alygin.vscode-tlaplus"
+          alygin.vscode-tlaplus
           # "arashsahebolamri.alloy"
           # "atlassian.atlascode"
           bbenoist.Nix
@@ -557,35 +557,34 @@ in
           # "casualjim.gotemplate"
           # "dart-code.flutter"
           # "davidnussio.vscode-jq-playground"
-          # "dbaeumer.vscode-eslint"
+          dbaeumer.vscode-eslint
           # "dhoeric.ansible-vault"
-          # "donjayamanne.githistory"
-          # "eamodio.gitlens"
+          donjayamanne.githistory
+          eamodio.gitlens
           # "eg2.tslint"
           # "eg2.vscode-npm-script"
           # "grapecity.gc-excelviewer"
           # "gruntfuggly.todo-tree"
-          # "hashicorp.terraform"
-          # "HookyQR.beautify"
+          # hashicorp.terraform
+          hookyqr.beautify
           # "humao.rest-client"
           # "joaompinto.vscode-graphviz"
           # "kumar-harsh.graphql-for-vscode"
           # "lunaryorn.fish-ide"
           # "mongodb.mongodb-vscode"
-          # "golang.go"
-          # "ms-azuretools.vscode-docker"
-          # "PKief.material-icon-theme"
+          golang.Go
+          ms-azuretools.vscode-docker
+          pkief.material-icon-theme
           # "samuelcolvin.jinjahtml"
-          # "skyapps.fish-vscode"
+          skyapps.fish-vscode
           # "svelte.svelte-vscode"
           # "taoyu.prism-language"
-          # "vscodevim.vim"
+          vscodevim.vim
           # "xabikos.JavaScriptSnippets"
           # "zbr.vscode-ansible"
           # "zhuangtongfa.Material-theme"
           # "Zignd.html-css-class-completion"
           # "zxh404.vscode-proto3"
-          # "wayou.vscode-todo-highlight"
         ];
         userSettings = {
           "window.menuBarVisibility" = "toggle";
