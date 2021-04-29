@@ -109,7 +109,7 @@ in
   home-manager.users."${username}" = { config, lib, pkgs, ... }: {
     home.packages = with pkgs; [
       font-awesome-ttf
-      material-design-icons
+      material-design-icons fira-code fira-code-symbols
       betterlockscreen
       hyper
     ];
