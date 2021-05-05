@@ -95,6 +95,14 @@ in
   # Enable sound.
   sound.enable = true;
 
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    wget vim git firefox gosu ntp
+  ] ++ [
+    # vscode-with-extensions
+  ];
+
   # disable root
   users.users.root.hashedPassword = "*";
 
@@ -311,6 +319,9 @@ in
       };
     };
     programs = {
+      ssh = {
+        enable = true;
+      };
       rofi = {
         enable = true;
         terminal = "${pkgs.hyper}/bin/hyper";
@@ -836,15 +847,6 @@ in
       };
     };
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = [
-    pkgs.wget pkgs.vim
-    pkgs.git
-    pkgs.firefox
-    # vscode-with-extensions
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
