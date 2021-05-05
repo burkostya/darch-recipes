@@ -24,9 +24,6 @@ locale-gen
 
 pacman -S --noconfirm --needed jack2
 
-# Use fish, not bash
-pacman -S --noconfirm --needed fish
-
 # Set the root password
 if [ -n  "$ROOT_PASSWD" ]; then
     echo "Using root password provided by environment variable..."
