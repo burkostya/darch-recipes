@@ -1,77 +1,7 @@
 #!/bin/bash
 set -e
 
-# Initialize the keys
-# pacman-key --init
-# pacman-key --populate archlinux
-
-# Resyn the database
-# pacman -Syy --noconfirm
-# Update gpg keys before we install anything else.
-# pacman -S --noconfirm --needed archlinux-keyring
-# pacman-key --populate archlinux
-# Now update everything.
-# pacman -Syyu --noconfirm
-
-# Let's update the mirrors.
-
-# wget -q -O- https://www.archlinux.org/mirrorlist/\?country\=RU\&protocol\=https\&ip_version\=4\&use_mirror_status\=on \
-#   | sed -e "s/#Server/Server/g" \
-#   | sed "/mirror\.rol\.ru/d" \
-#   > /etc/pacman.d/mirrorlist
-
-pacman -S --noconfirm --needed wget sed
-
-# echo 'Server = http://mirror.rackspace.com/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
-
-# pacman -Syyu --noconfirm
-
-pacman -S --noconfirm --needed systemd-resolvconf base base-devel 
-pacman -S --noconfirm --needed linux linux-api-headers linux-firmware linux-headers
-pacman -S --noconfirm --needed lvm2
-
-pacman -S --noconfirm --needed curl patch
-# curl https://gist.githubusercontent.com/pauldotknopf/ff8e986225ab2f264acea1a5bb0c6c5a/raw/5c26a163f7815682793001312b0bd693bebb3d45/makepkg.patch | patch /usr/bin/makepkg
-
-echo "==> add mgmt user"
-useradd -m -G adm,sys,wheel -s /usr/bin/bash mgmt 
-passwd -d mgmt
-echo 'mgmt ALL=(ALL) ALL' > /etc/sudoers.d/mgmt
-# echo 'mgmt ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/mgmt
-
-echo "==> installing gosu"
-curl https://github.com/tianon/gosu/releases/download/1.12/gosu-amd64 > /gosu
-curl https://github.com/tianon/gosu/releases/download/1.12/gosu-amd64.asc > /gosu.asc
-chmod +x /gosu
-mv /gosu /usr/bin/gosu
-rm /gosu.asc
-
-echo "==> installing trizen"
-pacman -S --noconfirm --needed git sudo \
-  pacutils perl-libwww perl-term-ui perl-json perl-data-dump \
-  perl-lwp-protocol-https perl-term-readline-gnu
-runuser -l mgmt -c 'git clone https://aur.archlinux.org/trizen.git ~/trizen'
-runuser -l mgmt -c 'cd ~/trizen && makepkg -s --noconfirm'
-pacman -U --noconfirm --needed /home/mgmt/trizen/$(ls /home/mgmt/trizen/ | grep tar.zst)
-cp install_aur /usr/local/src/install_aur
-
-echo "==> installing yay"
-runuser -l mgmt -c 'git clone https://aur.archlinux.org/yay-bin.git ~/yay'
-runuser -l mgmt -c 'cd ~/yay && makepkg -s --noconfirm'
-pacman -U --noconfirm --needed /home/mgmt/yay/$(ls /home/mgmt/yay/ | grep tar.zst)
-
-echo "==> debug sudo"
-ls -la /usr/bin/sudo
-mount
-
-echo "==> remove mgmt user"
-rm -rf /home/mgmt
-rm /etc/sudoers.d/mgmt
-userdel mgmt
-
-echo "==> setup timezone"
-# Timezone
-ln -sf ../usr/share/zoneinfo/Europe/Moscow /etc/localtime
+pacman -S --noconfirm --needed systemd-resolvconf 
 
 # Time sync
 echo "==> setup syncing time"
