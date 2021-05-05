@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, options, ... }:
 
 # let
 #   extensions = (with pkgs.vscode-extensions; [
@@ -34,20 +34,22 @@ in
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "nodev";
 
-  networking.hostName = "thinkpad";
-  networking.networkmanager.enable = true;
-
   time.timeZone = "Europe/Moscow";
+
+  networking = {
+    hostName = "thinkpad";
+    networkmanager.enable = true;
+    useDHCP = false;
+    interfaces.enp0s31f6.useDHCP = true;
+    interfaces.wlp4s0.useDHCP = true;
+    interfaces.wwp0s20f0u6i12.useDHCP = true;
+    nameservers = [ "8.8.8.8" "1.1.1.1" "9.9.9.9" ];
+    timeServers = options.networking.timeServers.default;
+  };
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.enp0s31f6.useDHCP = true;
-  networking.interfaces.wlp4s0.useDHCP = true;
-  networking.interfaces.wwp0s20f0u6i12.useDHCP = true;
-
-  networking.nameservers = [ "8.8.8.8" "1.1.1.1" "9.9.9.9" ];
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
