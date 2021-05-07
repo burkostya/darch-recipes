@@ -350,7 +350,6 @@ pacman -S --noconfirm --needed libxcursor alacritty
 install_aur obsidian-appimage
 
 # social stage
-pacman -S --noconfirm --needed telegram-desktop
 install_aur skypeforlinux-stable-bin
 install_aur slack-desktop
 
