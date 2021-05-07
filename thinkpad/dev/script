@@ -337,15 +337,12 @@ pacman -S --noconfirm --needed libnotify notification-daemon
 install_aur deadd-notification-center-bin
 
 # browser stage
-pacman -S --noconfirm --needed firefox
-pacman -S --noconfirm --needed chromium
-
 echo "export BROWSER=firefox" > /etc/profile.d/browser.sh
 xdg-mime default firefox.desktop x-scheme-handler/https
 xdg-mime default firefox.desktop x-scheme-handler/http
 
 # terminal stage
-pacman -S --noconfirm --needed libxcursor alacritty
+pacman -S --noconfirm --needed libxcursor
 
 install_aur obsidian-appimage
 
@@ -354,9 +351,6 @@ install_aur skypeforlinux-stable-bin
 install_aur slack-desktop
 
 # design stage
-
-runuser -l burkostya -c "mkdir -p ~/screenshots"
-pacman -S --noconfirm --needed flameshot
 
 # --skipinteg
 install_aur archlinux-java-run
