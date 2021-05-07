@@ -32,8 +32,6 @@ else
     echo -en "123\n123" | passwd
 fi
 
-pacman -S --noconfirm --needed python
-
 pacman -S --noconfirm --needed polkit
 
 pacman -S --noconfirm --needed terminus-font

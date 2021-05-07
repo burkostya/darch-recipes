@@ -100,6 +100,7 @@ in
   environment.systemPackages = with pkgs; [
     wget vim git firefox gosu ntp
     jack2
+    python39
     graphviz
   ] ++ [
     # vscode-with-extensions
