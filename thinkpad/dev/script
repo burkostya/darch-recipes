@@ -22,7 +22,6 @@ mkdir -p /etc/skel/.config
 echo "LANG=en_US.UTF-8" > /etc/skel/.config/locale.conf
 locale-gen
 
-pacman -S --noconfirm --needed jack2
 
 # Set the root password
 if [ -n  "$ROOT_PASSWD" ]; then

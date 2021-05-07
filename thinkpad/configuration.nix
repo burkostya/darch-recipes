@@ -99,6 +99,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget vim git firefox gosu ntp
+    jack2
     graphviz
   ] ++ [
     # vscode-with-extensions
