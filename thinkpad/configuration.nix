@@ -122,6 +122,7 @@ in
       material-design-icons fira-code fira-code-symbols
       betterlockscreen
       hyper
+      pavucontrol
     ];
     services = {
       flameshot.enable = true;

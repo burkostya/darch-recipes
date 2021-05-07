@@ -296,7 +296,6 @@ echo "==> audio stage"
 
 # Enable audio
 pacman -S --noconfirm --needed pulseaudio pulseaudio-alsa
-pacman -S --noconfirm --needed pavucontrol
 
 # Add ability to connect bluetooth headsets
 pacman -S --noconfirm --needed pulseaudio-bluetooth bluez-utils
