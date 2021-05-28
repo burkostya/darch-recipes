@@ -318,8 +318,7 @@ cp i3-window-criteria /usr/local/bin/
 pacman -S --noconfirm --needed peek
 
 ## notifications
-pacman -S --noconfirm --needed libnotify notification-daemon 
-install_aur deadd-notification-center-bin
+pacman -S --noconfirm --needed notification-daemon 
 
 # browser stage
 echo "export BROWSER=firefox" > /etc/profile.d/browser.sh

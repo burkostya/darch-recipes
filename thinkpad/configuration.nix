@@ -133,7 +133,10 @@ in
       hyper
       tdesktop slack skype
       pavucontrol
+      (pkgs.gramps.override { enableOSM = true; enableGraphviz = true; enableGhostscript = true; })
+      noti
       obsidian
+      libnotify deadd-notification-center
     ];
     services = {
       flameshot.enable = true;
