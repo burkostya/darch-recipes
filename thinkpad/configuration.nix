@@ -106,6 +106,7 @@ in
     python39
     graphviz
     unifont
+    imagemagick
   ] ++ [
     # vscode-with-extensions
   ];
