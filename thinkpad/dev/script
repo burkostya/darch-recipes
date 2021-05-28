@@ -231,8 +231,6 @@ echo "Timespamp: $(date)"
 pacman -S --noconfirm --needed python-pip
 pip3 install netaddr
 
-pacman -S --noconfirm --needed tinc
-
 ## databases
 install_aur robo3t-bin
 install_aur mongodb-compass
