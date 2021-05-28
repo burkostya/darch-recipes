@@ -59,6 +59,7 @@ in
   # };
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "vscode"
+    "slack" "skypeforlinux"
     "obsidian"
   ];
   services = {
@@ -126,7 +127,7 @@ in
       material-design-icons fira-code fira-code-symbols
       betterlockscreen
       hyper
-      tdesktop
+      tdesktop slack skype
       pavucontrol
       obsidian
     ];
