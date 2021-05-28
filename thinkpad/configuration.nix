@@ -59,6 +59,7 @@ in
   # };
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "vscode"
+    "obsidian"
   ];
   services = {
     dbus = {
@@ -127,6 +128,7 @@ in
       hyper
       tdesktop
       pavucontrol
+      obsidian
     ];
     services = {
       flameshot.enable = true;
