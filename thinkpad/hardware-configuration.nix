@@ -24,6 +24,12 @@
         "defaults" "relatime" "noauto" "x-systemd.automount"
       ];
     };
+    "/home/burkostya/.ssh/keys" = {
+      device = "/dev/main/ssh";
+      options = [
+        "defaults" "relatime" "noauto" "x-systemd.automount" "ro" "noload"
+      ];
+    };
   };
 
   swapDevices = [ ];

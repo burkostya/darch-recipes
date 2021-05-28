@@ -338,6 +338,21 @@ in
     programs = {
       ssh = {
         enable = true;
+        extraConfig = "IdentityFile ~/.ssh/keys/id_rsa";
+        matchBlocks = {
+          "aur.archlinux.org" = {
+            user = "aur";
+            identityFile = "~/.ssh/keys/aur";
+          };
+          "bitbucket.org" = {
+            identityFile = "~/.ssh/keys/ott-bitbucket";
+          };
+          "*.hosts.twiket.com" = {
+            hostname = "%h";
+            user = "twiket";
+            identityFile = "~/.ssh/keys/ott-servers";
+          };
+        };
       };
       rofi = {
         enable = true;
