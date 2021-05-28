@@ -61,6 +61,7 @@ in
     "vscode"
     "slack" "skypeforlinux"
     "obsidian"
+    "vista-fonts"
   ];
   services = {
     dbus = {
@@ -104,6 +105,7 @@ in
     jack2
     python39
     graphviz
+    unifont
   ] ++ [
     # vscode-with-extensions
   ];
@@ -124,7 +126,9 @@ in
   home-manager.users."${username}" = { config, lib, pkgs, ... }: {
     home.packages = with pkgs; [
       font-awesome-ttf
-      material-design-icons fira-code fira-code-symbols
+      material-design-icons fira-code fira-code-symbols 
+      siji vistafonts twemoji-color-font roboto roboto-mono liberation_ttf ttf_bitstream_vera 
+      noto-fonts noto-fonts-emoji nerdfonts
       betterlockscreen
       hyper
       tdesktop slack skype

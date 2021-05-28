@@ -306,18 +306,6 @@ echo "==> i3 stage"
 echo "==> installing i3"
 pacman -S --noconfirm --needed xorg-xinit
 
-# extra fonts
-pacman -S --noconfirm ttf-nerd-fonts-symbols ttf-font-awesome
-pacman -S --noconfirm noto-fonts-extra noto-fonts-emoji
-pacman -S --noconfirm ttf-roboto
-pacman -S --noconfirm ttf-bitstream-vera
-install_aur ttf-windows
-install_aur ttf-twemoji-color
-
-runuser -l burkostya -c "gpg --recv-keys 1A09227B1F435A33" && \
-install_aur ttf-unifont
-install_aur siji-git ttf-material-design-icons-git 
-
 echo "==> install clipboard tools"
 install_aur unclutter-xfixes-git 
 pacman -S --noconfirm --needed autocutsel
