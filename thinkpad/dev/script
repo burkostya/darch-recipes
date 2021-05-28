@@ -266,7 +266,7 @@ systemctl enable smartd
 # X stage
 echo "==> X stage"
 pacman -S --noconfirm --needed xf86-video-intel
-pacman -S --noconfirm --needed xorg-server xorg-xrandr xorg-xdpyinfo
+pacman -S --noconfirm --needed xorg-xdpyinfo
 pacman -S --noconfirm --needed xorg-xinput xorg-xbacklight
 pacman -S --noconfirm --needed xbindkeys
 
