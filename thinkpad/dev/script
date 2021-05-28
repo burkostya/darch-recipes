@@ -329,10 +329,6 @@ xdg-mime default firefox.desktop x-scheme-handler/http
 # terminal stage
 pacman -S --noconfirm --needed libxcursor
 
-# social stage
-install_aur skypeforlinux-stable-bin
-install_aur slack-desktop
-
 # design stage
 
 # --skipinteg
