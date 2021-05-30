@@ -1,2 +1,0 @@
-libinput:trackpoint:input:b0011v0002p000A*
-  LIBINPUT_ATTR_TRACKPOINT_RANGE=32

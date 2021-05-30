@@ -80,7 +80,11 @@ in
       xkbOptions = "grp:caps_toggle";
       libinput = {
         enable = true;
-        touchpad.disableWhileTyping = true;
+        touchpad = {
+          accelSpeed = "0.5";
+          disableWhileTyping = true;
+          naturalScrolling = true;
+        };
       };
     };
 
