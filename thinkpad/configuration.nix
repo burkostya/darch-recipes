@@ -143,6 +143,7 @@ in
       obsidian
       libnotify deadd-notification-center
       alloy tlaplus
+      zeal
     ];
     services = {
       flameshot.enable = true;
