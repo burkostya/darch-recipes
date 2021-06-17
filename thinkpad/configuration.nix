@@ -34,6 +34,15 @@ in
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "nodev";
 
+  # nix = {
+  #   # this is required until nix 2.4 is released
+  #   package = pkgs.nixUnstable;
+  #   # https://nixos.wiki/wiki/Flakes
+  #   extraOptions = ''
+  #     experimental-features = nix-command flakes
+  #   '';
+  # };
+
   time.timeZone = "Europe/Moscow";
 
   networking = {
