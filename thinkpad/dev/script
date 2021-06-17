@@ -9,14 +9,14 @@ pacman -S --noconfirm --needed ntp
 systemctl enable ntpd
 
 # Setup the locales.
-echo "==> setup locales"
-echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
-echo "ru_RU.UTF-8 UTF-8" >> /etc/locale.gen
-echo "en_DK.UTF-8 UTF-8" >> /etc/locale.gen
+# echo "==> setup locales"
+# echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+# echo "ru_RU.UTF-8 UTF-8" >> /etc/locale.gen
+# echo "en_DK.UTF-8 UTF-8" >> /etc/locale.gen
 # set system locale
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
+# echo "LANG=en_US.UTF-8" > /etc/locale.conf
 # use ISO-8601 for time
-echo "LC_TIME=en_DK.UTF-8" >> /etc/locale.conf
+# echo "LC_TIME=en_DK.UTF-8" >> /etc/locale.conf
 # use ru locale for users
 mkdir -p /etc/skel/.config
 echo "LANG=en_US.UTF-8" > /etc/skel/.config/locale.conf

@@ -52,11 +52,25 @@ in
   # replicates the default behaviour.
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    supportedLocales = [ 
+      "en_US.UTF-8/UTF-8"
+      "ru_RU.UTF-8/UTF-8" 
+      "en_DK.UTF-8/UTF-8"
+    ];
+    extraLocaleSettings = {
+      LC_TIME="en_DK.UTF-8";
+    #   LC_ALL = "en_US.UTF-8";
+    #   LANGUAGE = "en_US.UTF-8";
+    };
+  };
+  console = {
+    useXkbConfig = true;
+    packages = [ pkgs.unifont ];
+    # font = "unifont";
+    # keyMap = "us";
+  };
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "vscode"
     "slack" "skypeforlinux"
@@ -80,14 +94,17 @@ in
     };
     xserver = {
       enable = true;
+      exportConfiguration = true;
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [
           i3lock
         ];
       };
-      layout = "us, ru";
-      xkbOptions = "grp:caps_toggle";
+      layout = "us,ru";
+      xkbOptions = "grp:caps_toggle,grp_led:caps";
+      xkbModel = "pc105";
+      xkbVariant = ",";
       libinput = {
         enable = true;
         touchpad = {
@@ -121,6 +138,7 @@ in
     graphviz
     unifont
     imagemagick
+    glibcLocales
   ] ++ [
     # vscode-with-extensions
   ];
