@@ -113,7 +113,6 @@ in
       layout = "us,ru";
       xkbOptions = "grp:caps_toggle,grp_led:caps";
       xkbModel = "pc105";
-      xkbVariant = ",";
       libinput = {
         enable = true;
         touchpad = {
