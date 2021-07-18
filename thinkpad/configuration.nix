@@ -104,12 +104,6 @@ in
     xserver = {
       enable = true;
       exportConfiguration = true;
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [
-          i3lock
-        ];
-      };
       layout = "us,ru";
       xkbOptions = "grp:caps_toggle,grp_led:caps";
       xkbModel = "pc105";
